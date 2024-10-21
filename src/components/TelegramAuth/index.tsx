@@ -3,7 +3,7 @@ import { LoginButton } from "@telegram-auth/react";
 export default function TelegramAuth() {
   return (
     <LoginButton
-      botUsername="pornoGateBot"
+      botUsername="pornogatetestbot"
       authCallbackUrl="https://gate.pornofnd.com/api/web/auth/telegram"
       buttonSize="large" // "large" | "medium" | "small"
       cornerRadius={5} // 0 - 20
