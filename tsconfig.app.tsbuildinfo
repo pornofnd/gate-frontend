@@ -1,0 +1,1 @@
+{"root":["./src/App.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/components/Home/index.tsx","./src/components/Router/index.tsx","./src/components/Router/router.config.tsx","./src/components/TelegramAuth/index.tsx","./src/components/layout/index.tsx"],"version":"5.6.3"}
