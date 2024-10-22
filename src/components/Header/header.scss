@@ -1,0 +1,37 @@
+@mixin size($width, $height: auto) {
+  width: $width;
+  height: $height;
+}
+@mixin flex($just: center, $alight: center) {
+  display: flex;
+
+  justify-content: $just;
+  align-items: $alight;
+}
+.header {
+  @include size(65.75%, 174px);
+  @include flex(space-between,center);
+  &Title {
+    margin-left: 10px;
+    display: flex-inline;
+    @include flex;
+    font-size: 21px;
+    color: rgb(255, 255, 255);
+  }
+  &Logo {
+    @include size(44px, 44px);
+  }
+  &Dot {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    @include flex;
+    color: #f6289d;
+
+    @include size(auto, min-height);
+  }
+  .logoContainer {
+    @include size(min-content, auto);
+    @include flex;
+  }
+}

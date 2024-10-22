@@ -1,0 +1,10 @@
+@mixin flex($just: center, $alight: center) {
+  display: flex;
+ flex-direction: column;
+  justify-content: $just;
+  align-items: $alight;
+}
+.background {
+  @include flex(center, center);
+  background: #161616;
+}
