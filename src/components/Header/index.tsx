@@ -1,4 +1,3 @@
-import React from "react";
 import img from "/public/img/Logo.svg";
 import "./header.scss";
 import TelegramAuth from "components/TelegramAuth";
