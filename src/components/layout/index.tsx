@@ -8,9 +8,9 @@ interface ILayout {
 
 export const Layout: FC<ILayout> = ({ children }) => {
   return (
-    <div className="background">
+    <main className="background">
       <Header />
       {children}
-    </div>
+    </main>
   );
 };

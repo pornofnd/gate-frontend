@@ -1,5 +1,6 @@
 @import "mixins/size.scss";
 @import "mixins/psoition.scss";
+@import "mixins/text.scss";
 .header {
   @include size(65.75%, 174px);
   @include flex(space-between, center);
@@ -25,5 +26,25 @@
   .logoContainer {
     @include size(min-content, auto);
     @include flex;
+  }
+  .logoTg {
+    @include size(103px, 44px);
+    background: #139ff4;
+    border-radius: 44px;
+    @include flex;
+    text-align: center;
+    padding-top: auto;
+    h1 {
+      text-align: center;
+      
+      @include flex;
+      float: right ;
+      @include text(white, 16px, "Inter");
+    }
+    img {
+      margin-left: 5px;
+      margin-top: 2px;
+      @include size(16px, 16px);
+    }
   }
 }

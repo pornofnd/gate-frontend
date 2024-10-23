@@ -1,0 +1,15 @@
+@import "mixins/size.scss";
+@import "mixins/psoition.scss";
+@import "mixins/text.scss";
+
+.waletBlock {
+  margin-top: 150px;
+  @include flex(center, center, column);
+  h1 {
+    @include text(#ffffff, 34px, "Inter", black);
+  }
+  p {
+    margin-top: 12px;
+     @include text(#808080, 14px, "Inter", black);
+  }
+}
