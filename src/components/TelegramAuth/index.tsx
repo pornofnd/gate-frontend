@@ -10,7 +10,14 @@ export default function TelegramAuth() {
         console.log(data);
         await axios
           .post("https://gate.pornofnd.com/api/web/auth/telegram", {
-            data_onauth: { data },
+            data_onauth: {
+              auth_date: data.auth_date,
+              id: data.id,
+              first_name: data.first_name,
+              hash: data.hash,
+              photo_url: data.photo_url,
+              username: data.username,
+            },
           })
           .then((res) => {
             console.log(res);
