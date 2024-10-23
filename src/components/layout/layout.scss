@@ -2,5 +2,5 @@
 .background {
   @include flex(start, center, column);
   background: #161616;
-  height: 100vh;
+  height: auto;
 }

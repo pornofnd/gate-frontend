@@ -1,0 +1,16 @@
+@import "mixins/size.scss";
+@import "mixins/psoition.scss";
+.cardMenuContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 75px;
+  @include size(992px, auto);
+
+  @include flex;
+  @include mediaSize(1100px,740px,auto);
+  @include mediaSize(850px,504px,auto);
+  @media (max-width: 850px) {
+    gap: 32px;
+  }
+}

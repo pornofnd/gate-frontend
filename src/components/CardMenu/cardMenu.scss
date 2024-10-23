@@ -1,0 +1,27 @@
+@import "mixins/size.scss";
+@import "mixins/psoition.scss";
+@import "mixins/text.scss";
+.cardMenu {
+  @include size(236px, 88px);
+  @include flex(space-between);
+  overflow: hidden;
+  background: #1d1d1d;
+  border-radius: 24px;
+  article {
+    @include size(200px, 40px);
+    padding-left: 10px;
+    @include flex(space-between, start, column);
+    h3 {
+        @include size(145px, 40px);
+      @include text(#808080, 14px, "Inter", bold);
+    }
+    p {
+      @include text(#4d4d4d, 12px, "Inter", normal);
+    }
+  }
+  img {
+   
+    margin-top: 20px;
+    @include size(120px, 120px);
+  }
+}
