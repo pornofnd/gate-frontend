@@ -1,16 +1,8 @@
-@mixin size($width, $height: auto) {
-  width: $width;
-  height: $height;
-}
-@mixin flex($just: center, $alight: center) {
-  display: flex;
-
-  justify-content: $just;
-  align-items: $alight;
-}
+@import "mixins/size.scss";
+@import "mixins/psoition.scss";
 .header {
   @include size(65.75%, 174px);
-  @include flex(space-between,center);
+  @include flex(space-between, center);
   &Title {
     margin-left: 10px;
     display: flex-inline;

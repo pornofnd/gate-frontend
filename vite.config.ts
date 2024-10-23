@@ -10,6 +10,7 @@ export default defineConfig({
       src: "/src",
       public: "/public",
       components: "/src/components",
+      mixins:"/src/mixins"
     },
   },
 });

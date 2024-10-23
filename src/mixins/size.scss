@@ -1,0 +1,12 @@
+@mixin size($width, $height: auto) {
+  width: $width;
+  height: $height;
+}
+@mixin TextPosition($position: center) {
+  text-align: $position;
+}
+@mixin mediaSize($screen,$width ,$height) {
+  @media (max-width: $screen) {
+    @include size($width, $height);
+  }
+}

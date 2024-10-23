@@ -11,7 +11,7 @@ export default function Header() {
         </h1>
       </section>
       <section>
-        \
+        
         <TelegramAuth />
       </section>
     </header>

@@ -1,0 +1,10 @@
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Inter"),
+    url("public/font/Inter/static/Inter_18pt-Bold.ttf") format("woff");
+}
+* {
+  margin: 0;
+}

@@ -23,7 +23,8 @@
     "noImplicitAny": false,
     "paths": {
       "components/*": ["components/*"],
-      "public/*": ["public/*"]
+      "public/*": ["public/*"],
+      "mixins/*": ["mixins/*"]
     }
   }
 }

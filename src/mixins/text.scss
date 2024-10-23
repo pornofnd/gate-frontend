@@ -1,0 +1,30 @@
+@mixin textColor($color: black) {
+  color: $color;
+}
+@mixin textSize($size: auto) {
+  font-size: $size;
+}
+@mixin textFont($font: auto) {
+  font-family: $font;
+}
+@mixin textWeight($weight: normal) {
+  font-weight: $weight;
+}
+@mixin textLineClamp($line: auto) {
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@mixin text($color: black, $size: 20px, $font: auto, $weight: normal) {
+  @include textColor($color);
+  @include textSize($size);
+  @include textFont($font);
+  @include textWeight($weight);
+}
+@mixin mediaText($screen, $size) {
+  @media (max-width: $screen) {
+    @include text(white, $size, "Inter", black);
+  }
+}
