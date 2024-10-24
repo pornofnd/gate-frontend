@@ -5,7 +5,7 @@ export default function TelegramAuth() {
   return (
     <LoginButton
     // @pornogatetestbot
-      botUsername="PornoGate Test"
+      botUsername="pornogatetestbot"
       //   authCallbackUrl="https://gate.pornofnd.com/api/web/auth/telegram"
       onAuthCallback={async (data) => {
         console.log(data);
