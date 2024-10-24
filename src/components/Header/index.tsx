@@ -2,7 +2,7 @@ import img from "/public/img/Logo.svg";
 import "./header.scss";
 import TelegramAuth from "components/TelegramAuth";
 // import telegramAIcon from "public/img/Telegram_2019_Logo.svg"
-import { useState } from "react";
+// import { useState } from "react";
 // import AlertTelegram from "components/AlertTelegram";
 export default function Header() {
   // const [alertTg,setAlertTg]=useState<boolean>(false);

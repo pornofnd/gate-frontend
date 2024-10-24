@@ -1,0 +1,9 @@
+@import "mixins/size.scss";
+@import "mixins/psoition.scss";
+@import "mixins/text.scss";
+
+.walletCard {
+  @include size(320px, 100px);
+  background: #1d1d1d;
+  border-radius: 24px;
+}
