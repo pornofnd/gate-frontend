@@ -4,7 +4,8 @@ import axios from "axios";
 export default function TelegramAuth() {
   return (
     <LoginButton
-      botUsername="pornogatetestbot"
+    
+      botUsername="@pornogatetestbot"
       //   authCallbackUrl="https://gate.pornofnd.com/api/web/auth/telegram"
       onAuthCallback={async (data) => {
         console.log(data);
