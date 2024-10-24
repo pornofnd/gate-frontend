@@ -1,0 +1,10 @@
+@import "mixins/size.scss";
+@import "mixins/psoition.scss";
+@import "mixins/text.scss";
+
+.aletTelegramBlock{
+    @include size(97vw,100vh) ;
+    @include absolute;
+    @include flex;
+    // overflow-y: scroll;
+}

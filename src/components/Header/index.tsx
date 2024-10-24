@@ -2,7 +2,13 @@ import img from "/public/img/Logo.svg";
 import "./header.scss";
 import TelegramAuth from "components/TelegramAuth";
 // import telegramAIcon from "public/img/Telegram_2019_Logo.svg"
+import { useState } from "react";
+// import AlertTelegram from "components/AlertTelegram";
 export default function Header() {
+  // const [alertTg,setAlertTg]=useState<boolean>(false);
+  // const handlerStateTg=()=>{
+  //   setAlertTg(!alertTg);
+  // }
   return (
     <header className="header">
       <section className="logoContainer">
@@ -12,11 +18,12 @@ export default function Header() {
         </h1>
       </section>
       <section>
-        {/* <article className="logoTg">
+        <TelegramAuth />
+        {/* <button className="logoTg" onClick={handlerStateTg}>
           <h1>log in</h1>
           <img src={telegramAIcon} alt="" />
-        </article> */}
-        <TelegramAuth />
+        </button> */}
+        {/* { alertTg ? <AlertTelegram/> :null} */}
       </section>
     </header>
   );
