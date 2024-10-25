@@ -5,10 +5,10 @@
 .waletBlock {
   margin-top: 150px;
   @include flex(center, center, column);
-  h1 {
+  &Title {
     @include text(#ffffff, 34px, "Inter", black);
   }
-  p {
+  &Subtitle {
     margin-top: 12px;
      @include text(#808080, 14px, "Inter", black);
   }

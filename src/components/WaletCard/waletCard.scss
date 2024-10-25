@@ -2,8 +2,41 @@
 @import "mixins/psoition.scss";
 @import "mixins/text.scss";
 
-.walletCard {
+.walletContainer {
   @include size(320px, 100px);
+  @include flex;
   background: #1d1d1d;
   border-radius: 24px;
+}
+.walletCard {
+  width: 292px;
+  border-radius: 24px;
+ 
+  @include flex(space-between, start);
+  &Img {
+    @include size(56px, 56px);
+    border-radius: 16px;
+  }
+  &Text {
+    @include size(220px, 74px);
+    @include flex(space-between, start, column);
+    &Container {
+      width: 210px;
+      @include flex(space-between, center);
+      img{
+        @include size(12px,12px)
+      }
+    }
+    &Title {
+      width: 220px;
+      @include text(#ffffff, 14px, "Inter", "Bold");
+    }
+    &PayMethod {
+      @include text(#808080, 14px, "Inter", "Bold");
+    }
+    &Platform {
+      @include text(#808080, 10px, "Inter", "Bold");
+      @include flex(start);
+    }
+  }
 }
