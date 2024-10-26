@@ -5,11 +5,21 @@
 .waletBlock {
   margin-top: 150px;
   @include flex(center, center, column);
+
   &Title {
     @include text(#ffffff, 34px, "Inter", black);
   }
   &Subtitle {
     margin-top: 12px;
-     @include text(#808080, 14px, "Inter", black);
+    @include text(#808080, 14px, "Inter", black);
+  }
+  &Container {
+    margin-top: 31px;
+    @include size(992px);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    @include mediaSize(1100px,656px,auto);
+    @include mediaSize(750px,320px,auto);
   }
 }

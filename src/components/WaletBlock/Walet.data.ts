@@ -14,4 +14,32 @@ export const data: IDataWallet[] = [
     platform: ["iOS,", "Android,", "Telegram,", " Web"],
     img: logo1,
   },
+  {
+    title: "Ton Wallet Pro",
+    payMethod: "Free",
+    rating: 3.5,
+    platform: ["iOS,", "Android,", "Telegram,", " Web"],
+    img: logo1,
+  },
+  {
+    title: "Ton Wallet Pro",
+    payMethod: "Free",
+    rating: 3.5,
+    platform: ["iOS,", "Android,", "Telegram,", " Web"],
+    img: logo1,
+  },
+  {
+    title: "Ton Wallet Pro",
+    payMethod: "Free",
+    rating: 3.5,
+    platform: ["iOS,", "Android,", "Telegram,", " Web"],
+    img: logo1,
+  },
+  {
+    title: "Ton Wallet Pro",
+    payMethod: "Free",
+    rating: 3.5,
+    platform: ["iOS,", "Android,", "Telegram,", " Web"],
+    img: logo1,
+  },
 ];

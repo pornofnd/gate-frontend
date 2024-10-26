@@ -1,16 +1,19 @@
 import { LoginButton } from "@telegram-auth/react";
 import axios from "axios";
 
+interface IToken {
+  data: string;
+}
 export default function TelegramAuth() {
   return (
     <LoginButton
-    // @pornogatetestbot
+      // @pornogatetestbot
       botUsername="pornogatetestbot"
       //   authCallbackUrl="https://gate.pornofnd.com/api/web/auth/telegram"
       onAuthCallback={async (data) => {
-        console.log(data);
+       
         await axios
-          .post("https://gate.pornofnd.com/api/web/auth/telegram", {
+          .post<IToken>("https://gate.pornofnd.com/api/web/auth/telegram", {
             data_onauth: {
               auth_date: data.auth_date,
               id: data.id,
@@ -22,6 +25,8 @@ export default function TelegramAuth() {
           })
           .then((res) => {
             console.log(res);
+
+            localStorage.setItem("token",JSON.stringify(res.data));
           });
       }}
       buttonSize="large" // "large" | "medium" | "small"

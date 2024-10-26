@@ -5,8 +5,10 @@ export default function WaletBlock() {
   return (
     <article className="waletBlock">
       <h1 className="waletBlockTitle">Wallet apps</h1>
-      <p className="waletBlockSubtitle">Manage and store your crypto securely with these wallet options.</p>
-      <section>
+      <p className="waletBlockSubtitle">
+        Manage and store your crypto securely with these wallet options.
+      </p>
+      <section className="waletBlockContainer">
         {data.map((elem) => (
           <WaletCard data={elem} />
         ))}
