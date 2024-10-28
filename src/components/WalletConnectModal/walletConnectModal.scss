@@ -1,3 +1,43 @@
 @import "mixins/size.scss";
 @import "mixins/psoition.scss";
 @import "mixins/text.scss";
+
+.walletConnectModal{
+    @include size(100%,100%);
+    @include flex(center ,center,column);
+    &HeadSection{
+        @include size(258px,74px);
+        @include flex(space-between);
+        h1{
+          @include text(white, 20px, "Inter", black);
+        }
+    }
+    img{
+        @include size(12px,12px);
+    }
+    &Wallets{
+        @include size(288px,420px);
+        overflow: hidden;
+        overflow-y: scroll;
+
+       
+          
+        &Item{
+            @include flex(start);
+            @include size(288px,48px);
+            margin-bottom: 9px;
+            background: #1A1A1A;
+            border-radius: 16px;
+            
+            img{
+                margin-left: 10px;
+                @include size(24px,24px);
+                border-radius: 5px;
+            }
+            h1{
+                @include text(white, 15px, "Inter", black);
+                margin-left: 15px; 
+            }
+        }
+    }
+}

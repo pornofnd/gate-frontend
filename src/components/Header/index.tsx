@@ -1,7 +1,7 @@
 import img from "/public/img/Logo.svg";
 import "./header.scss";
 import TelegramAuth from "components/TelegramAuth";
-import WalletConnectModal from "components/WalletConnectModal";
+import WalletConnectModal from "components/WalletModal";
 // import telegramAIcon from "public/img/Telegram_2019_Logo.svg"
 // import { useState } from "react";
 // import AlertTelegram from "components/AlertTelegram";
