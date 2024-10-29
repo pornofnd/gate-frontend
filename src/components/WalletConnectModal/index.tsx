@@ -9,8 +9,10 @@ import { Response } from "type/Response";
 export default function WalletConnectModal() {
    
     const  { data }=useGetWalletsQuery() as Response
-  
+    const handlerCloseWindow=()=>{
 
+    }
+   
     useEffect(() => {
       const TmaAuth=localStorage.getItem('token');
     const sessionId=localStorage.getItem('sessionId');
@@ -50,7 +52,7 @@ export default function WalletConnectModal() {
     <article className='walletConnectModal'>
         <section className='walletConnectModalHeadSection'>
             <h1>Connect your wallet</h1>
-            <img src={Intersect} alt="" />
+            <img src={Intersect} alt="" onClick={handlerCloseWindow}/>
         </section>
         <section className="walletConnectModalWallets">
             {data?.data.map((elem,key)=>[

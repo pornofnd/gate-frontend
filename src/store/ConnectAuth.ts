@@ -7,7 +7,7 @@ export const ConnectApi = createApi({
     endpoints: (build) => ({
         getWallets: build.query<Response,void>({
             query: () => ({
-                url: 'get-wallets',
+                url: 'get-wallets'
             }),
         }),
 
