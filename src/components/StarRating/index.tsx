@@ -19,8 +19,8 @@ export default function StarRating({ rating }: { rating: number }) {
   }
   return (
     <section>
-      {arr.map((elem) => (
-        <img src={elem} alt="" />
+      {arr.map((elem,key) => (
+        <img src={elem} alt="" key={key}/>
       ))}
     </section>
   );

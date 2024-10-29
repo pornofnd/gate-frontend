@@ -1,20 +1,51 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import "./walletConnectModal.scss"
 import Intersect from "/public/img/Intersect.svg"
-import { useGetWalletsMutation } from "../../store/ConnectAuth"
-import { IWallet } from "type/wallets";
+import { useGetWalletsQuery } from "../../store/ConnectAuth"
+
 import { Response } from "type/Response";
+
+
 export default function WalletConnectModal() {
-    const [wallets, setWallets] = useState<IWallet[]|undefined>();
-    const [getWallets]=useGetWalletsMutation()
-    useEffect(()=>{
-    const get=async()=>{
-      const res=await getWallets() as Response; 
-     if(res.data && res.data.ok){
-       setWallets(res.data.data)
-     }}
-    get()
-    },[])
+   
+    const  { data }=useGetWalletsQuery() as Response
+  
+
+    useEffect(() => {
+      const TmaAuth=localStorage.getItem('token');
+    const sessionId=localStorage.getItem('sessionId');
+   let session;
+   let port;
+   if(sessionId){
+    session=sessionId;
+  }
+    if(TmaAuth){
+      session=TmaAuth;
+    }
+    if(session){
+        port =`wss://gate.pornofnd.com/ws/user/auth?session_id=${session}`
+    }
+    else{
+      port ='wss://gate.pornofnd.com/ws/user/auth?session_id='
+    }
+      const ws = new WebSocket(port);
+      ws.onmessage = (event) => {
+       const res=JSON.parse(event.data)
+       console.log(res)
+       if(!sessionId){
+        localStorage.setItem("sessionId",res.session_id)
+       }
+      };
+      ws.onerror = (error) => {
+        console.error('WebSocket Error:', error);
+      };
+  
+    
+      return () => {
+        ws.close();
+      };
+    }, []);
+
   return (
     <article className='walletConnectModal'>
         <section className='walletConnectModalHeadSection'>
@@ -22,8 +53,8 @@ export default function WalletConnectModal() {
             <img src={Intersect} alt="" />
         </section>
         <section className="walletConnectModalWallets">
-            {wallets?.map((elem)=>[
-                <div className="walletConnectModalWalletsItem">
+            {data?.data.map((elem,key)=>[
+                <div className="walletConnectModalWalletsItem" key={key}>
                     <img src={elem.image} alt="" />
                     <h1>{elem.name}</h1>
                 </div>
