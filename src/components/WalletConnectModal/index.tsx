@@ -5,16 +5,20 @@ import { useGetWalletsQuery } from "../../store/ConnectAuth"
 
 import { Response } from "type/Response";
 import ItemWallet from "components/ItemWallet";
+import { windowStateActions } from "../../store/reducer/stateModal";
+import { useDispatch } from "react-redux";
 
 
 export default function WalletConnectModal() {
    
     const  { data }=useGetWalletsQuery() as Response
-  
-
-    useEffect(() => {
-      const TmaAuth=localStorage.getItem('token');
-    const sessionId=localStorage.getItem('sessionId');
+    const dispatch = useDispatch();
+const handlerClose=()=>{
+  dispatch(windowStateActions.changeState());
+}
+useEffect(() => {
+   const TmaAuth=localStorage.getItem('token');
+   const sessionId=localStorage.getItem('sessionId');
    let session;
    let port;
    if(sessionId){
@@ -27,7 +31,7 @@ export default function WalletConnectModal() {
         port =`wss://gate.pornofnd.com/ws/user/auth?session_id=${session}`
     }
     else{
-      port ='wss://gate.pornofnd.com/ws/user/auth?session_id='
+      port ='wss://gate.pornofnd.com/ws/user/auth?session_id'
     }
       const ws = new WebSocket(port);
       ws.onmessage = (event) => {
@@ -35,13 +39,13 @@ export default function WalletConnectModal() {
        console.log(res)
        if(!sessionId){
         localStorage.setItem("sessionId",res.session_id)
+        dispatch(windowStateActions.websocketIdSave(res.websocket_id))
        }
       };
       ws.onerror = (error) => {
+        console.log("aaa")
         console.error('WebSocket Error:', error);
       };
-  
-    
       return () => {
         ws.close();
       };
@@ -51,7 +55,7 @@ export default function WalletConnectModal() {
     <article className='walletConnectModal'>
         <section className='walletConnectModalHeadSection'>
             <h1>Connect your wallet</h1>
-            <img src={Intersect} alt="" />
+            <img src={Intersect} alt="" onClick={handlerClose} />
         </section>
         <section className="walletConnectModalWallets">
             {data?.data.map((elem,key)=>[

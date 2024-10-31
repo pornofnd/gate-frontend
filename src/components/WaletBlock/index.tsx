@@ -9,8 +9,8 @@ export default function WaletBlock() {
         Manage and store your crypto securely with these wallet options.
       </p>
       <section className="waletBlockContainer">
-        {data.map((elem) => (
-          <WaletCard data={elem} />
+        {data.map((elem,key) => (
+          <WaletCard data={elem} key={key}/>
         ))}
       </section>
     </article>

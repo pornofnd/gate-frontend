@@ -21,8 +21,8 @@ export default function WaletCard({ data }: { data: IDataWallet }) {
           <p className="walletCardTextPayMethod">{data.payMethod}</p>
           <StarRating rating={data.rating} />
           <section className="walletCardTextPlatform">
-            {data.platform.map((elem) => (
-              <p>{elem}</p>
+            {data.platform.map((elem,key) => (
+              <p key={key}>{elem}</p>
             ))}
           </section>
         </article>

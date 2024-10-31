@@ -22,8 +22,10 @@
     "baseUrl": "src",
     "noImplicitAny": false,
     "paths": {
+      "src/*":["src/*"],
       "components/*": ["components/*"],
       "public/*": ["public/*"],
+      "utils/*": ["utils/*"],
       "mixins/*": ["mixins/*"]
     }
   }

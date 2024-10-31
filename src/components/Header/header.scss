@@ -35,7 +35,7 @@
     text-align: center;
     padding-top: auto;
     h1 {
-      text-align: center;
+      // text-align: center;
       
       @include flex;
       float: right ;
@@ -46,5 +46,19 @@
       margin-top: 2px;
       @include size(16px, 16px);
     }
+  }
+  &ButtonSection{
+    height: 44px;
+    width:auto;
+    @include flex(space-between)
+  }
+  &ButtonWallet{
+    @include size(151px,44px);
+    background: #F6289D;
+    border-radius: 72px;
+    border: none;
+    margin: 0px;
+    
+    @include text(white, 16px, "Inter");
   }
 }
