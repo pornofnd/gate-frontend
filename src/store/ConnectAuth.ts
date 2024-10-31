@@ -10,7 +10,14 @@ export const ConnectApi = createApi({
                 url: 'get-wallets',
             }),
         }),
-
+        getMe: build.query<Response,void>({
+            query: () => ({
+                url: '',
+                headers:{
+                    auth:''
+                }
+            }),
+        }),
         // getMessages: build.query<any,any>({
         //     query: (channel) => `messages/${channel}`,
         //     async onCacheEntryAdded(

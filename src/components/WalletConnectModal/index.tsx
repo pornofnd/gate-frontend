@@ -4,6 +4,7 @@ import Intersect from "/public/img/Intersect.svg"
 import { useGetWalletsQuery } from "../../store/ConnectAuth"
 
 import { Response } from "type/Response";
+import ItemWallet from "components/ItemWallet";
 
 
 export default function WalletConnectModal() {
@@ -54,10 +55,7 @@ export default function WalletConnectModal() {
         </section>
         <section className="walletConnectModalWallets">
             {data?.data.map((elem,key)=>[
-                <div className="walletConnectModalWalletsItem" key={key}>
-                    <img src={elem.image} alt="" />
-                    <h1>{elem.name}</h1>
-                </div>
+               <ItemWallet elem={elem} key={key}/>
             ])}
         </section>
     </article>
