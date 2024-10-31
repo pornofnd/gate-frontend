@@ -1,5 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
+import { IWallet } from 'type/wallets';
+
+
 export const ConnectApi = createApi({
     reducerPath: 'ConnectApi',
     tagTypes: ['Products'],
@@ -15,6 +18,19 @@ export const ConnectApi = createApi({
                 url: '',
                 headers:{
                     auth:''
+                }
+            }),
+        }),
+        generateWalletAuth: build.mutation<Response, { walletData: IWallet,websocket_id : string }>({
+           
+            query: ({ walletData, websocket_id }) => ({
+                url: 'generate-connection-url',
+                method: 'POST',
+                body: {
+                    ws_type: "auth",
+                    session_id: localStorage.getItem("sessionId"),
+                    ws_id: websocket_id,
+                    wallet: walletData,
                 }
             }),
         }),
@@ -48,4 +64,4 @@ export const ConnectApi = createApi({
     })
 });
 
-export const {useGetWalletsQuery} = ConnectApi;
+export const {useGetWalletsQuery,useGenerateWalletAuthMutation} = ConnectApi;
