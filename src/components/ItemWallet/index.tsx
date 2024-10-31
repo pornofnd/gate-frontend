@@ -17,8 +17,7 @@ export default function ItemWallet({elem}:{elem:IWallet}) {
   
   return (
     <div onClick={() =>handlerChooseWallet(elem)} className="walletConnectModalWalletsItem">
-                   
-                    <img src={elem.image} alt="" />
+                   <img src={elem.image} alt="" />
                     <h1>{elem.name}</h1>
    </div>
   )

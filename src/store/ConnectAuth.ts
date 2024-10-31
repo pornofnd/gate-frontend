@@ -22,7 +22,6 @@ export const ConnectApi = createApi({
             }),
         }),
         generateWalletAuth: build.mutation<Response, { walletData: IWallet,websocket_id : string }>({
-           
             query: ({ walletData, websocket_id }) => ({
                 url: 'generate-connection-url',
                 method: 'POST',
