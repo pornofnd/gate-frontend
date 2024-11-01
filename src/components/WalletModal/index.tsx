@@ -46,7 +46,8 @@ export default function WalletModal() {
      }, []);
 
 
-
+    //  const {data}=useGetMeQuery() as Response<string>
+    //  console.log(data)
   return (
     <div className="WalletModal">
            

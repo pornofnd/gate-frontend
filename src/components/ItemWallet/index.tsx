@@ -4,7 +4,6 @@ import "./itemWallet.scss"
 import { RootState } from '../../store/store';
 import { useSelector } from 'react-redux';
 import { useGenerateWalletAuthMutation } from '../../store/ConnectAuth';
-import { useNavigate } from 'react-router-dom';
 import { Response } from 'type/Response';
 export default function ItemWallet({elem}:{elem:IWallet}) {
   const websocketId = useSelector((state :RootState) => state.windowStateReducer.websocket_id);

@@ -5,7 +5,7 @@ import { Response } from "type/Response";
 export const UserApi=createApi({
     reducerPath:"UserApi",
     tagTypes:['User'],
-    baseQuery:fetchBaseQuery({baseUrl:"'https://gate.pornofnd.com/api/user/user/"}),
+    baseQuery:fetchBaseQuery({baseUrl:"https://gate.pornofnd.com/api/user/user/"}),
     endpoints:(build)=>({
         getMe: build.query<Response<any>,void>({
             query: () => ({
