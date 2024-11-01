@@ -4,7 +4,7 @@ import { useAuthTelegramMutation } from "../../store/api/ConnectAuth";
 import { ITelegramResponse, Response } from "type/Response";
 
 interface IToken {
-  data: string;
+  data:string;
 }
 export default function TelegramAuth() {
   const [authTelegram]=useAuthTelegramMutation()
@@ -23,8 +23,9 @@ export default function TelegramAuth() {
            username: res.username,
       }
         const {data}=await authTelegram(authData) as Response<IToken>
-        if(data){
-        localStorage.setItem("token",JSON.stringify(data?.data));
+        if(data?.data){
+          const token = JSON.stringify(data.data);
+          localStorage.setItem("token", token);
       }
           // .then((res) => {
           //   console.log(res);

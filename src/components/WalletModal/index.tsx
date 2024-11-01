@@ -30,7 +30,9 @@ export default function WalletModal() {
        ws.onmessage = (event) => {
         const res=JSON.parse(event.data)
         dispatch(windowStateActions.websocketIdSave(res.websocket_id))
-        if(!sessionId||sessionId!="undefined"){
+        console.log(sessionId)
+        if(!sessionId||sessionId=="undefined"){
+          console.log("FFF")
          localStorage.setItem("sessionId",res.session_id)
         }
         if(res.type=='authorized'){
