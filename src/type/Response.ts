@@ -1,15 +1,15 @@
-import { IWallet } from "./wallets";
 
 
-interface IResGood{
-    data:IWallet[],
+
+export interface IRes<T>{
+    data:T,
     message:string,
     ok:boolean
 }
-export type Response={
-    data?: IResGood;
+export interface Response<T>{
+    data?: IRes<T>;
     error?: unknown;
-    meta?: { request: Request; response: Response };
+    meta?: { request: Request; response: Response<T> };
   }
 
   

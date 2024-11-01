@@ -1,27 +1,21 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { Response } from 'type/Response';
 
 import { IWallet } from 'type/wallets';
 
 
 export const ConnectApi = createApi({
     reducerPath: 'ConnectApi',
-    tagTypes: ['Products'],
+    tagTypes: ['Auth'],
     baseQuery: fetchBaseQuery({baseUrl: 'https://gate.pornofnd.com/api/user/auth/ton/'}),
     endpoints: (build) => ({
-        getWallets: build.query<Response,void>({
+        getWallets: build.query<Response<IWallet[]>,void>({
             query: () => ({
                 url: 'get-wallets',
             }),
         }),
-        getMe: build.query<Response,void>({
-            query: () => ({
-                url: '',
-                headers:{
-                    auth:''
-                }
-            }),
-        }),
-        generateWalletAuth: build.mutation<Response, { walletData: IWallet,websocket_id : string }>({
+      
+        generateWalletAuth: build.mutation<Response<string>, { walletData: IWallet,websocket_id : string }>({
             query: ({ walletData, websocket_id }) => ({
                 url: 'generate-connection-url',
                 method: 'POST',
