@@ -1,33 +1,36 @@
 import { LoginButton } from "@telegram-auth/react";
-import axios from "axios";
+
+import { useAuthTelegramMutation } from "../../store/ConnectAuth";
+import { ITelegramResponse, Response } from "type/Response";
 
 interface IToken {
   data: string;
 }
 export default function TelegramAuth() {
+  const [authTelegram]=useAuthTelegramMutation()
   return (
     <LoginButton
       // @pornogatetestbot
       botUsername="pornogatetestbot"
-      //   authCallbackUrl="https://gate.pornofnd.com/api/web/auth/telegram"
-      onAuthCallback={async (data) => {
-       
-        await axios
-          .post<IToken>("https://gate.pornofnd.com/api/web/auth/telegram", {
-            data_onauth: {
-              auth_date: data.auth_date,
-              id: data.id,
-              first_name: data.first_name,
-              hash: data.hash,
-              photo_url: data.photo_url,
-              username: data.username,
-            },
-          })
-          .then((res) => {
-            console.log(res);
+      
+      onAuthCallback={async (res) => {
+        const authData: ITelegramResponse = {
+            auth_date: res.auth_date,
+             id: res.id,
+             first_name: res.first_name,
+             hash: res.hash,
+            photo_url: res.photo_url,
+           username: res.username,
+      }
+        const {data}=await authTelegram(authData) as Response<IToken>
+        if(data){
+        localStorage.setItem("token",JSON.stringify(data?.data));
+      }
+          // .then((res) => {
+          //   console.log(res);
 
-            localStorage.setItem("token",JSON.stringify(res.data));
-          });
+          //   localStorage.setItem("token",JSON.stringify(res.data));
+          // });
       }}
       buttonSize="large" // "large" | "medium" | "small"
       cornerRadius={5} // 0 - 20

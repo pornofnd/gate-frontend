@@ -1,5 +1,13 @@
 
-
+export interface ITelegramResponse {
+   auth_date: number;
+   id: number;
+   first_name: string;
+   hash: string;
+   photo_url: string | undefined;
+   username:string | undefined;
+  
+}
 export interface IToken {
     data: string;
   }

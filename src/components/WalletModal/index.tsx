@@ -34,7 +34,7 @@ export default function WalletModal() {
          localStorage.setItem("sessionId",res.session_id)
         }
         if(res.type=='authorized'){
-         localStorage.setItem("auth_token",res.auth_token)
+         localStorage.setItem("token",res.auth_token)
         }
        };
        ws.onerror = (error) => {

@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { IToken, Response } from 'type/Response';
+import { ITelegramResponse, IToken, Response } from 'type/Response';
 
 import { IWallet } from 'type/wallets';
 
@@ -29,15 +29,17 @@ export const ConnectApi = createApi({
                 }
             }),
         }),
-        authTelegram:build.mutation<Response<IToken>, {auth: IWallet,websocket_id : string }>({
-            query:({})=>({
-                url: 'generate-connection-url',
+        authTelegram:build.mutation<Response<IToken>,  ITelegramResponse>({
+            query:(data)=>({
+                url: 'telegram',
                 method: 'POST',
                 headers:{
                   Authorization:tokenUser
                  },
                 body: {
-                
+                    data_onauth: {
+                      data
+                },  
                 }
             })
         })
@@ -72,4 +74,4 @@ export const ConnectApi = createApi({
     })
 });
 
-export const {useGetWalletsQuery,useGenerateWalletAuthMutation} = ConnectApi;
+export const {useGetWalletsQuery,useGenerateWalletAuthMutation,useAuthTelegramMutation} = ConnectApi;
