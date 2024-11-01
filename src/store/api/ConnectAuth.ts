@@ -3,7 +3,7 @@ import { ITelegramResponse, IToken, Response } from 'type/Response';
 
 import { IWallet } from 'type/wallets';
 
-const tokenUser=localStorage.getItem('token')?localStorage.getItem('token'):undefined
+const tokenUser=localStorage.getItem('token')? localStorage.getItem('token'):undefined
 export const ConnectApi = createApi({
     reducerPath: 'ConnectApi',
     tagTypes: ['Auth'],
@@ -19,7 +19,7 @@ export const ConnectApi = createApi({
                 url: 'ton/generate-connection-url',
                 method: 'POST',
                 headers:{
-                    Authorization:tokenUser,
+                    Authorization:`${tokenUser}`,
                    },
                 body: {
                     ws_type: "auth",
@@ -34,7 +34,7 @@ export const ConnectApi = createApi({
                 url: 'telegram',
                 method: 'POST',
                 headers:{
-                  Authorization:tokenUser
+                  Authorization:`${tokenUser}`
                  },
                 body: {
                     data_onauth: {
