@@ -4,8 +4,8 @@ import "./walletModal.scss"
 import WalletConnectModal from "components/WalletConnectModal"
 import { useEffect } from "react";
 import { windowStateActions } from "../../store/reducer/stateModal";
-import { useGetMeQuery } from "../../store/api/user";
-import { Response } from "type/Response";
+// import { useGetMeQuery } from "../../store/api/user";
+// import { Response } from "type/Response";
 export default function WalletModal() {
   const dispatch = useDispatch();
   useEffect(() => {
