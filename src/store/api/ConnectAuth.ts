@@ -2,8 +2,8 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { ITelegramResponse, IToken, Response } from 'type/Response';
 
 import { IWallet } from 'type/wallets';
-
-const tokenUser=localStorage.getItem('token')? localStorage.getItem('token'):undefined
+const loacl=localStorage.getItem('token')
+const tokenUser=loacl? JSON.parse(loacl):undefined
 export const ConnectApi = createApi({
     reducerPath: 'ConnectApi',
     tagTypes: ['Auth'],

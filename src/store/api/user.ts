@@ -1,7 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { Response } from "type/Response";
 
-const tokenUser=localStorage.getItem('token')? localStorage.getItem('token'):undefined
+const loacl=localStorage.getItem('token')
+const tokenUser=loacl? JSON.parse(loacl):undefined
 export const UserApi=createApi({
     reducerPath:"UserApi",
     tagTypes:['User'],

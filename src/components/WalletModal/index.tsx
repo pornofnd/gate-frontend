@@ -17,7 +17,7 @@ export default function WalletModal() {
      session=sessionId;
    }
      if(TmaAuth){
-       session=TmaAuth;
+       session=JSON.parse(TmaAuth);
      }
      if(session){
          port =`wss://gate.pornofnd.com/ws/user/auth?session_id=${session}`
