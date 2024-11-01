@@ -4,8 +4,8 @@ import "./walletModal.scss"
 import WalletConnectModal from "components/WalletConnectModal"
 import { useEffect } from "react";
 import { windowStateActions } from "../../store/reducer/stateModal";
-// import { useGetMeQuery } from "../../store/api/user";
-// import { Response } from "type/Response";
+import { useGetMeQuery } from "../../store/api/user";
+import { Response } from "type/Response";
 export default function WalletModal() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -30,7 +30,7 @@ export default function WalletModal() {
        ws.onmessage = (event) => {
         const res=JSON.parse(event.data)
         dispatch(windowStateActions.websocketIdSave(res.websocket_id))
-        if(!sessionId){
+        if(!sessionId||sessionId=="undefined"){
          localStorage.setItem("sessionId",res.session_id)
         }
         if(res.type=='authorized'){

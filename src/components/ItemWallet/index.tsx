@@ -7,7 +7,7 @@ import { useGenerateWalletAuthMutation } from '../../store/ConnectAuth';
 import { Response } from 'type/Response';
 export default function ItemWallet({elem}:{elem:IWallet}) {
   const websocketId = useSelector((state :RootState) => state.windowStateReducer.websocket_id);
-  //  const navigate = useNavigate();
+ 
   const [generateWalletAuth]=useGenerateWalletAuthMutation()
     const handlerChooseWallet=async(elem:IWallet)=>{
       console.log(websocketId)

@@ -1,9 +1,9 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { Response } from 'type/Response';
+import { IToken, Response } from 'type/Response';
 
 import { IWallet } from 'type/wallets';
 
-
+const tokenUser=localStorage.getItem('token')?JSON.stringify(localStorage.getItem('token')):undefined
 export const ConnectApi = createApi({
     reducerPath: 'ConnectApi',
     tagTypes: ['Auth'],
@@ -14,11 +14,13 @@ export const ConnectApi = createApi({
                 url: 'get-wallets',
             }),
         }),
-      
-        generateWalletAuth: build.mutation<Response<string>, { walletData: IWallet,websocket_id : string }>({
+       generateWalletAuth: build.mutation<Response<string>, { walletData: IWallet,websocket_id : string }>({
             query: ({ walletData, websocket_id }) => ({
                 url: 'generate-connection-url',
                 method: 'POST',
+                headers:{
+                    Authorization:tokenUser,
+                   },
                 body: {
                     ws_type: "auth",
                     session_id: localStorage.getItem("sessionId"),
@@ -27,6 +29,19 @@ export const ConnectApi = createApi({
                 }
             }),
         }),
+        authTelegram:build.mutation<Response<IToken>, {auth: IWallet,websocket_id : string }>({
+            query:({})=>({
+                url: 'generate-connection-url',
+                method: 'POST',
+                headers:{
+                  Authorization:tokenUser
+                 },
+                body: {
+                
+                }
+            })
+        })
+       
         // getMessages: build.query<any,any>({
         //     query: (channel) => `messages/${channel}`,
         //     async onCacheEntryAdded(

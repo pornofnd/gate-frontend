@@ -1,6 +1,8 @@
 
 
-
+export interface IToken {
+    data: string;
+  }
 export interface IRes<T>{
     data:T,
     message:string,
