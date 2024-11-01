@@ -7,7 +7,14 @@ const tokenUser=localStorage.getItem('token')? localStorage.getItem('token'):und
 export const ConnectApi = createApi({
     reducerPath: 'ConnectApi',
     tagTypes: ['Auth'],
-    baseQuery: fetchBaseQuery({baseUrl: 'https://gate.pornofnd.com/api/user/auth/'}),
+    baseQuery: fetchBaseQuery({baseUrl: 'https://gate.pornofnd.com/api/user/auth/',
+        prepareHeaders: (headers) => {
+            if (tokenUser) {
+                headers.set('Authorization', tokenUser);
+            }
+            return headers;
+        },
+    }),
     endpoints: (build) => ({
         getWallets: build.query<Response<IWallet[]>,void>({
             query: () => ({
@@ -18,9 +25,7 @@ export const ConnectApi = createApi({
             query: ({ walletData, websocket_id }) => ({
                 url: 'ton/generate-connection-url',
                 method: 'POST',
-                headers:{
-                    Authorization:`${tokenUser}`,
-                   },
+              
                 body: {
                     ws_type: "auth",
                     session_id: localStorage.getItem("sessionId"),
@@ -33,9 +38,6 @@ export const ConnectApi = createApi({
             query:(data)=>({
                 url: 'telegram',
                 method: 'POST',
-                headers:{
-                  Authorization:`${tokenUser}`
-                 },
                 body: {
                     data_onauth: {
                         auth_date: data.auth_date,
