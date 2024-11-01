@@ -1,18 +1,22 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { Response } from "type/Response";
 
-
+const tokenUser=localStorage.getItem('token')? localStorage.getItem('token'):undefined
 export const UserApi=createApi({
     reducerPath:"UserApi",
     tagTypes:['User'],
-    baseQuery:fetchBaseQuery({baseUrl:"https://gate.pornofnd.com/api/user/user/"}),
+    baseQuery:fetchBaseQuery({baseUrl:"https://gate.pornofnd.com/api/user/user/",
+        prepareHeaders: (headers) => {
+            if (tokenUser) {
+                headers.set('Authorization', tokenUser);
+            }
+            return headers;
+        },
+    }),
     endpoints:(build)=>({
         getMe: build.query<Response<any>,void>({
             query: () => ({
-                url: 'get-me',
-                headers:{
-                   Authorization:'5197fdbc-fcdc-4a88-ae09-3b0a3df673a5'
-                }
+                url: 'get-me'
             }),
         }),
     })
