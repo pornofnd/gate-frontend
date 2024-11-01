@@ -38,7 +38,7 @@ export const ConnectApi = createApi({
                  },
                 body: {
                     data_onauth: {
-                      data
+                      data.data
                 },  
                 }
             })
