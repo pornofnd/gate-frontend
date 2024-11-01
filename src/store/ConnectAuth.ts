@@ -7,16 +7,16 @@ const tokenUser=localStorage.getItem('token')?JSON.stringify(localStorage.getIte
 export const ConnectApi = createApi({
     reducerPath: 'ConnectApi',
     tagTypes: ['Auth'],
-    baseQuery: fetchBaseQuery({baseUrl: 'https://gate.pornofnd.com/api/user/auth/ton/'}),
+    baseQuery: fetchBaseQuery({baseUrl: 'https://gate.pornofnd.com/api/user/auth/'}),
     endpoints: (build) => ({
         getWallets: build.query<Response<IWallet[]>,void>({
             query: () => ({
-                url: 'get-wallets',
+                url: 'ton/get-wallets',
             }),
         }),
        generateWalletAuth: build.mutation<Response<string>, { walletData: IWallet,websocket_id : string }>({
             query: ({ walletData, websocket_id }) => ({
-                url: 'generate-connection-url',
+                url: 'ton/generate-connection-url',
                 method: 'POST',
                 headers:{
                     Authorization:tokenUser,
