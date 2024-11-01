@@ -38,7 +38,12 @@ export const ConnectApi = createApi({
                  },
                 body: {
                     data_onauth: {
-                      data.data
+                        auth_date: data.auth_date,
+                        id: data.id,
+                        first_name: data.first_name,
+                        hash: data.hash,
+                       photo_url: data.photo_url,
+                      username: data.username,
                 },  
                 }
             })
