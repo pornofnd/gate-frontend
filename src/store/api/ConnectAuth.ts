@@ -3,7 +3,7 @@ import { ITelegramResponse, IToken, Response } from 'type/Response';
 
 import { IWallet } from 'type/wallets';
 
-const tokenUser=localStorage.getItem('token')?JSON.stringify(localStorage.getItem('token')):undefined
+const tokenUser=localStorage.getItem('token')?localStorage.getItem('token'):undefined
 export const ConnectApi = createApi({
     reducerPath: 'ConnectApi',
     tagTypes: ['Auth'],

@@ -11,7 +11,8 @@ export default defineConfig({
       public: "/public",
       components: "/src/components",
       mixins:"/src/mixins",
-      utils:"/src/utils"
+      utils:"/src/utils",
+      store:"/src/store/"
     },
   },
 });

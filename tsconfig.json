@@ -26,7 +26,8 @@
       "components/*": ["components/*"],
       "public/*": ["public/*"],
       "utils/*": ["utils/*"],
-      "mixins/*": ["mixins/*"]
+      "mixins/*": ["mixins/*"],
+      "store/*":["store/*"]
     }
   }
 }

@@ -3,9 +3,9 @@ import { useDispatch } from "react-redux";
 import "./walletModal.scss"
 import WalletConnectModal from "components/WalletConnectModal"
 import { useEffect } from "react";
-import { windowStateActions } from "../../store/reducer/stateModal";
-// import { useGetMeQuery } from "../../store/api/user";
-// import { Response } from "type/Response";
+import { windowStateActions } from "store/reducer/stateModal";
+import { useGetMeQuery } from "../../store/api/user";
+import { Response } from "type/Response";
 export default function WalletModal() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -46,8 +46,8 @@ export default function WalletModal() {
      }, []);
 
 
-    //  const {data}=useGetMeQuery() as Response<string>
-    //  console.log(data)
+     const {data}=useGetMeQuery() as Response<string>
+     console.log(data)
   return (
     <div className="WalletModal">
            

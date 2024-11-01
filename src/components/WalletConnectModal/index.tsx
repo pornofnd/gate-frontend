@@ -1,6 +1,6 @@
 import "./walletConnectModal.scss"
 import Intersect from "/public/img/Intersect.svg"
-import { useGetWalletsQuery } from "../../store/ConnectAuth"
+import { useGetWalletsQuery } from "../../store/api/ConnectAuth"
 
 import { Response } from "type/Response";
 import ItemWallet from "components/ItemWallet";

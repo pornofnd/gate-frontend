@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { ConnectApi } from './ConnectAuth';
+import { ConnectApi } from './api/ConnectAuth';
 import { windowStateReducer } from './reducer/stateModal';
 import { UserApi } from './api/user';
 
