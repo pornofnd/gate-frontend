@@ -1,9 +1,18 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { ITelegramResponse, IToken, Response } from 'type/Response';
-
 import { IWallet } from 'type/wallets';
-const loacl=localStorage.getItem('token')
-const tokenUser=loacl? JSON.parse(loacl):undefined
+
+
+const local=localStorage.getItem('token')
+let tokenUser: string | undefined;
+if (local&&typeof local=== 'string') {
+try {
+   tokenUser= JSON.parse(local)
+}
+catch (e) {
+    tokenUser = local;
+  console.log(e)
+}}
 export const ConnectApi = createApi({
     reducerPath: 'ConnectApi',
     tagTypes: ['Auth'],
@@ -25,7 +34,6 @@ export const ConnectApi = createApi({
             query: ({ walletData, websocket_id }) => ({
                 url: 'ton/generate-connection-url',
                 method: 'POST',
-              
                 body: {
                     ws_type: "auth",
                     session_id: localStorage.getItem("sessionId"),
