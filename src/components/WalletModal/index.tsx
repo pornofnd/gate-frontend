@@ -31,12 +31,11 @@ export default function WalletModal() {
         const res=JSON.parse(event.data)
         dispatch(windowStateActions.websocketIdSave(res.websocket_id))
         console.log(sessionId)
-        if(!sessionId||sessionId=="undefined"){
-          console.log("FFF")
+        if(!sessionId||JSON.stringify(sessionId)=="undefined"){
          localStorage.setItem("sessionId",res.session_id)
         }
         if(res.type=='authorized'){
-         localStorage.setItem("token",res.auth_token)
+         localStorage.setItem("token",JSON.stringify(res.auth_token))
         }
        };
        ws.onerror = (error) => {
