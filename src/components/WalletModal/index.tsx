@@ -1,13 +1,18 @@
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./walletModal.scss"
 import WalletConnectModal from "components/WalletConnectModal"
 import { useEffect } from "react";
 import { windowStateActions } from "store/reducer/stateModal";
+import useGetMeApi from "utils/useGetMeApi";
+import { RootState } from "store/store";
 // import  GetMeApi  from "utils/GetMeApi";
 
 export default function WalletModal() {
   const dispatch = useDispatch();
+  const userState = useSelector((state :RootState) => state.userStateReducer);
+  console.log(userState)
+
   useEffect(() => {
     const TmaAuth=localStorage.getItem('token');
     const sessionId=localStorage.getItem('sessionId');
@@ -36,7 +41,7 @@ export default function WalletModal() {
         }
         if(res.type=='authorized'){
          localStorage.setItem("token",JSON.stringify(res.auth_token))
-        //  GetMeApi()
+         useGetMeApi()
         }
        };
        ws.onerror = (error) => {

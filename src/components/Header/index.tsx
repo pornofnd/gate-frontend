@@ -7,7 +7,8 @@ import { windowStateActions } from "../../store/reducer/stateModal";
 import { RootState } from "store/store";
 
 
-import GetMeApi from "utils/GetMeApi";
+
+import useGetMeApi from "utils/useGetMeApi";
 
 // import telegramAIcon from "public/img/Telegram_2019_Logo.svg"
 // import { useState } from "react";
@@ -26,7 +27,7 @@ export default function Header() {
 
     
      if (token) {
-     GetMeApi()
+     useGetMeApi()
   }
  
     

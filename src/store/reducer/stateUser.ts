@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import {  IUserWallet } from "type/user";
+import {  IUserTelegram, IUserWallet } from "type/User";
 
 
-const initialState:IUserWallet={
+const initialState:IUserWallet|IUserTelegram={
     id: "",
     telegram_id:"",
     wallet_address:"" ,
@@ -25,10 +25,9 @@ export const userStateSlice=createSlice({
     name:'user',
     initialState,
     reducers:{
-        changeUserState(state,action: PayloadAction<IUserWallet>) {
-            console.log(action.payload)
-            state=action.payload;
-             console.log(state)
+        changeUserState(state,action: PayloadAction<IUserWallet|IUserTelegram>) {
+         
+          Object.assign(state, action.payload);
          },
          RemoveUserState(state) {
            state={

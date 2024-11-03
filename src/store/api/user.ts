@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { Response } from "type/Response";
-import { IUserWallet } from 'type/user';
+import { IUserTelegram, IUserWallet } from 'type/User';
+
 
 
 export const UserApi=createApi({
@@ -27,7 +28,7 @@ export const UserApi=createApi({
         },
     }),
     endpoints:(build)=>({
-        getMe: build.query<Response<IUserWallet,unknown>,void>({
+        getMe: build.query<Response<IUserWallet|IUserTelegram,unknown>,void>({
             query: () => ({
                 url: 'get-me'
             }),

@@ -2,7 +2,7 @@ import { LoginButton } from "@telegram-auth/react";
 
 import { useAuthTelegramMutation } from "../../store/api/ConnectAuth";
 import { ITelegramResponse, Response } from "type/Response";
-import GetMeApi from "utils/GetMeApi";
+import GetMeApi from "utils/useGetMeApi";
 
 interface IToken {
   data:string;
