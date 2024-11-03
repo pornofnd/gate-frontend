@@ -29,26 +29,26 @@ export const userStateSlice=createSlice({
          
           Object.assign(state, action.payload);
          },
-         RemoveUserState(state) {
-           state={
-            id: "",
-            telegram_id: "",
-            wallet_address:"" ,
-            card: {
-              name:"",
-              username: "",
-              short_description: "",
-              description: "",
-              logo_url: "",
-              banner_url: "",
-              websites: ""
-            },
-            settings: {
-              primary_currency: "",
-              primary_currency_type: ""
-            }
-        }
-         },
+        //  RemoveUserState(state) {
+        //    state={
+        //     id: "",
+        //     telegram_id: "",
+        //     wallet_address:"" ,
+        //     card: {
+        //       name:"",
+        //       username: "",
+        //       short_description: "",
+        //       description: "",
+        //       logo_url: "",
+        //       banner_url: "",
+        //       websites: ""
+        //     },
+        //     settings: {
+        //       primary_currency: "",
+        //       primary_currency_type: ""
+        //     }
+        // }
+        //  },
     }
 })
 export const userStateActions=userStateSlice.actions;

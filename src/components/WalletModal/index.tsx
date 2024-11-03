@@ -11,8 +11,7 @@ import { RootState } from "store/store";
 export default function WalletModal() {
   const dispatch = useDispatch();
   const userState = useSelector((state :RootState) => state.userStateReducer);
-  console.log(userState)
-
+ 
   useEffect(() => {
     const TmaAuth=localStorage.getItem('token');
     const sessionId=localStorage.getItem('sessionId');
@@ -58,7 +57,8 @@ export default function WalletModal() {
     <div className="WalletModal">
            
        <div className="WalletModalContent">
-        <WalletConnectModal/>
+       {userState.id==""?
+        <WalletConnectModal/>:null}
        </div>
         </div>
      
