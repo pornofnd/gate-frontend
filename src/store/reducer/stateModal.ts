@@ -4,11 +4,12 @@ import {createSlice, PayloadAction } from "@reduxjs/toolkit"
 interface WindowState {
 	windowState:boolean;
 	websocket_id:string;
+	
 }
 
 const initialState: WindowState = {
 	windowState: false,
-	websocket_id:"",
+	websocket_id:""
 }
 export const windowStateSlice=createSlice({
 	name: 'github',

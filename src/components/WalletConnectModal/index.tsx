@@ -11,7 +11,7 @@ import { IWallet } from "type/wallets";
 
 export default function WalletConnectModal() {
    
-    const  { data }=useGetWalletsQuery() as Response<IWallet[]>
+    const  { data }=useGetWalletsQuery() as Response<IWallet[],unknown>
     const dispatch = useDispatch();
 const handlerClose=()=>{
   dispatch(windowStateActions.changeState());

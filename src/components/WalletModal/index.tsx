@@ -4,8 +4,8 @@ import "./walletModal.scss"
 import WalletConnectModal from "components/WalletConnectModal"
 import { useEffect } from "react";
 import { windowStateActions } from "store/reducer/stateModal";
-import { useGetMeQuery } from "../../store/api/user";
-import { Response } from "type/Response";
+// import  GetMeApi  from "utils/GetMeApi";
+
 export default function WalletModal() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -36,6 +36,7 @@ export default function WalletModal() {
         }
         if(res.type=='authorized'){
          localStorage.setItem("token",JSON.stringify(res.auth_token))
+        //  GetMeApi()
         }
        };
        ws.onerror = (error) => {
@@ -47,8 +48,7 @@ export default function WalletModal() {
      }, []);
 
 
-     const {data}=useGetMeQuery() as Response<string>
-     console.log(data)
+     
   return (
     <div className="WalletModal">
            

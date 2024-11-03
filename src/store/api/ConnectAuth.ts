@@ -3,34 +3,39 @@ import { ITelegramResponse, IToken, Response } from 'type/Response';
 import { IWallet } from 'type/wallets';
 
 
-const local=localStorage.getItem('token')
-let tokenUser: string | undefined;
-if (local&&typeof local=== 'string') {
-try {
-   tokenUser= JSON.parse(local)
-}
-catch (e) {
-    tokenUser = local;
-  console.log(e)
-}}
+
+
 export const ConnectApi = createApi({
     reducerPath: 'ConnectApi',
     tagTypes: ['Auth'],
     baseQuery: fetchBaseQuery({baseUrl: 'https://gate.pornofnd.com/api/user/auth/',
         prepareHeaders: (headers) => {
+            const local = localStorage.getItem('token');
+            let tokenUser: string | undefined;
+
+            if (local && typeof local == 'string') {
+                try {
+                    tokenUser = JSON.parse(local);
+                } catch (e) {
+                    tokenUser = local;
+                    console.log(e);
+                }
+            }
+
             if (tokenUser) {
                 headers.set('Authorization', tokenUser);
             }
             return headers;
         },
     }),
+
     endpoints: (build) => ({
-        getWallets: build.query<Response<IWallet[]>,void>({
+        getWallets: build.query<Response<IWallet[],unknown>,void>({
             query: () => ({
                 url: 'ton/get-wallets',
             }),
         }),
-       generateWalletAuth: build.mutation<Response<string>, { walletData: IWallet,websocket_id : string }>({
+       generateWalletAuth: build.mutation<Response<string,unknown>, { walletData: IWallet,websocket_id : string }>({
             query: ({ walletData, websocket_id }) => ({
                 url: 'ton/generate-connection-url',
                 method: 'POST',
@@ -42,7 +47,7 @@ export const ConnectApi = createApi({
                 }
             }),
         }),
-        authTelegram:build.mutation<Response<IToken>,  ITelegramResponse>({
+        authTelegram:build.mutation<Response<IToken,unknown>,  ITelegramResponse>({
             query:(data)=>({
                 url: 'telegram',
                 method: 'POST',

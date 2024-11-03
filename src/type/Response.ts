@@ -16,10 +16,10 @@ export interface IRes<T>{
     message:string,
     ok:boolean
 }
-export interface Response<T>{
+export interface Response<T,Y>{
     data?: IRes<T>;
-    error?: unknown;
-    meta?: { request: Request; response: Response<T> };
+    error?: Y;
+    meta?: { request: Request; response: Response<T,Y> };
   }
 
   

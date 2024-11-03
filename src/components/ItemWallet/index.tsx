@@ -1,23 +1,26 @@
 import { IWallet } from 'type/wallets'
 import "./itemWallet.scss"
-
 import { RootState } from '../../store/store';
 import { useSelector } from 'react-redux';
 import { useGenerateWalletAuthMutation } from '../../store/api/ConnectAuth';
 import { Response } from 'type/Response';
+
 export default function ItemWallet({elem}:{elem:IWallet}) {
   const websocketId = useSelector((state :RootState) => state.windowStateReducer.websocket_id);
  
   const [generateWalletAuth]=useGenerateWalletAuthMutation()
     const handlerChooseWallet=async(elem:IWallet)=>{
-      console.log(websocketId)
+     try{
+
+    
       if(websocketId){
-        console.log("click")
-         const {data}=await generateWalletAuth({walletData:elem, websocket_id:websocketId}) as Response<string>
-         console.log(data)
+       const {data}=await generateWalletAuth({walletData:elem, websocket_id:websocketId}) as Response<string , unknown>
       if(data){
         window.open(data.data, '_blank');
       }
+      }
+     }catch(e){
+console.log(e)
       }
     }
   

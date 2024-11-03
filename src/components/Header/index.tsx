@@ -6,6 +6,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { windowStateActions } from "../../store/reducer/stateModal";
 import { RootState } from "store/store";
 
+
+import GetMeApi from "utils/GetMeApi";
+
 // import telegramAIcon from "public/img/Telegram_2019_Logo.svg"
 // import { useState } from "react";
 // import AlertTelegram from "components/AlertTelegram";
@@ -19,6 +22,16 @@ export default function Header() {
   const hanlderStateModal=()=>{
     dispatch(windowStateActions.changeState());
   }
+  const token = localStorage.getItem("token");
+
+    
+     if (token) {
+     GetMeApi()
+  }
+ 
+    
+  
+ 
   return (
     <header className="header">
      

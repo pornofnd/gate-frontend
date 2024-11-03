@@ -10,8 +10,10 @@ import WalletModal from "components/WalletModal";
 
 
 
+
 export default function Main() {
   const windowState = useSelector((state :RootState) => state.windowStateReducer.windowState);
+
   return (
     <article className="main">
       {windowState ? <WalletModal /> : null}
