@@ -1,8 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import {  IUserTelegram, IUserWallet } from "type/User";
 
-
-const initialState:IUserWallet|IUserTelegram={
+interface IInitialStateUser{
+  data:IUserWallet|IUserTelegram;
+  needsUserFetch:boolean;
+}
+const initialState:IInitialStateUser={
+  data:{
     id: "",
     telegram_id:"",
     wallet_address:"" ,
@@ -19,6 +23,9 @@ const initialState:IUserWallet|IUserTelegram={
       primary_currency: "",
       primary_currency_type: ""
     }
+  },
+  needsUserFetch: false,
+
 }
 
 export const userStateSlice=createSlice({
@@ -27,8 +34,14 @@ export const userStateSlice=createSlice({
     reducers:{
         changeUserState(state,action: PayloadAction<IUserWallet|IUserTelegram>) {
          
-          Object.assign(state, action.payload);
+          Object.assign(state.data, action.payload);
          },
+         fetchStartGetMeTrue(state){
+          state.needsUserFetch=true
+         },
+         fetchStartGetMeFalse(state){
+          state.needsUserFetch=false
+         }
         //  RemoveUserState(state) {
         //    state={
         //     id: "",

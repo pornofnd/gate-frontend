@@ -9,15 +9,11 @@ import { RootState } from "store/store";
 
 
 import useGetMeApi from "utils/useGetMeApi";
+import { useEffect } from "react";
 
-// import telegramAIcon from "public/img/Telegram_2019_Logo.svg"
-// import { useState } from "react";
-// import AlertTelegram from "components/AlertTelegram";
+
 export default function Header() {
-  // const [alertTg,setAlertTg]=useState<boolean>(false);
-  // const handlerStateTg=()=>{
-  //   setAlertTg(!alertTg);
-  // }
+  const needsUserFetch = useSelector((state :RootState) => state.userStateReducer.needsUserFetch);
   const dispatch = useDispatch();
   const windowState = useSelector((state :RootState) => state.windowStateReducer.windowState);
   const hanlderStateModal=()=>{
@@ -25,10 +21,12 @@ export default function Header() {
   }
   const token = localStorage.getItem("token");
 
-    
-     if (token) {
+  
+  if (token) {
      useGetMeApi()
   }
+    
+   
  
     
   

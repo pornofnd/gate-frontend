@@ -6,12 +6,17 @@ import { IError, IGetMError } from "type/Error";
 import { Response } from "type/Response";
 import { IUserTelegram, IUserWallet } from "type/User";
 
-function useGetMeApi() {
+function useGetMeApi(isAuthorized: boolean) {
   const dispatch = useDispatch();
-  const { data, error } = useGetMeQuery() as Response<IUserWallet|IUserTelegram, IError<IGetMError>>;
+
+  if (!isAuthorized || !localStorage.getItem('token')) {
+    return; // Exit if not authorized or token is missing
+  }
+
+  const { data, error } = useGetMeQuery(undefined, { skip: !isAuthorized }) as Response<IUserWallet | IUserTelegram, IError<IGetMError>>;
 
   useEffect(() => {
-    if (error && error.data.detail === "Token is not a valid UUID") {
+    if (error && error.data?.detail === "Token is not a valid UUID") {
       localStorage.removeItem("token");
       return;
     }
