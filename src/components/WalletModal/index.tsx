@@ -1,10 +1,10 @@
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import "./walletModal.scss"
 import WalletConnectModal from "components/WalletConnectModal"
 import { useEffect, useState } from "react";
 import { windowStateActions } from "store/reducer/stateModal";
-import useGetMeApi from "../../utils/useGetMeApi";
+
 import { IUserTelegram, IUserWallet } from "type/User";
 import { IError, IGetMError } from "type/Error";
 import { Response } from "type/Response";

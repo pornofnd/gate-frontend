@@ -6,25 +6,36 @@ import { useDispatch, useSelector } from "react-redux";
 import { windowStateActions } from "../../store/reducer/stateModal";
 import { RootState } from "store/store";
 
-
+import { IError, IGetMError } from "type/Error";
+import { Response } from "type/Response";
+import { IUserTelegram, IUserWallet } from "type/User";
 
 import useGetMeApi from "utils/useGetMeApi";
-import { useEffect } from "react";
+
+import { useGetMeQuery } from "store/api/user";
 
 
 export default function Header() {
-  const needsUserFetch = useSelector((state :RootState) => state.userStateReducer.needsUserFetch);
+  
   const dispatch = useDispatch();
   const windowState = useSelector((state :RootState) => state.windowStateReducer.windowState);
   const hanlderStateModal=()=>{
     dispatch(windowStateActions.changeState());
   }
   const token = localStorage.getItem("token");
+  if (token) {   
+ const {data,error} = useGetMeQuery() as Response<IUserWallet|IUserTelegram, IError<IGetMError>>;
 
-  
-  if (token) {
-     useGetMeApi()
+    const dataInfo={
+      data:data,
+      error:error
+    }
+     useGetMeApi(dataInfo)
   }
+
+ 
+
+ 
     
    
  
