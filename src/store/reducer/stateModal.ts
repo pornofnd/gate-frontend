@@ -5,14 +5,14 @@ interface WindowState {
 	windowState:boolean;
 	websocket_id:string;
 	authWindow:boolean;
-	
+	auth:boolean;
 }
 
 const initialState: WindowState = {
 	windowState: false,
 	authWindow:false,
 	websocket_id:"",
-
+    auth:false,
 }
 export const windowStateSlice=createSlice({
 	name: 'github',
@@ -25,9 +25,11 @@ export const windowStateSlice=createSlice({
 				state.websocket_id=action.payload
 			},
 			authWindow(state){
-				
 				state.authWindow=!state.authWindow;
 			},
+			authConnect(state){
+				state.auth=true;
+			}
 			
 	}
 })

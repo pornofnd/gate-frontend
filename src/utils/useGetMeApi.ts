@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { windowStateActions } from "store/reducer/stateModal";
 import { userStateActions } from "store/reducer/stateUser";
 import { IError, IGetMError } from "type/Error";
 import { Response } from "type/Response";
@@ -22,6 +23,7 @@ function useGetMeApi(data:Response<IUserWallet|IUserTelegram, IError<IGetMError>
     if (data.data) {
       console.log(data.data)
       dispatch(userStateActions.changeUserState(data.data.data));
+      dispatch(windowStateActions.authConnect());
     }
   }, [data.data, data.error, dispatch]);
 }

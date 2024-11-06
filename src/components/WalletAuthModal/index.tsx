@@ -76,7 +76,7 @@ export default function WalletAuthModal() {
           console.log(data)
           dispatch(userStateActions.changeUserState(data.data));
           dispatch(windowStateActions.changeState());
-           
+          dispatch(windowStateActions.authConnect());
         }
       }, [data, error, dispatch]);
      

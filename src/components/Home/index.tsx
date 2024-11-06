@@ -11,7 +11,7 @@ import useGetMeApi from "utils/useGetMeApi";
 import { useGetMeQuery } from "store/api/user";
 export default function Home() {
     if (localStorage.getItem("token")) {   
- const {data,error} = useGetMeQuery() as Response<IUserWallet|IUserTelegram, IError<IGetMError>>;
+      const {data,error} = useGetMeQuery() as Response<IUserWallet|IUserTelegram, IError<IGetMError>>;
 
     const dataInfo={
       data:data,

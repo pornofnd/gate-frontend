@@ -14,10 +14,11 @@ import WalletModal from "components/WalletModal";
 export default function Main() {
   const windowState = useSelector((state :RootState) => state.windowStateReducer.windowState);
   const authWindow = useSelector((state :RootState) => state.windowStateReducer.authWindow);
+  const auth = useSelector((state :RootState) => state.windowStateReducer.auth);
   return (
     <article className="main">
-      {windowState ? <WalletAuthModal /> : null}
-      {authWindow?<WalletModal />:null}
+      {windowState&& !auth ? <WalletAuthModal /> : null}
+      {authWindow&& auth ? <WalletModal />:null}
       <MainTitle />
       <SearchInput />
       <CardMenuContainer />

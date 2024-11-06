@@ -4,7 +4,8 @@
 $large-screen: 1450px;
 $medium-screen: 1350px;
 $small-screen: 1000px;
-
+$smaller-screen:850px;
+$phone-screen:650px;
 .main {
   @include size(65.75%, auto);
   margin-top: 56px;
@@ -12,7 +13,6 @@ $small-screen: 1000px;
   &Title {
     @include TextPosition;
     display: table-row;
-
     @include size(100%, 174px);
     @include text(white, 60px, "Inter", black);
     @include textLineClamp(2);
@@ -26,6 +26,8 @@ $small-screen: 1000px;
     @include mediaText($large-screen, 55px);
     @include mediaText($medium-screen, 50px);
     @include mediaText($small-screen, 45px);
+    @include mediaText($smaller-screen,35px);
+    @include mediaText($phone-screen,25px)
   }
   .searchInput {
     margin-top: 56px;
