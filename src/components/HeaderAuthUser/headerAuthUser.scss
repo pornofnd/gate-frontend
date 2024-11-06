@@ -4,8 +4,30 @@
 
 .HeaderUser{
   @include flex;
+  &Dashboard{
+    @include size(177px,44px);
+    background: #1D1D1D;
+    border-radius: 72px;
+    border: none;
+    @include text(#FFFFFF, 16px, "Inter", bold);
+    @include flex();
+    text-align: center;
+    p{
+      margin-left: 9px;
+    }
+  }
   &Profile{
     @include size(245px,44px);
     background: #4F4F4F;
+    border-radius: 72px;
+  }
+  &Shop{
+    @include size(56px,44px);
+    background: #1D1D1D;
+    border: none;
+    border-radius: 72px;
+    // img{
+      // @include size(19px,18px);
+    // }
   }
 }

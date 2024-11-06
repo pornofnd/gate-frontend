@@ -5,8 +5,8 @@ import { IListWallet } from 'type/wallets';
 
 
 export const WalletApi=createApi({
-    reducerPath:"UserApi",
-    tagTypes:['User'],
+    reducerPath:"WalletApi",
+    tagTypes:['Wallet'],
     baseQuery:fetchBaseQuery({baseUrl:"https://gate.pornofnd.com/api/user/wallets/",
         prepareHeaders: (headers) => {
             const local = localStorage.getItem('token');
