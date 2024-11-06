@@ -4,12 +4,15 @@ import {createSlice, PayloadAction } from "@reduxjs/toolkit"
 interface WindowState {
 	windowState:boolean;
 	websocket_id:string;
+	authWindow:boolean;
 	
 }
 
 const initialState: WindowState = {
 	windowState: false,
-	websocket_id:""
+	authWindow:false,
+	websocket_id:"",
+
 }
 export const windowStateSlice=createSlice({
 	name: 'github',
@@ -20,7 +23,12 @@ export const windowStateSlice=createSlice({
 			},
 			websocketIdSave(state, action: PayloadAction<string>){
 				state.websocket_id=action.payload
-			}
+			},
+			authWindow(state){
+				
+				state.authWindow=!state.authWindow;
+			},
+			
 	}
 })
 

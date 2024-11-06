@@ -1,0 +1,33 @@
+@import "mixins/size.scss";
+@import "mixins/psoition.scss";
+@import "mixins/text.scss";
+
+.HeaderModal{
+    @include size(100%,58px);
+    @include flex;
+    &Container{
+        @include size(320px,20px);
+        @include flex(space-between);
+       &Title{
+         @include flex;
+         display: line;
+         
+         img{
+            @include size(18px,18px);
+            border-radius:50px;
+         }
+        h1{
+            margin-left: 5px;
+        @include text(#808080, 15px, "Inter", black);
+        }
+     }
+        &Img{
+            @include size(20px,20px);
+            @include flex;
+            img{
+                @include size(10px,6px);
+            }
+        }
+   
+}
+}

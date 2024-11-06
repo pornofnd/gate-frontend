@@ -5,13 +5,17 @@ import TelegramAuth from "components/TelegramAuth";
 import { useDispatch, useSelector } from "react-redux";
 import { windowStateActions } from "../../store/reducer/stateModal";
 import { RootState } from "store/store";
+import HeaderAuthUser from "components/HeaderAuthUser";
 
 
 
 export default function Header() {
   
   const dispatch = useDispatch();
+
   const windowState = useSelector((state :RootState) => state.windowStateReducer.windowState);
+  const userState = useSelector((state: RootState) => state.userStateReducer.data);
+
   const hanlderStateModal=()=>{
     dispatch(windowStateActions.changeState());
   }
@@ -39,15 +43,16 @@ export default function Header() {
         </h1> 
       </section>
       <section className="headerButtonSection">
-        {!windowState?
-        <>
+      {userState.id==''?
+        (!windowState?
+        <article>
         <TelegramAuth />
         <button className="headerButtonWallet" onClick={hanlderStateModal}>
           
           <h5>Connect Wallet</h5>
         </button>
-        </>:
-        null}
+        </article>:
+        null): <HeaderAuthUser /> }
         {/* <button className="logoTg" onClick={handlerStateTg}>
           <h1>log in</h1>
           <img src={telegramAIcon} alt="" />

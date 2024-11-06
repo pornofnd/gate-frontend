@@ -2,7 +2,8 @@ import { LoginButton } from "@telegram-auth/react";
 
 import { useAuthTelegramMutation } from "../../store/api/ConnectAuth";
 import { ITelegramResponse, Response } from "type/Response";
-import GetMeApi from "utils/useGetMeApi";
+
+// import useGetMeApi from "utils/useGetMeApi";
 
 interface IToken {
   data:string;
@@ -27,7 +28,7 @@ export default function TelegramAuth() {
         if(data?.data){
           const token = JSON.stringify(data.data);
           localStorage.setItem("token", token);
-          GetMeApi()
+          // useGetMeApi()
       }
           // .then((res) => {
           //   console.log(res);

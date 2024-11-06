@@ -1,0 +1,11 @@
+@import "mixins/size.scss";
+@import "mixins/psoition.scss";
+@import "mixins/text.scss";
+
+.HeaderUser{
+  @include flex;
+  &Profile{
+    @include size(245px,44px);
+    background: #4F4F4F;
+  }
+}

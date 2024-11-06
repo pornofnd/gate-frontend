@@ -47,7 +47,7 @@
     padding-left: 2px;
     h1 {
       height: 20px;
-      @include text(#808080, 15px, "Inter", black);
+      @include text(#E6E6E6, 14px, "Inter", black);
     }
     img {
       @include size(16px, 16px);

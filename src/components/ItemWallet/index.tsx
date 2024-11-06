@@ -7,7 +7,7 @@ import { Response } from 'type/Response';
 
 export default function ItemWallet({elem}:{elem:IWallet}) {
   const websocketId = useSelector((state :RootState) => state.windowStateReducer.websocket_id);
- 
+  // const userState = useSelector((state :RootState) => state.userStateReducer.data);
   const [generateWalletAuth]=useGenerateWalletAuthMutation()
     const handlerChooseWallet=async(elem:IWallet)=>{
      try{

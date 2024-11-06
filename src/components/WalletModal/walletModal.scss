@@ -3,17 +3,16 @@
 @import "mixins/text.scss";
 
 .WalletModal{
-    @include absolute(42px,62%);
-   @include size(320px,498px);
-   background: #161616;
-   z-index: 2;
-   @include flex;
-    border-radius: 32px;
-    background: linear-gradient(to bottom, #482248, #161616);
-
-&Content{
-    border-radius: 32px;
-    @include size(317px,495px);
+    @include absolute(120px,62%);
+    @include size(352px,487px);
     background: #161616;
-}
+    z-index: 2;
+    @include flex;
+     border-radius: 32px;
+     background: linear-gradient(to bottom, #482248, #161616);
+     &Content{
+        border-radius: 32px;
+        @include size(349px,484px);
+        background: #161616;
+    }
 }

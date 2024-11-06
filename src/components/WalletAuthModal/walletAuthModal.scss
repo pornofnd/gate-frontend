@@ -1,0 +1,19 @@
+@import "mixins/size.scss";
+@import "mixins/psoition.scss";
+@import "mixins/text.scss";
+
+.WalletAuthModal{
+    @include absolute(42px,62%);
+   @include size(320px,498px);
+   background: #161616;
+   z-index: 2;
+   @include flex;
+    border-radius: 32px;
+    background: linear-gradient(to bottom, #482248, #161616);
+
+&Content{
+    border-radius: 32px;
+    @include size(317px,495px);
+    background: #161616;
+}
+}
