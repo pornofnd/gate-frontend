@@ -2,7 +2,7 @@ import { IWallet } from 'type/wallets'
 import "./itemWallet.scss"
 import { RootState } from '../../store/store';
 import { useSelector } from 'react-redux';
-import { useGenerateWalletAuthMutation } from '../../store/api/ConnectAuth';
+import { useGenerateWalletAuthMutation } from '../../store/api/ConnectAuthApi';
 import { Response } from 'type/Response';
 
 export default function ItemWallet({elem}:{elem:IWallet}) {

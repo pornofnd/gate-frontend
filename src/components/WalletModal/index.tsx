@@ -1,6 +1,6 @@
 import HeaderModal from "components/modalComponents/HeaderModal"
 import "./walletModal.scss"
-import { useGetListQuery } from "store/api/wallet"
+import { useGetListQuery } from "store/api/walletApi"
 import { IListWallet } from "type/wallets"
 import { Response } from "type/Response"
 

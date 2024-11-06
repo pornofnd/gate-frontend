@@ -17,11 +17,13 @@
     }
   }
   &Profile{
+    margin-left: 10px;
     @include size(245px,44px);
     background: #4F4F4F;
     border-radius: 72px;
   }
   &Shop{
+    margin-left: 10px;
     @include size(56px,44px);
     background: #1D1D1D;
     border: none;

@@ -8,7 +8,7 @@ import { windowStateActions } from "store/reducer/stateModal";
 import { IUserTelegram, IUserWallet } from "type/User";
 import { IError, IGetMError } from "type/Error";
 import { Response } from "type/Response";
-import { useGetMeQuery } from "store/api/user";
+import { useGetMeQuery } from "store/api/userApi";
 import { userStateActions } from "store/reducer/stateUser";
 
 // import  GetMeApi  from "utils/GetMeApi";

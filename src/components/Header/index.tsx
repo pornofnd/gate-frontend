@@ -42,17 +42,19 @@ export default function Header() {
           P<p className="headerDot">.</p>Gate
         </h1> 
       </section>
-      <section className="headerButtonSection">
+      <section >
       {userState.id==''?
         (!windowState?
-        <article>
+        <article className="headerButtonSection">
         <TelegramAuth />
         <button className="headerButtonWallet" onClick={hanlderStateModal}>
           
           <h5>Connect Wallet</h5>
         </button>
-        </article>:
-        null): <HeaderAuthUser /> }
+        </article>
+        :
+        null): 
+        <HeaderAuthUser /> }
         {/* <button className="logoTg" onClick={handlerStateTg}>
           <h1>log in</h1>
           <img src={telegramAIcon} alt="" />

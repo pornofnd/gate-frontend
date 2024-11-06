@@ -8,7 +8,7 @@ import { IUserTelegram, IUserWallet } from "type/User";
 
 import useGetMeApi from "utils/useGetMeApi";
 
-import { useGetMeQuery } from "store/api/user";
+import { useGetMeQuery } from "store/api/userApi";
 export default function Home() {
     if (localStorage.getItem("token")) {   
       const {data,error} = useGetMeQuery() as Response<IUserWallet|IUserTelegram, IError<IGetMError>>;

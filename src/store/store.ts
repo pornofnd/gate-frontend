@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { ConnectApi } from './api/ConnectAuth';
+import { ConnectApi } from './api/ConnectAuthApi';
 import { windowStateReducer } from './reducer/stateModal';
-import { UserApi } from './api/user';
+import { UserApi } from './api/userApi';
 import { userStateReducer } from './reducer/stateUser';
-import { WalletApi } from './api/wallet';
+import { WalletApi } from './api/walletApi';
 
 
 export const store = configureStore({

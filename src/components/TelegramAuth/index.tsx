@@ -1,6 +1,6 @@
 import { LoginButton } from "@telegram-auth/react";
 
-import { useAuthTelegramMutation } from "../../store/api/ConnectAuth";
+import { useAuthTelegramMutation } from "../../store/api/ConnectAuthApi";
 import { ITelegramResponse, Response } from "type/Response";
 
 // import useGetMeApi from "utils/useGetMeApi";
