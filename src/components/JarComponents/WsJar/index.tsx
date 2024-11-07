@@ -1,7 +1,8 @@
 import { useEffect } from 'react'
+import { Outlet } from 'react-router-dom';
 
 
-export default function CreateJar() {
+export default function WsJar() {
     useEffect(()=>{
         const tokenStr=localStorage.getItem('token');
         let token;
@@ -13,12 +14,6 @@ export default function CreateJar() {
         ws.onmessage = (event) => {
          const res=JSON.parse(event.data)
          console.log(res)
-     
-       
-       
-         
-          
-        
         }
         ws.onerror = (error) => {
           console.error('WebSocket Error:', error);
@@ -29,6 +24,8 @@ export default function CreateJar() {
 
     },[])
   return (
-    <div>CreateJar</div>
+    <article>
+      <Outlet /> 
+       </article>
   )
 }

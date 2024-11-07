@@ -1,7 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../components/Home";
 import JarPage from "../page/JarPage";
-import CreateJar from "components/CreateJar";
+import WsJar from "components/JarComponents/WsJar";
+import JarCreate from "components/JarComponents/JarCreate";
 
 export const router = createBrowserRouter([
   {
@@ -10,15 +11,15 @@ export const router = createBrowserRouter([
   },
   {
     path: "/jar",
-    element: <JarPage />,
+    element: <WsJar />,
     children: [
-      // {
-      //   path: "",
-      //   element: <JarHome />,
-      // },
       {
         path: "create",
-        element: <CreateJar />,
+        element: <JarCreate />,
+      },
+      {
+        path: "",
+        element: <JarPage />,
       },
     ],
   },
