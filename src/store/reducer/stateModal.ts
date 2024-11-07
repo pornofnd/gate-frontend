@@ -15,7 +15,7 @@ const initialState: WindowState = {
     auth:false,
 }
 export const windowStateSlice=createSlice({
-	name: 'github',
+	name: 'window',
 	initialState,
 	reducers: {
 			changeState(state) {

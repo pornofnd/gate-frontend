@@ -13,7 +13,9 @@ export default function JarInputContainer() {
             Description:""
         }
     })
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {
+        console.log(data)
+    }
   
    
   return (
@@ -21,7 +23,7 @@ export default function JarInputContainer() {
     <Controller
       name="Name"
       control={control}
-      rules={{ required: "Имя обязательно", minLength: { value: 2, message: "Минимум 2 символа" } }}
+      rules={{ required: "Name required", minLength: { value: 2, message: "Minimum 2 characters" } }}
       render={({ field, fieldState: { error } }) => (
         <>
           <InputJar {...field} />
@@ -34,7 +36,7 @@ export default function JarInputContainer() {
     <Controller
       name="Description"
       control={control}
-      rules={{ required: "Имя обязательно", minLength: { value: 2, message: "Минимум 2 символа" } }}
+      rules={{ required: "Description required", minLength: { value: 5, message: "Minimum 5 characters" } }}
       render={({ field, fieldState: { error } }) => (
         <>
           <InputJar {...field} />
