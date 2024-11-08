@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { IJarCreate } from 'type/jar';
 import { Response } from "type/Response";
 import { IListWallet } from 'type/wallets';
 
@@ -27,16 +28,27 @@ export const WalletApi=createApi({
         },
     }),
     endpoints:(build)=>({
-        jarCreate: build.mutation<Response<IListWallet,unknown>,any>({
+        jarCreate: build.mutation<Response<IListWallet,unknown>,IJarCreate>({
             query: (data) => ({
                 url: 'create',
                 method:"POST",
                 body:{
-                    data
+                    websocket_id:data.websocket_id,
+          display_name:data.display_name,
+          description:data.description,
+          photo_url:data.photo_url,
+          banner_url:data.banner_url,
+          allowed_currencies: data.allowed_currencies,
+          show_in_profile: data.show_in_profile
                 }
+            }),
+        }),
+        jarGet: build.query<Response<IListWallet,unknown>,void>({
+            query: () => ({
+                url: 'get-list',
             }),
         }),
     })
 })
 
-export const {}=WalletApi;
+export const {useJarCreateMutation,useJarGetQuery}=WalletApi;
