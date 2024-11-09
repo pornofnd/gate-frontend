@@ -2,9 +2,13 @@
 @import "mixins/psoition.scss";
 @import "mixins/text.scss";
 
-
-.footerModal{
-    @include size(352px,64px);
+.footerModal {
+  @include size(352px, 64px);
+  @include flex(end,end);
+  background: linear-gradient(to right, #161616, #F6289D, #161616);
+  &Container{
     @include flex(space-around);
-
+    @include size(352px, 63.5px);
+    background: #161616;
+  }
 }

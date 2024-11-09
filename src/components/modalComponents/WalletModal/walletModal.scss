@@ -6,6 +6,8 @@
   @include absolute(120px, 62%);
   @include size(352px, 487px);
   background: #161616;
+  overflow-y: hidden;
+  @include flex;
   z-index: 2;
   border-radius: 32px;
   background: linear-gradient(to bottom, #482248, #161616);
