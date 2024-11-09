@@ -4,7 +4,13 @@
   background: #161616;
   min-height: 100vh;
   height: auto;
+  // width: 100vw;
+  overflow-x: hidden;
+  // max-width: 100vw;
 
 
-
+}
+#root{
+  width: 100%;
+  overflow-x: hidden;
 }

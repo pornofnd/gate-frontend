@@ -1,9 +1,10 @@
 import { LoginButton } from "@telegram-auth/react";
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import ReactModal from "react-modal";
 import { useAuthTelegramMutation } from "store/api/ConnectAuthApi";
 import { ITelegramResponse, IToken, Response } from "type/Response";
-
+import "./TelegramAuth.scss"
+import TgImg from 'public/img/Telegram_2019_Logo.svg'
 const TelegramAuthModal = () => {
   const [isModalOpen, setIsModalOpen] = useState(false); 
   const [authTelegram]=useAuthTelegramMutation()
@@ -21,13 +22,14 @@ const TelegramAuthModal = () => {
 
   return (
     <div>
-      {/* Кнопка для открытия модалки */}
-      <button onClick={openModal}>Авторизация через Telegram</button>
+      <button  className="buttonTelegramLogin" onClick={openModal}>Log in
+        <img src={TgImg} alt="" />
+      </button>
 
       
       <ReactModal
-        isOpen={isModalOpen}       // Модалка открыта, если isModalOpen true
-        onRequestClose={closeModal} // Закрыть модалку при клике за её пределами
+        isOpen={isModalOpen}       
+        onRequestClose={closeModal}
         contentLabel="Авторизация через Telegram"
         ariaHideApp={false}
         style={{

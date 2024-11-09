@@ -2,34 +2,34 @@
 @import "mixins/psoition.scss";
 @import "mixins/text.scss";
 
-.HeaderUser{
+.HeaderUser {
   @include flex;
-  &Dashboard{
-    @include size(177px,44px);
-    background: #1D1D1D;
+  &Dashboard {
+    @include size(177px, 44px);
+    background: #1d1d1d;
     border-radius: 72px;
     border: none;
-    @include text(#FFFFFF, 16px, "Inter", bold);
+    @include text(#ffffff, 16px, "Inter", bold);
     @include flex();
     text-align: center;
-    p{
+    p {
       margin-left: 9px;
     }
   }
-  &Profile{
+  &Profile {
     margin-left: 10px;
-    @include size(245px,44px);
-    background: #4F4F4F;
+    @include size(245px, 44px);
+    background: #4f4f4f;
     border-radius: 72px;
   }
-  &Shop{
+  &Shop {
     margin-left: 10px;
-    @include size(56px,44px);
-    background: #1D1D1D;
+    @include size(56px, 44px);
+    background: #1d1d1d;
     border: none;
     border-radius: 72px;
     // img{
-      // @include size(19px,18px);
+    // @include size(19px,18px);
     // }
   }
 }

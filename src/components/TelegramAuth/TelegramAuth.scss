@@ -1,0 +1,16 @@
+@import "mixins/size.scss";
+@import "mixins/psoition.scss";
+@import "mixins/text.scss";
+
+
+.buttonTelegramLogin{
+@include flex;
+@include size(103px,44px);
+background: #139FF4;
+@include text(white, 14px, "Inter", black);
+border-radius: 72px;
+border: none;
+img{
+    margin-left: 10px;
+}
+}

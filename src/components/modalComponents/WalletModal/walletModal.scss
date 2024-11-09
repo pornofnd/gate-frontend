@@ -15,4 +15,10 @@
         @include size(349px,484px);
         background: #161616;
     }
-}
+   
+} 
+@media(max-width:1050px) {
+    .WalletModal{
+        @include absolute(120px,30%);
+    } 
+    }

@@ -1,4 +1,4 @@
-import "./collectionBlock.scss"
+import "./collectionBlock.scss";
 
 export default function CollectionBlock() {
   return (
@@ -6,11 +6,13 @@ export default function CollectionBlock() {
       <section className="CollectionBlockTitle">
         <h1>NFT Collections</h1>
         <div className="CollectionBlockCount">
-            <h1>16,499</h1>
-            {/* <img src={chevron} alt="" /> */}
+          <h1>16,499</h1>
+          {/* <img src={chevron} alt="" /> */}
         </div>
       </section>
-      <p className="CollectionBlockSubTitle">Collect and trade unique digital assets on various blockchains.</p>
+      <p className="CollectionBlockSubTitle">
+        Collect and trade unique digital assets on various blockchains.
+      </p>
     </article>
   );
 }

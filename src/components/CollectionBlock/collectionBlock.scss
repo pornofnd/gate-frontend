@@ -5,23 +5,23 @@
 .CollectionBlock {
   margin-top: 155px;
   @include text(white, 34px, "Inter", black);
- 
-  &Title{
-    @include flex
+
+  &Title {
+    @include flex;
   }
   &Count {
     @include size(94px, 36px);
     background: #1d1d1d;
     border-radius: 72px;
     @include flex(space-around);
-    h1{
-        @include text(white, 16px, "Inter", black);
+    h1 {
+      @include text(white, 16px, "Inter", black);
     }
     img {
       @include size(6px, 10px);
     }
   }
-  &SubTitle{
+  &SubTitle {
     margin-top: 15px;
     @include text(#808080, 14px, "Inter", black);
   }
