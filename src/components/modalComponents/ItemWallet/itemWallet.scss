@@ -2,13 +2,15 @@
 @import "mixins/psoition.scss";
 @import "mixins/text.scss";
 
+
 .walletConnectModalWalletsItem {
+  cursor: pointer;
   @include flex(start);
   @include size(288px, 48px);
   margin-bottom: 9px;
   background: #1a1a1a;
   border-radius: 16px;
-
+ 
   img {
     margin-left: 10px;
     @include size(24px, 24px);
@@ -18,5 +20,11 @@
   h1 {
     @include text(white, 15px, "Inter", black);
     margin-left: 15px;
+  }
+  &:hover {
+    background: #1d1d1d;
+    h1 {
+      @include text(#808080, 15px, "Inter", black);
+    }
   }
 }

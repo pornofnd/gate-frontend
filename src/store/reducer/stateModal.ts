@@ -6,6 +6,7 @@ interface WindowState {
 	websocket_id:string;
 	authWindow:boolean;
 	auth:boolean;
+	pageModal:string;
 }
 
 const initialState: WindowState = {
@@ -13,6 +14,7 @@ const initialState: WindowState = {
 	authWindow:false,
 	websocket_id:"",
     auth:false,
+	pageModal:"Home"
 }
 export const windowStateSlice=createSlice({
 	name: 'window',
@@ -29,8 +31,10 @@ export const windowStateSlice=createSlice({
 			},
 			authConnect(state){
 				state.auth=true;
+			},
+			pageModal(state,action:PayloadAction<string>){
+				state.pageModal=action.payload;
 			}
-			
 	}
 })
 

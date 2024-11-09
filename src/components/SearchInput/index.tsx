@@ -1,4 +1,3 @@
-
 import "./SearchInput.scss";
 import menu from "public/img/Vector.svg";
 import search from "/public/img/magnifying-glass.svg";

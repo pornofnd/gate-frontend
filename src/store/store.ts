@@ -5,6 +5,7 @@ import { UserApi } from './api/userApi';
 import { userStateReducer } from './reducer/stateUser';
 import { WalletApi } from './api/walletApi';
 import { jarStateReducer } from './reducer/stateJar';
+import { walletStateReducer } from './reducer/stateWallet';
 
 
 export const store = configureStore({
@@ -14,6 +15,7 @@ export const store = configureStore({
         [WalletApi.reducerPath]:WalletApi.reducer,
         windowStateReducer:windowStateReducer,
         userStateReducer:userStateReducer,
+        walletStateRducer:walletStateReducer,
         jarStateReducer:jarStateReducer,
     },
     middleware: (getDefaultMiddlware) => getDefaultMiddlware().concat(

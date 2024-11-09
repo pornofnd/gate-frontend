@@ -35,4 +35,5 @@ $phone-screen:650px;
 
   @include mediaSize($medium-screen, 75.75%, auto);
   @include mediaSize($small-screen, 85.75%, auto);
+ 
 }

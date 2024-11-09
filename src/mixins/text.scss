@@ -23,8 +23,8 @@
   @include textFont($font);
   @include textWeight($weight);
 }
-@mixin mediaText($screen, $size) {
+@mixin mediaText($screen, $size,$color:white) {
   @media (max-width: $screen) {
-    @include text(white, $size, "Inter", black);
+    @include text($color, $size, "Inter", black);
   }
 }

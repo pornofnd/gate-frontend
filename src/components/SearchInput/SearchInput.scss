@@ -1,32 +1,35 @@
 @import "mixins/size.scss";
 @import "mixins/psoition.scss";
 @import "mixins/text.scss";
-
+$smaller-screen: 850px;
+$phone-screen: 650px;
 .searchInput {
   @include size(515px, 60px);
   background: #1a1a1a;
   border: none;
   position: relative;
   border-radius: 32px;
-
+  @include mediaSize($smaller-screen, 480px, 60px);
+  @include mediaSize($phone-screen, 400px, 60px);
   .input {
     // outline: none;
     padding-left: 45px;
-    @include size(472px, 60px);
+    padding-right: 170px;
+    @include size(302px, 60px);
     background: #1a1a1a;
     border: none;
     position: relative;
     border-radius: 32px;
     font-size: 20px;
     color: #4d4d4d;
-   
+    @include mediaText($phone-screen,14px,#4d4d4d);
+    @include mediaSize($smaller-screen, 302px, 60px);
+    @include mediaSize($phone-screen, 170px, 60px);
     // box-sizing: border-box;
-
   }
 
   button {
     @include absolute(50%, 16px);
-
     transform: translate(0, -44%);
     @include size(24px, 24px);
     border: none;
@@ -38,6 +41,8 @@
 
   &CategoryContainer {
     @include absolute(50%, 350px);
+    @include mediaAbsolute($smaller-screen, 50%, 350px);
+    @include mediaAbsolute($phone-screen, 50%, 230px);
     @include size(154px, 44px);
     background: #242424;
     border-radius: 32px;
@@ -47,7 +52,7 @@
     padding-left: 2px;
     h1 {
       height: 20px;
-      @include text(#E6E6E6, 14px, "Inter", black);
+      @include text(#e6e6e6, 14px, "Inter", black);
     }
     img {
       @include size(16px, 16px);

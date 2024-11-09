@@ -11,7 +11,6 @@ import WalletAuthModal from "components/modalComponents/WalletAuthModal";
 import WalletModal from "components/modalComponents/WalletModal";
 export default function Header() {
   const dispatch = useDispatch();
-  
   const authWindow = useSelector((state :RootState) => state.windowStateReducer.authWindow);
   const auth = useSelector((state :RootState) => state.windowStateReducer.auth);
   const windowState = useSelector(

@@ -3,7 +3,7 @@ import Intersect from "/public/img/Intersect.svg";
 import { useGetWalletsQuery } from "../../../store/api/ConnectAuthApi";
 
 import { Response } from "type/Response";
-import ItemWallet from "components/ItemWallet";
+import ItemWallet from "components/modalComponents/ItemWallet";
 import { windowStateActions } from "../../../store/reducer/stateModal";
 import { useDispatch } from "react-redux";
 import { IWallet } from "type/wallets";

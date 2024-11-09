@@ -2,23 +2,39 @@
 @import "mixins/psoition.scss";
 @import "mixins/text.scss";
 
-.WalletModal{
-    @include absolute(120px,62%);
-    @include size(352px,487px);
+.WalletModal {
+  @include absolute(120px, 62%);
+  @include size(352px, 487px);
+  background: #161616;
+  z-index: 2;
+  border-radius: 32px;
+  background: linear-gradient(to bottom, #482248, #161616);
+  &Content {
+    @include flex(space-between, center, column);
+    border-radius: 32px;
+    @include size(349px, 484px);
     background: #161616;
-    z-index: 2;
-    @include flex;
-     border-radius: 32px;
-     background: linear-gradient(to bottom, #482248, #161616);
-     &Content{
-        border-radius: 32px;
-        @include size(349px,484px);
-        background: #161616;
-    }
-   
-} 
-@media(max-width:1050px) {
-    .WalletModal{
-        @include absolute(120px,30%);
-    } 
-    }
+  }
+}
+@media (max-width: 1400px) {
+  .WalletModal {
+    @include absolute(120px, 55%);
+  }
+}
+
+@media (max-width: 1060px) {
+  .WalletModal {
+    @include absolute(120px, 45%);
+  }
+}
+@media (max-width: 850px) {
+  .WalletModal {
+    @include absolute(120px, 35%);
+  }
+}
+@media (max-width: 700px) {
+  .WalletModal {
+    @include absolute(120px, 50%);
+    transform: translate(-50%, 0%);
+  }
+}

@@ -1,0 +1,15 @@
+@import "mixins/size.scss";
+@import "mixins/psoition.scss";
+@import "mixins/text.scss";
+
+.itemFooterModal {
+  @include text(#808080, 10px, "Inter", black);
+  @include flex(center,center,column);
+  @include size(32px);
+  img {
+    @include size(24px, 24px);
+  }
+}
+.activeItemFooterModal {
+    @include text(#ffffff, 10px, "Inter", black);
+}
