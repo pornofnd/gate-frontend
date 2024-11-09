@@ -7,8 +7,13 @@ import { windowStateActions } from "../../store/reducer/stateModal";
 import { RootState } from "store/store";
 import HeaderAuthUser from "components/HeaderAuthUser";
 
+import WalletAuthModal from "components/modalComponents/WalletAuthModal";
+import WalletModal from "components/modalComponents/WalletModal";
 export default function Header() {
   const dispatch = useDispatch();
+  
+  const authWindow = useSelector((state :RootState) => state.windowStateReducer.authWindow);
+  const auth = useSelector((state :RootState) => state.windowStateReducer.auth);
   const windowState = useSelector(
     (state: RootState) => state.windowStateReducer.windowState
   );
@@ -31,6 +36,8 @@ export default function Header() {
 
   return (
     <header className="header">
+      {windowState&& !auth ? <WalletAuthModal /> : null}
+      {authWindow&& auth ? <WalletModal />:null}
       <section className="logoContainer">
         <img className="headerLogo" src={img} alt="" />
         <h1 className="headerTitle">

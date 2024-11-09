@@ -13,3 +13,8 @@
   top: $top;
   left: $left;
 }
+@mixin mediaAbsolute($screen,$top, $left) {
+  @media (max-width: $screen) {
+    @include absolute($top, $left);
+  }
+}

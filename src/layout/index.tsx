@@ -18,9 +18,7 @@ interface ILayout {
 }
 
 export const Layout: FC<ILayout> = ({ children }) => {
-  const windowState = useSelector((state :RootState) => state.windowStateReducer.windowState);
-  const authWindow = useSelector((state :RootState) => state.windowStateReducer.authWindow);
-  const auth = useSelector((state :RootState) => state.windowStateReducer.auth);
+
   if (localStorage.getItem("token")) {   
     const {data,error} = useGetMeQuery() as Response<IUserWallet|IUserTelegram, IError<IGetMError>>;
 
@@ -33,8 +31,7 @@ export const Layout: FC<ILayout> = ({ children }) => {
   return ( 
   // <TonConnectUIProvider manifestUrl="https://gate-frontend-rose.vercel.app/tonconnect-manifest.json">
     <main className="background">
-       {windowState&& !auth ? <WalletAuthModal /> : null}
-       {authWindow&& auth ? <WalletModal />:null}
+       
       <Header />
       {children}
     </main>
