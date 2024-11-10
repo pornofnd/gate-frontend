@@ -5,6 +5,7 @@ import CardMenuContainer from "components/CardMenuContainer/idnex";
 import WaletBlock from "components/WaletBlock";
 // import CollectionBlock from "components/CollectionBlock";
 import NFTCollectionCategoryContainer from "components/ContainerCardCategoryComponents/NFTCollectionCategoryContainer";
+import Footer from "components/Footer";
 
 export default function Main() {
   return (
@@ -12,8 +13,9 @@ export default function Main() {
       <MainTitle />
       <SearchInput />
       <CardMenuContainer />
-      <WaletBlock />
       <NFTCollectionCategoryContainer />
+      <WaletBlock />
+      <Footer />
     </article>
   );
 }

@@ -1,0 +1,22 @@
+@import "mixins/size.scss";
+@import "mixins/psoition.scss";
+@import "mixins/text.scss";
+
+.FooterSection {
+  @include size(305px, 153px);
+  h1 {
+    @include text(#ffffff, 14px, "Inter", bold);
+  }
+  &Link {
+    @include flex(start, start);
+    margin-top: 14px;
+    p {
+      cursor: pointer;
+      @include text(#808080, 14px, "Inter", bold);
+      margin-top: 12px;
+    }
+    &SecondRow {
+      margin-left: 12px;
+    }
+  }
+}
