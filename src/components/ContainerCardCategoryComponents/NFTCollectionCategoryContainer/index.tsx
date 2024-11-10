@@ -1,20 +1,20 @@
 import CardCategory from "components/ContainerCardCategoryComponents/CardCategory";
 import { data } from "./NFTCollectionCategoryContainer.data";
 import "./NFTCollectionCategoryContainer.scss";
-
+import TitleCardCategory from "../TitleCardCategory";
+const dataTitle = {
+  title: "NFT Collections",
+  desc: "Collect and trade unique digital assets on various blockchains.",
+  count: "16,499",
+};
 export default function NFTCollectionCategoryContainer() {
   return (
     <section className="NFTCollectionCategoryContainer">
-      <article className="NFTCollectionCategoryContainerTitle">
-        <h1>NFT Collections</h1>
-        <div className="NFTCollectionCategoryContainerCount">
-          <h1>16,499</h1>
-          {/* <img src={chevron} alt="" /> */}
-        </div>
-      </article>
-      <p className="NFTCollectionCategoryContainerSubTitle">
-        Collect and trade unique digital assets on various blockchains.
-      </p>
+      <TitleCardCategory
+        desc={dataTitle.desc}
+        count={dataTitle.count}
+        title={dataTitle.title}
+      />
       <article className="NFTCollectionCategoryContainerContainerCard">
         {data.map((elem) => (
           <CardCategory data={elem} />

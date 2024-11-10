@@ -2,7 +2,7 @@
 @import "mixins/psoition.scss";
 @import "mixins/text.scss";
 
-.NFTCollectionCategoryContainer {
+.GamesCollectionCategoryContainer {
   margin-top: 155px;
   @include text(white, 34px, "Inter", black);
   @include flex(center, center, column);

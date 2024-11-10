@@ -6,6 +6,8 @@ import WaletBlock from "components/WaletBlock";
 // import CollectionBlock from "components/CollectionBlock";
 import NFTCollectionCategoryContainer from "components/ContainerCardCategoryComponents/NFTCollectionCategoryContainer";
 import Footer from "components/Footer";
+import DigitalArtCollectionCategoryContainer from "components/ContainerCardCategoryComponents/DigitalArtCollectionCategoryContainer";
+import GamesCollectionCategoryContainer from "components/ContainerCardCategoryComponents/GamesCollectionCategoryContainer";
 
 export default function Main() {
   return (
@@ -14,6 +16,8 @@ export default function Main() {
       <SearchInput />
       <CardMenuContainer />
       <NFTCollectionCategoryContainer />
+      <GamesCollectionCategoryContainer />
+      <DigitalArtCollectionCategoryContainer />
       <WaletBlock />
       <Footer />
     </article>
