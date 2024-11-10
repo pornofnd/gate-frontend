@@ -4,7 +4,7 @@ import SearchInput from "components/SearchInput";
 import CardMenuContainer from "components/CardMenuContainer/idnex";
 import WaletBlock from "components/WaletBlock";
 // import CollectionBlock from "components/CollectionBlock";
-import NFTCollectionCategoryContainer from "components/ContainerCardCategoryComponents/NFTCollectionCategoryContainer/idnex";
+import NFTCollectionCategoryContainer from "components/ContainerCardCategoryComponents/NFTCollectionCategoryContainer";
 
 export default function Main() {
   return (

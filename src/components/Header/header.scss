@@ -11,6 +11,7 @@ $phone-screen:650px;
     display: flex-inline;
     @include flex;
     font-size: 21px;
+    font-family: "Inter";
     color: rgb(255, 255, 255);
   }
   &Logo {
