@@ -8,7 +8,7 @@
   background: linear-gradient(to right, #161616, #F6289D, #161616);
   &Container{
     @include flex(space-around);
-    @include size(352px, 63.5px);
+    @include size(352px, 63px);
     background: #161616;
   }
 }

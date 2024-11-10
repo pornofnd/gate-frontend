@@ -8,11 +8,11 @@
   background: #1d1d1d;
   border-radius: 24px;
   article {
-    @include size(200px, 40px);
+    @include size(auto, 40px);
     padding-left: 10px;
     @include flex(space-between, start, column);
     h3 {
-        @include size(145px, 40px);
+      @include size(auto, 40px);
       @include text(#808080, 14px, "Inter", bold);
     }
     p {
@@ -20,8 +20,6 @@
     }
   }
   img {
-   
-    margin-top: 20px;
-    @include size(120px, 120px);
+    @include size(104px, 88px);
   }
 }

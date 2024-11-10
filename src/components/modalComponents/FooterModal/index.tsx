@@ -7,8 +7,8 @@ export default function FooterModal() {
   return (
     <article className="footerModal">
       <section className="footerModalContainer">
-        {data.map((elem: IItemFooterModal) => (
-          <ItemModalFooter elem={elem} />
+        {data.map((elem: IItemFooterModal,key) => (
+          <ItemModalFooter key={key} elem={elem} />
         ))}
       </section>
     </article>

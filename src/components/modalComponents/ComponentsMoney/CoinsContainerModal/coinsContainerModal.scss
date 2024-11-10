@@ -1,7 +1,3 @@
 @import "mixins/size.scss";
 @import "mixins/psoition.scss";
 @import "mixins/text.scss";
-.HomeModal {
-  @include size(350px, 361px);
-  @include flex(start, center, column);
-}

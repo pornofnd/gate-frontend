@@ -1,0 +1,37 @@
+@import "mixins/size.scss";
+@import "mixins/psoition.scss";
+@import "mixins/text.scss";
+
+.BalanceModal {
+  @include size(320px, 66px);
+  background: #1e1e1e;
+  border-radius: 16px;
+  //   padding-left: 12px;
+
+  @include flex(space-between);
+  &BalanceSection {
+    margin-left: 12px;
+    h1 {
+      @include text(white, 18px, "Inter", black);
+    }
+    p {
+      @include text(#808080, 13px, "Inter", black);
+    }
+  }
+  &AddSection {
+    @include size(46px, 32px);
+    border-radius: 72px;
+    background: #4f4f4f;
+    border: none;
+    @include flex(space-around);
+    h1 {
+      @include text(white, 17px, "Inter", 700);
+    }
+    &Plus {
+      @include text(rgb(255, 255, 255), 18px,normal,bold);
+      font-weight:800;
+    }
+    margin-right: 12px;
+    margin-right: 12px;
+  }
+}

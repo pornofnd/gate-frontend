@@ -1,0 +1,21 @@
+@import "mixins/size.scss";
+@import "mixins/psoition.scss";
+@import "mixins/text.scss";
+
+.ItemMoneyMenuModal {
+  @include size(104px, 28px);
+  @include flex;
+  text-align: center;
+  cursor: pointer;
+  @include text(#ac8888, 18px, "Inter", bold);
+  &:hover {
+    background: #4d4d4d;
+    border-radius: 8px;
+    @include text(#ffffff, 18px, "Inter", bold);
+  }
+}
+.activeItemMoneyMenuModal {
+  background: #4d4d4d;
+  border-radius: 8px;
+  @include text(#ffffff, 18px, "Inter", bold);
+}

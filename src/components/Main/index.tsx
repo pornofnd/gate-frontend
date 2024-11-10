@@ -3,7 +3,8 @@ import "./main.scss";
 import SearchInput from "components/SearchInput";
 import CardMenuContainer from "components/CardMenuContainer/idnex";
 import WaletBlock from "components/WaletBlock";
-import CollectionBlock from "components/CollectionBlock";
+// import CollectionBlock from "components/CollectionBlock";
+import NFTCollectionCategoryContainer from "components/ContainerCardCategoryComponents/NFTCollectionCategoryContainer/idnex";
 
 export default function Main() {
   return (
@@ -12,7 +13,7 @@ export default function Main() {
       <SearchInput />
       <CardMenuContainer />
       <WaletBlock />
-      <CollectionBlock />
+      <NFTCollectionCategoryContainer />
     </article>
   );
 }

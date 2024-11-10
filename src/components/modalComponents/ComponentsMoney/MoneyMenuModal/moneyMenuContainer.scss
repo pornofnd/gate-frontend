@@ -1,0 +1,11 @@
+@import "mixins/size.scss";
+@import "mixins/psoition.scss";
+@import "mixins/text.scss";
+
+.MoneyMenuModal {
+  @include size(320px, 32px);
+  background: #1e1e1e;
+  margin-top: 15px;
+  @include flex;
+  border-radius: 9px;
+}

@@ -1,15 +1,13 @@
 import HeaderModal from "components/modalComponents/HeaderModal";
 import "./walletModal.scss";
-import { useGetListQuery } from "store/api/walletApi";
-import { IListWallet } from "type/wallets";
-import { Response } from "type/Response";
+
 import FooterModal from "../FooterModal";
 import { useSelector } from "react-redux";
 import { RootState } from "store/store";
+import HomeModal from "../HomeModal";
 
 export default function WalletModal() {
-  const { data } = useGetListQuery() as Response<IListWallet, unknown>;
-  console.log(data);
+
   const pagemodalActive = useSelector(
     (state: RootState) => state.windowStateReducer.pageModal
   );
@@ -19,6 +17,9 @@ export default function WalletModal() {
         {pagemodalActive == "Home" || pagemodalActive == "History" ? (
           <article>
             <HeaderModal />
+            {pagemodalActive == "Home" ?
+            <HomeModal />
+            :null}
           </article>
         ) : (
           <article></article>

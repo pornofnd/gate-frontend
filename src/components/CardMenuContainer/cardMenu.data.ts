@@ -1,11 +1,15 @@
-import img1 from "public/img/CardMenu/img7.svg";
-import img2 from "public/img/CardMenu/img6.svg";
-import img3 from "public/img/CardMenu/img2.svg";
-import img4 from "public/img/CardMenu/img8.svg";
-import img5 from "public/img/CardMenu/img3.svg";
-import img6 from "public/img/CardMenu/img5.svg";
-import img7 from "public/img/CardMenu/Img4.svg";
-import img8 from "public/img/CardMenu/img9.svg";
+import NFTCollections from "public/img/CardMenuNew/NFTCollections.svg";
+import Games from "public/img/CardMenuNew/Games.svg";
+import DigitalArt  from "public/img/CardMenuNew/DigitalArt.svg";
+import Utilities from "public/img/CardMenuNew/Utilities.svg";
+import DevTools  from "public/img/CardMenuNew/DevTools.svg";
+import EBooks  from "public/img/CardMenuNew/EBooks.svg";
+import Themes  from "public/img/CardMenuNew/Themes.svg";
+import Courses  from "public/img/CardMenuNew/Courses.svg";
+import  MusicAudio  from "public/img/CardMenuNew/MusicAudio.svg";
+import  WebServices  from "public/img/CardMenuNew/WebServices.svg";
+import  HealthWhellness  from "public/img/CardMenuNew/HealthWhellness.svg";
+import  SocialNetworks  from "public/img/CardMenuNew/SocialNetworks.svg";
 interface IDAta {
   img: string;
   name: string;
@@ -13,43 +17,64 @@ interface IDAta {
 }
 export const data: IDAta[] = [
   {
-    name: "Wallet apps",
-    item: 124,
-    img: img1,
-  },
-  {
+    img: NFTCollections,
     name: "NFT Collections",
-    item: 124,
-    img: img2,
+    item: 33.333,
   },
   {
-    name: "VPN Subscriptions",
-    item: 124,
-    img: img3,
+    img:Games ,
+    name: "Games",
+    item: 322,
   },
   {
-    name: "Blockchain Courses",
-    item: 124,
-    img: img4,
+    img:DigitalArt ,
+    name: "Digital Art ",
+    item:144.000,
   },
   {
-    name: "Smart Contracts",
-    item: 124,
-    img: img5,
+    img:Utilities ,
+    name: "Utilities",
+    item:888 ,
   },
   {
-    name: "Trading Algorithms",
-    item: 124,
-    img: img6,
+    img:DevTools  ,
+    name: "DevTools",
+    item:777,
   },
   {
-    name: "Stickers and Avatars",
-    item: 124,
-    img: img7,
+    img:EBooks ,
+    name: "eBooks",
+    item:16.499,
   },
   {
-    name: "Manuals and eBooks",
-    item: 124,
-    img: img8,
+    img:Themes ,
+    name: "Themes",
+    item:88,
+  },
+  {
+    img:Courses ,
+    name: "Courses",
+    item:13.000,
+  },
+  {
+    img: MusicAudio,
+    name: "Music & Audio",
+    item:432,
+  },
+  {
+    img:WebServices,
+    name: "Web Services",
+    item:16.499,
+  },
+  {
+    img:HealthWhellness,
+    name: "Health & Wellness ",
+    item:808,
+  },
+  {
+    img:SocialNetworks ,
+    name: "Social networks",
+    item:33,
   },
 ];
+
