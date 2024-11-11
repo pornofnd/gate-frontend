@@ -16,6 +16,7 @@ export default function WsJar() {
         const ws = new WebSocket(port);
         ws.onmessage = (event) => {
          const res=JSON.parse(event.data)
+         console.log(res)
          dispatch(jarStateActions.addWebsocketId(res.websocket_id))
         }
         ws.onerror = (error) => {

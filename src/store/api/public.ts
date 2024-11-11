@@ -1,13 +1,11 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { IJarCreate } from "type/jar";
-import { Response } from "type/Response";
-import { IListWallet } from "type/wallets";
+import { ICurrencies, Response } from "type/Response";
 
-export const WalletApi = createApi({
-  reducerPath: "WalletApi",
-  tagTypes: ["Wallet"],
+export const PublicApi = createApi({
+  reducerPath: "PublicApi",
+  tagTypes: ["Public"],
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://gate.pornofnd.com/api/user/jars/",
+    baseUrl: "https://gate.pornofnd.com/api/public/currencies/",
     prepareHeaders: (headers) => {
       const local = localStorage.getItem("token");
       let tokenUser: string | undefined;
@@ -20,6 +18,7 @@ export const WalletApi = createApi({
           console.log(e);
         }
       }
+
       if (tokenUser) {
         headers.set("Authorization", tokenUser);
       }
@@ -27,19 +26,12 @@ export const WalletApi = createApi({
     },
   }),
   endpoints: (build) => ({
-    jarCreate: build.mutation<Response<IListWallet, unknown>, IJarCreate>({
-      query: (data) => ({
-        url: "create",
-        method: "POST",
-        body: data,
-      }),
-    }),
-    jarGet: build.query<Response<IListWallet, unknown>, void>({
+    getCurrencies: build.query<Response<ICurrencies, unknown>, void>({
       query: () => ({
-        url: "get-list",
+        url: "get",
       }),
     }),
   }),
 });
 
-export const { useJarCreateMutation, useJarGetQuery } = WalletApi;
+export const {useGetCurrenciesQuery} = PublicApi;
