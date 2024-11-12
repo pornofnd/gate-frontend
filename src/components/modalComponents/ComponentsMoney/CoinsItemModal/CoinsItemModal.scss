@@ -1,0 +1,24 @@
+@import "mixins/size.scss";
+@import "mixins/psoition.scss";
+@import "mixins/text.scss";
+
+.CoinsItemModal {
+  @include size(320px, 33px);
+  @include flex(space-between);
+  margin-top: 15px;
+  &NameContainer {
+    @include flex();
+    &Img {
+        @include flex;
+        @include size(35px);
+      img {
+        @include size(24px, 24px);
+      }
+    }
+    &Coins{
+        h1{
+            @include text(white,14,"Inter",bold)
+        }
+    }
+  }
+}

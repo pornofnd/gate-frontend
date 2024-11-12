@@ -12,13 +12,13 @@ import { Response } from "type/Response";
 export default function HeaderAuthUser() {
   const dispatch = useDispatch();
   if (localStorage.getItem("token")) {
-    const { data ,error} = useGetListQuery() as Response<IListWallet, unknown>;
+    const { data ,error} = useGetListQuery() as Response<IListWallet[], unknown>;
     useEffect(() => {
       if(error){
         //log out
       }
       if (data) {
-        dispatch(walletStateActions.createWalletState(data?.data));
+        dispatch(walletStateActions.createWalletState(data.data));
       }
     }, [data,error]);
   }

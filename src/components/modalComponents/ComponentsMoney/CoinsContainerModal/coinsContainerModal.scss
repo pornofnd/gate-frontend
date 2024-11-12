@@ -1,3 +1,13 @@
 @import "mixins/size.scss";
 @import "mixins/psoition.scss";
 @import "mixins/text.scss";
+
+.CoinsContainerModal {
+  @include size(310px, 33px);
+  @include flex(space-between);
+  margin-top: 25px;
+  h1 {
+    @include text(#808080, 20, "Inter", bold);
+    font-size: 14px;
+  }
+}

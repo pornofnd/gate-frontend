@@ -1,17 +1,10 @@
 import { useSelector } from "react-redux";
 import "./balanceModal.scss";
-import { useGetCurrenciesQuery } from "store/api/public";
-import { ICurrencies, Response } from "type/Response";
 import { RootState } from "store/store";
 
 export default function BalanceModal() {
   const walletData = useSelector((state: RootState) => state.walletStateRducer);
-  const { data } = useGetCurrenciesQuery() as Response<
-    ICurrencies,
-    unknown
-  >;
-console.log(walletData)
-  console.log(data);
+  console.log(walletData);
   return (
     <article className="BalanceModal">
       <section className="BalanceModalBalanceSection">

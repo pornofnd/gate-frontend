@@ -5,31 +5,23 @@ interface IInitialStateWallet {
   user_id: string;
   balance:
     | {
-        TON: string;
-        USDT: string;
-        PENIS: string;
-        DEAD_JEWS: string;
+        [key: string]: number;
       }
     | {};
   on_hold: {};
   display_name: string;
   priority: 0;
 }
-const initialState: IInitialStateWallet = {
-  id: "",
-  user_id: "",
-  balance: {},
-  on_hold: {},
-  display_name: "",
-  priority: 0,
-};
+const initialState: IInitialStateWallet[] = [];
 
 export const walletStateSlice = createSlice({
   name: "wallet",
   initialState,
   reducers: {
-    createWalletState(state, action: PayloadAction<IInitialStateWallet>) {
-      state = action.payload;
+    createWalletState(state, action: PayloadAction<IInitialStateWallet[]>) {
+      for (let i = 0; i < action.payload.length; i++) {
+        state.push(action.payload[i]);
+      }
     },
   },
 });
