@@ -18,9 +18,29 @@
   }
   &Profile {
     margin-left: 10px;
+    @include flex(space-around);
     @include size(245px, 44px);
     background: #4f4f4f;
     border-radius: 72px;
+    // text-align: center;
+    &ContainerMoney {
+      @include flex;
+      gap: 5px;
+     inline-size: auto;
+      @include text(#ffffff, 14px, "Inter", bold);
+      h1{
+        font-size: 14px;
+      }
+      div{
+        @include size(2px,6px);
+        margin-left: 2px;
+        background: white;
+        border-radius: 32px;
+      }
+    }
+    &Img{
+      @include size(24px,24px);
+    }
   }
   &Shop {
     margin-left: 10px;
