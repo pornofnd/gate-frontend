@@ -9,19 +9,19 @@ import { useGetListQuery } from "store/api/walletApi";
 import { IListWallet } from "type/wallets";
 import { Response } from "type/Response";
 import { RootState } from "store/store";
-import { useLaunchParams } from "@telegram-apps/sdk-react";
+
 import walletImg from "/img/Header/wallet-underline.svg";
 export default function HeaderAuthUser() {
   const dispatch = useDispatch();
   const userWallet = useSelector((state: RootState) => state.walletStateRducer);
-  
+ 
   // const lp = useLaunchParams();
   if (localStorage.getItem("token")) {
     const { data, error } = useGetListQuery() as Response<
       IListWallet[],
       unknown
     >;
-
+    
     useEffect(() => {
       if (error) {
         //log out

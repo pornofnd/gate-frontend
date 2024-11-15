@@ -1,17 +1,19 @@
 import img from "/public/img/Logo.svg";
 import "./header.scss";
-import TelegramAuth from "components/TelegramAuth";
+import TelegramAuth from "components/HeaderComponents/TelegramAuth";
 
 import { useDispatch, useSelector } from "react-redux";
-import { windowStateActions } from "../../store/reducer/stateModal";
+import { windowStateActions } from "../../../store/reducer/stateModal";
 import { RootState } from "store/store";
-import HeaderAuthUser from "components/HeaderAuthUser";
+import HeaderAuthUser from "components/HeaderComponents/HeaderAuthUser";
 
 import WalletAuthModal from "components/modalComponents/WalletAuthModal";
 import WalletModal from "components/modalComponents/WalletModal";
-
+import { useEffect, useState } from "react";
+import TmaAuth from "components/HeaderComponents/TmaAuth";
 export default function Header() {
   const dispatch = useDispatch();
+  const [iframe, setIframe] = useState<boolean>(false);
   const authWindow = useSelector(
     (state: RootState) => state.windowStateReducer.authWindow
   );
@@ -25,8 +27,16 @@ export default function Header() {
   const hanlderStateModal = () => {
     dispatch(windowStateActions.changeState());
   };
-  
- 
+  useEffect(() => {
+    if (
+      typeof window !== "undefined" &&
+      window.location.href.includes("tgWebAppData")
+    ) {
+      setIframe(false);
+    } else {
+      setIframe(true);
+    }
+  }, []);
 
   //   if (localStorage.getItem("token")) {
   //  const {data,error} = useGetMeQuery() as Response<IUserWallet|IUserTelegram, IError<IGetMError>>;
@@ -52,7 +62,7 @@ export default function Header() {
         {userState.id == "" ? (
           !windowState ? (
             <article className="headerButtonSection">
-              <TelegramAuth />
+              {iframe ? <TelegramAuth /> : <TmaAuth />}
               <button
                 className="headerButtonWallet"
                 onClick={hanlderStateModal}

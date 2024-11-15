@@ -1,6 +1,6 @@
 import { FC, ReactNode } from "react";
 import "./layout.scss";
-import Header from "components/Header";
+import Header from "components/HeaderComponents/Header";
 // import { TonConnectUIProvider } from "@tonconnect/ui-react";
 import { IError, IGetMError } from "type/Error";
 import { Response } from "type/Response";
