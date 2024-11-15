@@ -5,7 +5,7 @@ import Header from "components/Header";
 import { IError, IGetMError } from "type/Error";
 import { Response } from "type/Response";
 import { IUserTelegram, IUserWallet } from "type/User";
-
+import "@telegram-apps/sdk-react";
 import useGetMeApi from "utils/useGetMeApi";
 
 import { useGetMeQuery } from "store/api/userApi";
@@ -14,20 +14,21 @@ interface ILayout {
 }
 
 export const Layout: FC<ILayout> = ({ children }) => {
+  if (localStorage.getItem("token")) {
+    const { data, error } = useGetMeQuery() as Response<
+      IUserWallet | IUserTelegram,
+      IError<IGetMError>
+    >;
 
-  if (localStorage.getItem("token")) {   
-    const {data,error} = useGetMeQuery() as Response<IUserWallet|IUserTelegram, IError<IGetMError>>;
-
-  const dataInfo={
-    data:data,
-    error:error
+    const dataInfo = {
+      data: data,
+      error: error,
+    };
+    useGetMeApi(dataInfo);
   }
-   useGetMeApi(dataInfo)
-}
-  return ( 
-  // <TonConnectUIProvider manifestUrl="https://gate-frontend-rose.vercel.app/tonconnect-manifest.json">
+  return (
+    // <TonConnectUIProvider manifestUrl="https://gate-frontend-rose.vercel.app/tonconnect-manifest.json">
     <main className="background">
-       
       <Header />
       {children}
     </main>
