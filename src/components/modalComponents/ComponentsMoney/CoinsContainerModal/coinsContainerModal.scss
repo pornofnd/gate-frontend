@@ -7,7 +7,7 @@
   @include flex(space-between);
   margin-top: 25px;
   h1 {
-    @include text(#808080, 20, "Inter", bold);
+    @include text(#808080, 20ox, "Inter", bold);
     font-size: 14px;
   }
 }

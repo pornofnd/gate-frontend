@@ -19,7 +19,10 @@ export const Layout: FC<ILayout> = ({ children }) => {
       IUserWallet | IUserTelegram,
       IError<IGetMError>
     >;
-
+    console.log(error);
+    if (error?.data.detail == "Invalid auth token") {
+      localStorage.removeItem("token");
+    }
     const dataInfo = {
       data: data,
       error: error,

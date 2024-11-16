@@ -14,6 +14,7 @@ export interface ICurrencies {
   contract_address: string;
   icon_url: string;
   listed_on: string[];
+  price_usd: number;
 }
 export interface IToken {
   data: string;

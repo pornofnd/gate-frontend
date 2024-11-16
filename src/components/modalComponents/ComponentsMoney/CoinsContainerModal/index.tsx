@@ -9,6 +9,7 @@ export default function CoinsContainerModal() {
   const userWallet = useSelector((state: RootState) => state.walletStateRducer);
   const { data } = useGetCurrenciesQuery() as Response<ICurrencies[], unknown>;
   const [length, setLength] = useState<number>(0);
+  console.log(data)
   useEffect(() => {
     let count = 0; 
     data?.data.forEach((elem: ICurrencies) => {

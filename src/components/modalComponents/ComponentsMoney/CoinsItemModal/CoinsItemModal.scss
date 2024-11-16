@@ -4,21 +4,27 @@
 
 .CoinsItemModal {
   @include size(320px, 33px);
-  @include flex(space-between);
+  @include flex(space-between,start);
   margin-top: 15px;
   &NameContainer {
     @include flex();
     &Img {
-        @include flex;
-        @include size(35px);
+      @include flex;
+      @include size(35px);
       img {
         @include size(24px, 24px);
       }
     }
-    &Coins{
-        h1{
-            @include text(white,14,"Inter",bold)
-        }
+    &Coins {
+      h1 {
+        @include text(white, 14px, "Inter", bold);
+      }
+      p {
+        @include text(#808080, 10px, "Inter", bold);
+      }
+    }
+    &Usd{
+        @include text(white, 14px, "Inter", bold);
     }
   }
 }

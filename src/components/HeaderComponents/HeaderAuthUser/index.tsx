@@ -52,12 +52,12 @@ export default function HeaderAuthUser() {
           <div></div>
         </article>
         <article className="HeaderUserProfileContainerMoney">
-          {userWallet[0]?.balance["DMT"] ? (
-            <h1>{userWallet[0]?.balance["DMT"]}</h1>
+          {userWallet[0]?.balance["USDT"] ? (
+            <h1>{userWallet[0]?.balance["USDT"]}</h1>
           ) : (
             <h1>0</h1>
           )}
-          DMT
+          USDT
           <div></div>
         </article>
         <div className="HeaderUserProfileImg"></div>
