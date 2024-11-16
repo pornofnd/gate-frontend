@@ -39,6 +39,11 @@ export const WalletApi = createApi({
         url: "get-list",
       }),
     }),
+    jarGetOne: build.query<Response<IListWallet, unknown>, void>({
+      query: () => ({
+        url: ``
+      }),
+    }),
   }),
 });
 

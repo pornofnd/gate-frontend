@@ -4,13 +4,25 @@
 
 .HeaderUser {
   @include flex;
+  &Store {
+    background: none;
+    border: 0px;
+    @include size(106px, 44px);
+    @include text(#ffffff, 16px, "Inter", bold);
+    @include flex;
+    background: #1d1d1d;
+    border-radius: 72px;
+    gap: 8px;
+  }
   &Dashboard {
+    margin-left: 16px;
     @include size(177px, 44px);
+    @include text(#ffffff, 16px, "Inter", bold);
+    @include flex();
     background: #1d1d1d;
     border-radius: 72px;
     border: none;
-    @include text(#ffffff, 16px, "Inter", bold);
-    @include flex();
+
     text-align: center;
     p {
       margin-left: 9px;
@@ -26,20 +38,20 @@
     &ContainerMoney {
       @include flex;
       gap: 5px;
-     inline-size: auto;
+      inline-size: auto;
       @include text(#ffffff, 14px, "Inter", bold);
-      h1{
+      h1 {
         font-size: 14px;
       }
-      div{
-        @include size(2px,6px);
+      div {
+        @include size(2px, 6px);
         margin-left: 2px;
         background: white;
         border-radius: 32px;
       }
     }
-    &Img{
-      @include size(24px,24px);
+    &Img {
+      @include size(24px, 24px);
     }
   }
   &Shop {

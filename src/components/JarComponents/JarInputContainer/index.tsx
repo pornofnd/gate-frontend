@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { useJarCreateMutation } from "store/api/jarApi";
 import { Response } from "type/Response";
 import { IJarCreate } from "type/jar";
+import { useState } from "react";
 
 export interface IInputJar {
   Name: string;
@@ -38,9 +39,9 @@ export default function JarInputContainer() {
     dataForm.append("description", inputData.Description);
     dataForm.append("display_name", inputData.Name);
     dataForm.append("banner", inputData.Image);
-   
-    dataForm.append("allowed_currencies", 'aa');
-    dataForm.append("allowed_currencies", 'aaaa');
+
+    dataForm.append("allowed_currencies", "aa");
+    dataForm.append("allowed_currencies", "aaaa");
     dataForm.append("show_in_profile", JSON.stringify(true));
     dataForm.append("websocket_id", websocketId);
     console.log(dataForm);
@@ -49,7 +50,18 @@ export default function JarInputContainer() {
     ) as Response<any, unknown>;
     console.log(data, error);
   };
+  const [image, setImage] = useState<string | null>(null);
 
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        setImage(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Controller
@@ -92,11 +104,19 @@ export default function JarInputContainer() {
               type="file"
               accept="image/*"
               onChange={(e) => {
+                handleFileChange(e);
                 if (e.target.files && e.target.files[0]) {
                   field.onChange(e.target.files[0]);
                 }
               }}
             />
+            {image && (
+              <img
+                src={image}
+                alt="Uploaded"
+                style={{ maxWidth: "400px", marginTop: "20px" }}
+              />
+            )}
             <div>{error && <p>{error.message}</p>}</div>
           </>
         )}

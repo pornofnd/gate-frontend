@@ -9,19 +9,20 @@ import { useGetListQuery } from "store/api/walletApi";
 import { IListWallet } from "type/wallets";
 import { Response } from "type/Response";
 import { RootState } from "store/store";
-
+import StoreImg from "/img/Header/home.svg";
 import walletImg from "/img/Header/wallet-underline.svg";
+import BellImg from "/img/Header/bell-alert.svg";
 export default function HeaderAuthUser() {
   const dispatch = useDispatch();
   const userWallet = useSelector((state: RootState) => state.walletStateRducer);
- 
+
   // const lp = useLaunchParams();
   if (localStorage.getItem("token")) {
     const { data, error } = useGetListQuery() as Response<
       IListWallet[],
       unknown
     >;
-    
+
     useEffect(() => {
       if (error) {
         //log out
@@ -36,6 +37,10 @@ export default function HeaderAuthUser() {
   };
   return (
     <article className="HeaderUser">
+      <button className="HeaderUserStore">
+        <img src={StoreImg} alt="store" />
+        <p>Store</p>
+      </button>
       <button className="HeaderUserDashboard">
         <img src={dashboardImg} alt="" />
         <p>My Dashboard</p>
@@ -62,6 +67,9 @@ export default function HeaderAuthUser() {
         </article>
         <div className="HeaderUserProfileImg"></div>
       </section>
+      <button className="HeaderUserShop">
+        <img src={BellImg} alt="" />
+      </button>
       <button className="HeaderUserShop">
         <img src={shopCart} alt="" />
       </button>
