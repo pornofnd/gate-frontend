@@ -11,6 +11,7 @@ interface IInitialStateWallet {
   on_hold: {};
   display_name: string;
   priority: 0;
+  total_balance: number;
 }
 const initialState: IInitialStateWallet[] = [];
 

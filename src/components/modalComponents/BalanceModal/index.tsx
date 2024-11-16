@@ -8,7 +8,7 @@ export default function BalanceModal() {
   return (
     <article className="BalanceModal">
       <section className="BalanceModalBalanceSection">
-        <h1>${/* {walletData} */}0</h1>
+        <h1>${parseFloat(Number(walletData[0].total_balance).toFixed(2))}</h1>
         <p>Your balance</p>
       </section>
       <button className="BalanceModalAddSection">
