@@ -12,17 +12,21 @@ import { RootState } from "store/store";
 import StoreImg from "/img/Header/home.svg";
 import walletImg from "/img/Header/wallet-underline.svg";
 import BellImg from "/img/Header/bell-alert.svg";
+import { useNavigate } from "react-router-dom";
 export default function HeaderAuthUser() {
   const dispatch = useDispatch();
   const userWallet = useSelector((state: RootState) => state.walletStateRducer);
-
+  const navigation = useNavigate();
   // const lp = useLaunchParams();
+  const hendlerNav = (path: string) => {
+      navigation(path);
+    };
   if (localStorage.getItem("token")) {
     const { data, error } = useGetListQuery() as Response<
       IListWallet[],
       unknown
     >;
-
+    
     useEffect(() => {
       if (error) {
         //log out
@@ -41,7 +45,12 @@ export default function HeaderAuthUser() {
         <img src={StoreImg} alt="store" />
         <p>Store</p>
       </button>
-      <button className="HeaderUserDashboard">
+      <button
+        onClick={() => {
+          hendlerNav("/product");
+        }}
+        className="HeaderUserDashboard"
+      >
         <img src={dashboardImg} alt="" />
         <p>My Dashboard</p>
       </button>

@@ -22,12 +22,13 @@
     "baseUrl": "src",
     "noImplicitAny": false,
     "paths": {
-      "src/*":["src/*"],
+      "src/*": ["src/*"],
+      "page/*": ["page/*"],
       "components/*": ["components/*"],
       "public/*": ["public/*"],
       "utils/*": ["utils/*"],
       "mixins/*": ["mixins/*"],
-      "store/*":["store/*"]
+      "store/*": ["store/*"]
     }
   }
 }

@@ -10,9 +10,10 @@ export default defineConfig({
       src: "/src",
       public: "/public",
       components: "/src/components",
-      mixins:"/src/mixins",
-      utils:"/src/utils",
-      store:"/src/store/"
+      mixins: "/src/mixins",
+      utils: "/src/utils",
+      store: "/src/store/",
+      page: "/src/page",
     },
   },
 });

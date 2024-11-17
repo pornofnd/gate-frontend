@@ -1,32 +1,82 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../components/Home";
-import JarPage from "../page/JarPage";
-import WsJar from "components/JarComponents/WsJar";
+import JarPage from "../page/Jar/JarPage";
+import WsJar from "page/Jar/WsJar";
 import JarCreate from "components/JarComponents/JarCreate";
-import JarEdit from "../page/JarEdit";
+import JarEdit from "page/Jar/JarEdit";
+import WsPRoduct from "page/Product/WsProduct";
+import ProductCreate from "page/Product/ProductCreate";
+import ProductPage from "page/Product/ProudctPage";
+import { Layout } from "../layout";
+import ProductGetOne from "page/Product/ProductGetOne";
+import ProductEdit from "page/Product/ProductEdit";
+import JarGetOne from "page/Jar/JarGetOne";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
-  },
-  {
-    path: "/jar",
-    element: <WsJar />,
+    element: <Layout />,
     children: [
       {
-        path: "create",
-        element: <JarCreate />,
-      },
-      {
-        path: "",
-        element: <JarPage />,
-      },
-      {
-        path: "edit/:id",
-        element:<JarEdit />
+        index: true,
+        element: <Home />,
       },
     ],
   },
-  
+  {
+    path: "/jar",
+    element: <Layout />,
+    children: [
+      {
+        path: "",
+        element: <WsJar />,
+        children: [
+          {
+            path: "create",
+            element: <JarCreate />,
+          },
+          {
+            path: "",
+            element: <JarPage />,
+          },
+          {
+            path: "edit",
+            element: <JarGetOne />,
+          },
+          {
+            path: "getone/:id",
+            element: <JarEdit />,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    path: "/product",
+    element: <Layout />,
+    children: [
+      {
+        path: "",
+        element: <WsPRoduct />,
+        children: [
+          {
+            path: "create",
+            element: <ProductCreate />,
+          },
+          {
+            path: "",
+            element: <ProductPage />,
+          },
+          {
+            path: "edit",
+            element: <ProductEdit />,
+          },
+          {
+            path: "getone/:id",
+            element: <ProductGetOne />,
+          },
+        ],
+      },
+    ],
+  },
 ]);

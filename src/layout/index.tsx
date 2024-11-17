@@ -1,4 +1,4 @@
-import { FC, ReactNode } from "react";
+
 import "./layout.scss";
 import Header from "components/HeaderComponents/Header";
 // import { TonConnectUIProvider } from "@tonconnect/ui-react";
@@ -9,11 +9,10 @@ import "@telegram-apps/sdk-react";
 import useGetMeApi from "utils/useGetMeApi";
 
 import { useGetMeQuery } from "store/api/userApi";
-interface ILayout {
-  children: ReactNode;
-}
+import { Outlet } from "react-router-dom";
 
-export const Layout: FC<ILayout> = ({ children }) => {
+
+export const Layout = () => {
   if (localStorage.getItem("token")) {
     const { data, error } = useGetMeQuery() as Response<
       IUserWallet | IUserTelegram,
@@ -33,7 +32,7 @@ export const Layout: FC<ILayout> = ({ children }) => {
     // <TonConnectUIProvider manifestUrl="https://gate-frontend-rose.vercel.app/tonconnect-manifest.json">
     <main className="background">
       <Header />
-      {children}
+      <Outlet />
     </main>
     // </TonConnectUIProvider>
   );
