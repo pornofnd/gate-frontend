@@ -3,8 +3,80 @@
 @import "mixins/text.scss";
 
 .DashboardBalance {
-    @include flex;
-    @include size(992px,297px);
-    border-radius: 28px;
-    
+  @include flex();
+  //   display: flex;
+  flex-direction: column;
+  @include size(992px, 297px);
+  border-radius: 28px;
+  border-radius: var(--28, 28px);
+  background: rgba(255, 255, 255, 0.04);
+  background: color(display-p3 1 1 1 / 0.04);
+  gap: 24px;
+  &TotalBalance {
+    @include size(944px, 65px);
+    @include flex(space-between, start);
+    &Founds {
+      height: 100%;
+      @include flex(space-around, start, column);
+      @include text(#808080, 16px, "Inter", normal);
+      &Balance {
+        @include text(#ffffff, 28px, "Inter", 900);
+        font-size: 28px;
+      }
+    }
+    &InviteButton {
+      @include flex;
+      height: 44px;
+      border: none;
+      @include size(161px, 44px);
+      padding: var(--radius-paddings-8, 8px) var(--radius-paddings-16, 16px)
+        var(--radius-paddings-8, 8px) var(--16, 16px);
+
+      gap: var(8px);
+      border-radius: var(--72, 72px);
+      background: rgba(255, 255, 255, 0.04);
+      background: color(display-p3 1 1 1 / 0.04);
+      article {
+        @include flex;
+        p {
+          margin-left: 8px;
+          @include text(#808080, 16px, "Inter", normal);
+        }
+      }
+    }
+  }
+  &StoreJarBalance {
+    @include size(944px, 160px);
+    @include flex(space-around);
+    border-radius: 20px;
+    &Section {
+      border-radius: var(--20, 20px);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      border: 1px solid color(display-p3 1 1 1 / 0.04);
+      background: var(
+        --gr,
+        linear-gradient(
+          180deg,
+          rgba(255, 234, 253, 0.02) 0%,
+          rgba(253, 201, 242, 0.02) 100%
+        )
+      );
+      background: var(
+        --gr,
+        linear-gradient(
+          180deg,
+          color(display-p3 1 0.9219 0.9883 / 0.02) 0%,
+          color(display-p3 0.9601 0.7967 0.9383 / 0.02) 100%
+        )
+      );
+      /* Blure/Main blure */
+      backdrop-filter: blur(6px);
+
+      @include size(460px, 160px);
+      &Balance {
+        @include text(#ffffff, 22px, "Inter", 700);
+        
+      }
+    }
+  }
 }
