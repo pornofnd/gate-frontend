@@ -11,6 +11,8 @@ import { Layout } from "../layout";
 import ProductGetOne from "page/Product/ProductGetOne";
 import ProductEdit from "page/Product/ProductEdit";
 import JarGetOne from "page/Jar/JarGetOne";
+import DashboardPage from "page/Dashboard/DashboardPage";
+import DashboardLayout from "page/Dashboard/DashboardLayout";
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +22,22 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: <Layout />,
+    children: [
+      {
+        path: "",
+        element: <DashboardLayout />,
+        children: [
+          {
+            path: "",
+            element: <DashboardPage />,
+          },
+        ],
       },
     ],
   },

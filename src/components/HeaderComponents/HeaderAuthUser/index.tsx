@@ -19,14 +19,14 @@ export default function HeaderAuthUser() {
   const navigation = useNavigate();
   // const lp = useLaunchParams();
   const hendlerNav = (path: string) => {
-      navigation(path);
-    };
+    navigation(path);
+  };
   if (localStorage.getItem("token")) {
     const { data, error } = useGetListQuery() as Response<
       IListWallet[],
       unknown
     >;
-    
+
     useEffect(() => {
       if (error) {
         //log out
@@ -47,7 +47,7 @@ export default function HeaderAuthUser() {
       </button>
       <button
         onClick={() => {
-          hendlerNav("/product");
+          hendlerNav("/dashboard");
         }}
         className="HeaderUserDashboard"
       >
