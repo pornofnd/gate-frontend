@@ -73,6 +73,12 @@
       backdrop-filter: blur(6px);
 
       @include size(460px, 160px);
+      &Name{
+        button{
+          border: none;
+          background:  none;
+        }
+      }
       &Balance {
         @include text(#ffffff, 22px, "Inter", 700);
         

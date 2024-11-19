@@ -1,7 +1,9 @@
 import { useSelector } from "react-redux";
 import "./dashboardBalance.scss";
 import userPlus from "/img/Dashboard/user-plus.svg";
+import arrowRight from "/img/Dashboard/arrow-right.svg";
 import { RootState } from "store/store";
+import DashboardButtonSection from "../DashboardButtonSection";
 export default function DashboardBalance() {
   const userWallet = useSelector((state: RootState) => state.walletStateRducer);
 
@@ -28,7 +30,11 @@ export default function DashboardBalance() {
       </article>
       <article className="DashboardBalanceStoreJarBalance">
         <section className="DashboardBalanceStoreJarBalanceSection">
-          <article className="DashboardBalanceStoreJarBalanceSectionName"></article>
+          <article className="DashboardBalanceStoreJarBalanceSectionName">
+            <button>
+              <img src={arrowRight} alt="arrow right" />
+            </button>
+          </article>
           <h1 className="DashboardBalanceStoreJarBalanceSectionBalance">
             {userWallet[0]?.balance["TON"] ? (
               <h1>${userWallet[0].balance["TON"]}</h1>
@@ -36,8 +42,12 @@ export default function DashboardBalance() {
               <h1>$0</h1>
             )}
           </h1>
+          <DashboardButtonSection />
         </section>
-        <section className="DashboardBalanceStoreJarBalanceSection"></section>
+
+        <section className="DashboardBalanceStoreJarBalanceSection">
+          <DashboardButtonSection />
+        </section>
       </article>
     </section>
   );
