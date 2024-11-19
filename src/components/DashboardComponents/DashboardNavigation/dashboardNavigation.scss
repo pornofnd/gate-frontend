@@ -1,0 +1,16 @@
+@import "mixins/size.scss";
+@import "mixins/psoition.scss";
+@import "mixins/text.scss";
+
+.DashboardNavigation {
+  @include size(992px, 44px);
+  @include flex(start);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 2px solid color(display-p3 1 1 1 / 0.04);
+  margin-top: 40px;
+  text-align: center;
+  nav {
+    @include flex; @include size(130px, 44px);
+    @include text(#ffffff, 16px, "Inter", normal);
+  }
+}

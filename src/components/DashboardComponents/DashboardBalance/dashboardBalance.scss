@@ -47,42 +47,6 @@
   }
   &StoreJarBalance {
     @include size(944px, 160px);
-    @include flex(space-around);
-    border-radius: 20px;
-    &Section {
-      border-radius: var(--20, 20px);
-      border: 1px solid rgba(255, 255, 255, 0.04);
-      border: 1px solid color(display-p3 1 1 1 / 0.04);
-      background: var(
-        --gr,
-        linear-gradient(
-          180deg,
-          rgba(255, 234, 253, 0.02) 0%,
-          rgba(253, 201, 242, 0.02) 100%
-        )
-      );
-      background: var(
-        --gr,
-        linear-gradient(
-          180deg,
-          color(display-p3 1 0.9219 0.9883 / 0.02) 0%,
-          color(display-p3 0.9601 0.7967 0.9383 / 0.02) 100%
-        )
-      );
-      /* Blure/Main blure */
-      backdrop-filter: blur(6px);
-
-      @include size(460px, 160px);
-      &Name{
-        button{
-          border: none;
-          background:  none;
-        }
-      }
-      &Balance {
-        @include text(#ffffff, 22px, "Inter", 700);
-        
-      }
-    }
+    @include flex(space-between);
   }
 }

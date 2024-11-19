@@ -37,6 +37,10 @@ export const router = createBrowserRouter([
             path: "",
             element: <DashboardPage />,
           },
+          {
+            path: "jar",
+            element: <DashboardPage />,
+          },
         ],
       },
     ],

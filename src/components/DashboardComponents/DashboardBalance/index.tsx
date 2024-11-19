@@ -1,11 +1,35 @@
 import { useSelector } from "react-redux";
 import "./dashboardBalance.scss";
 import userPlus from "/img/Dashboard/user-plus.svg";
-import arrowRight from "/img/Dashboard/arrow-right.svg";
+
 import { RootState } from "store/store";
-import DashboardButtonSection from "../DashboardButtonSection";
+import { useEffect, useState } from "react";
+import DashboardBalanceInfoSection from "../DashboardBalanceInfoSection";
+import { FirstData, SecondData } from "./dashboardButtonSection.data";
+
 export default function DashboardBalance() {
   const userWallet = useSelector((state: RootState) => state.walletStateRducer);
+  const [name, setName] = useState<string>("");
+  const [nameForCopy, setNameForCopy] = useState<string>("");
+  const userState = useSelector(
+    (state: RootState) => state.userStateReducer.data
+  );
+  
+  // name bank
+  useEffect(() => {
+    const fullName =
+      userWallet[0]?.display_name ??
+      userState.wallet_address ??
+      userState.telegram_id;
+    setNameForCopy(fullName);
+    let seeName;
+    if (userWallet[0]?.display_name) {
+      seeName = fullName;
+    } else {
+      seeName = `${fullName.slice(0, 5)}...${fullName.slice(-4)}`;
+    }
+    setName(seeName);
+  }, [userWallet, userState]);
 
   return (
     <section className="DashboardBalance">
@@ -28,26 +52,22 @@ export default function DashboardBalance() {
           </article>
         </button>
       </article>
-      <article className="DashboardBalanceStoreJarBalance">
-        <section className="DashboardBalanceStoreJarBalanceSection">
-          <article className="DashboardBalanceStoreJarBalanceSectionName">
-            <button>
-              <img src={arrowRight} alt="arrow right" />
-            </button>
-          </article>
-          <h1 className="DashboardBalanceStoreJarBalanceSectionBalance">
-            {userWallet[0]?.balance["TON"] ? (
-              <h1>${userWallet[0].balance["TON"]}</h1>
-            ) : (
-              <h1>$0</h1>
-            )}
-          </h1>
-          <DashboardButtonSection />
-        </section>
 
-        <section className="DashboardBalanceStoreJarBalanceSection">
-          <DashboardButtonSection />
-        </section>
+      <article className="DashboardBalanceStoreJarBalance">
+        <DashboardBalanceInfoSection
+          nameForCopy={nameForCopy}
+          name={name}
+          userWallet={userWallet}
+          state={true}
+          data={FirstData}
+        />
+        <DashboardBalanceInfoSection
+          nameForCopy={nameForCopy}
+          name={"My jars"}
+          userWallet={userWallet}
+          state={false}
+          data={SecondData}
+        />
       </article>
     </section>
   );

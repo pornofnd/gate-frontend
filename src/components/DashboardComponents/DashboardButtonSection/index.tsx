@@ -1,12 +1,25 @@
-import { data } from "./dashboardButtonSection.data";
+import { IDataDashboardCradBalance } from "../DashboardBalance/dashboardButtonSection.data";
 import "./dashboardButtonSection.scss";
 
-export default function DashboardButtonSection() {
+export default function DashboardButtonSection({
+  data,
+}: {
+  data: IDataDashboardCradBalance[];
+}) {
   return (
-    <div>
+    <section className="DashboardButtonSection">
       {data.map((elem) => (
-        <img src={elem} alt="" />
+        <button
+          className={
+            elem.title
+              ? "DashboardButtonSectionButton DashboardButtonSectionButtonActive"
+              : "DashboardButtonSectionButton"
+          }
+        >
+          <img src={elem.img} alt="" />
+          <h1>{elem?.title}</h1>
+        </button>
       ))}
-    </div>
+    </section>
   );
 }

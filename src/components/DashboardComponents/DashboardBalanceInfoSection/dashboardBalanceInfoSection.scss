@@ -1,0 +1,48 @@
+@import "mixins/size.scss";
+@import "mixins/psoition.scss";
+@import "mixins/text.scss";
+
+.DashboardBalanceInfoSection {
+    padding: 20px;
+    border-radius: var(--20, 20px);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border: 1px solid color(display-p3 1 1 1 / 0.04);
+    background: var(
+      --gr,
+      linear-gradient(
+        180deg,
+        rgba(255, 234, 253, 0.02) 0%,
+        rgba(253, 201, 242, 0.02) 100%
+      )
+    );
+    background: var(
+      --gr,
+      linear-gradient(
+        180deg,
+        color(display-p3 1 0.9219 0.9883 / 0.02) 0%,
+        color(display-p3 0.9601 0.7967 0.9383 / 0.02) 100%
+      )
+    );
+    /* Blure/Main blure */
+    backdrop-filter: blur(6px);
+
+    @include size(420px, 120 px);
+    &Name {
+      @include size(100%);
+      @include flex(space-between);
+      @include text(#808080, 16px, "Inter", 700);
+      section {
+        display: flex;
+        gap: 5px;
+      }
+      button {
+        border: none;
+        background: none;
+      }
+    }
+    &Balance {
+      margin-top: 12px;
+      @include text(#ffffff, 22px, "Inter", 700);
+    }
+  
+}
