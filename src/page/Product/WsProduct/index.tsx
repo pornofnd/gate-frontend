@@ -1,3 +1,3 @@
-export default function WsPRoduct() {
-  return <div>WsPRoduct</div>;
+export default function WsProduct() {
+  return <div>WsProduct</div>;
 }

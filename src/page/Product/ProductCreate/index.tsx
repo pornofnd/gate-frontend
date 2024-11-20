@@ -1,6 +1,6 @@
 
 export default function ProcutCreate() {
   return (
-    <div>PRocutCreate</div>
+    <div>ProductCreate</div>
   )
 }

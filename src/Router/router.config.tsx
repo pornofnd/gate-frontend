@@ -4,7 +4,7 @@ import JarPage from "../page/Jar/JarPage";
 import WsJar from "page/Jar/WsJar";
 import JarCreate from "components/JarComponents/JarCreate";
 import JarEdit from "page/Jar/JarEdit";
-import WsPRoduct from "page/Product/WsProduct";
+import WsProduct from "page/Product/WsProduct";
 import ProductCreate from "page/Product/ProductCreate";
 import ProductPage from "page/Product/ProudctPage";
 import { Layout } from "../layout";
@@ -79,7 +79,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "",
-        element: <WsPRoduct />,
+        element: <WsProduct />,
         children: [
           {
             path: "create",
@@ -101,4 +101,5 @@ export const router = createBrowserRouter([
       },
     ],
   },
+  
 ]);
