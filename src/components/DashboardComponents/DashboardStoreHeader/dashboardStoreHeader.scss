@@ -1,0 +1,28 @@
+@import "mixins/size.scss";
+@import "mixins/psoition.scss";
+@import "mixins/text.scss";
+
+.DashboardStoreHeader {
+  display: flex;
+  display: flex;
+  padding: var(--24, 24px);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--24, 24px);
+  border-radius: var(--16, 16px);
+  align-self: stretch;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid color(display-p3 1 1 1 / 0.03);
+  background: rgba(255, 255, 255, 0.02);
+  background: color(display-p3 1 1 1 / 0.02);
+  @include size(992px, 211px);
+  &SectionName {
+    @include flex(space-between);
+    @include size(992px);
+    @include text(#ffffff, 22px, "Inter", 700);
+    &Button {
+      @include size(129px, 44px);
+    }
+  }
+  
+}

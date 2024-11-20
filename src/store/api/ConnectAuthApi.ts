@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { ITelegramResponse, IToken, Response } from "type/Response";
-import { IWallet } from "type/wallets";
+import { IWallet } from "type/Wallets";
 
 export const ConnectApi = createApi({
   reducerPath: "ConnectApi",

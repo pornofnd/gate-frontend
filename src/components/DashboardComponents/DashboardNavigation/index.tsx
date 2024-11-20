@@ -1,13 +1,26 @@
+import { useLocation, useNavigate } from "react-router-dom";
 import { data } from "./DashboardNavigation.data";
 import "./dashboardNavigation.scss";
 export default function DashboardNavigation() {
-    //   const location = useLocation();
-// location.pathname
+  const navigation = useNavigate();
+  const location = useLocation();
+  const handlerSwitcherNav = (path: string) => {
+    navigation(path);
+  };
   return (
     <div className="DashboardNavigation">
       {data.map((elem) => (
-        <nav>{elem.title}</nav>
+        <nav
+          onClick={() => handlerSwitcherNav(elem.link)}
+          className={
+            location.pathname == elem.link
+              ? "DashboardNavigationActive "
+              : "DashboardNavigationText"
+          }
+        >
+          {elem.title}
+        </nav>
       ))}
     </div>
-  ); 
+  );
 }

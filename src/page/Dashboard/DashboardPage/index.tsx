@@ -1,3 +1,5 @@
+import DashboardStore from "components/DashboardComponents/DashboardStore";
+
 export default function DashboardPage() {
-  return <div>index</div>;
+  return <DashboardStore/>;
 }

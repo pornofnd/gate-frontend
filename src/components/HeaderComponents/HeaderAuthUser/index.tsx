@@ -6,7 +6,7 @@ import dashboardImg from "/img/Header/computer-desktop.svg";
 import { useEffect } from "react";
 import { walletStateActions } from "store/reducer/stateWallet";
 import { useGetListQuery } from "store/api/walletApi";
-import { IListWallet } from "type/wallets";
+import { IListWallet } from "type/Wallets";
 import { Response } from "type/Response";
 import { RootState } from "store/store";
 import StoreImg from "/img/Header/home.svg";

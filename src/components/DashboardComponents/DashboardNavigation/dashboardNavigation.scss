@@ -10,7 +10,14 @@
   margin-top: 40px;
   text-align: center;
   nav {
-    @include flex; @include size(130px, 44px);
+    cursor: pointer;
+    @include flex;
+    @include size(130px, 44px);
+  }
+  &Text {
     @include text(#ffffff, 16px, "Inter", normal);
   }
+}
+.DashboardNavigationActive {
+  @include text(#F6289D, 16px, "Inter", normal);
 }

@@ -4,7 +4,7 @@ import { RootState } from "store/store";
 import { useSelector } from "react-redux";
 import { useJarCreateMutation } from "store/api/jarApi";
 import { Response } from "type/Response";
-import { IJarCreate } from "type/jar";
+import { IJarCreate } from "type/Jar";
 import { useState } from "react";
 
 export interface IInputJar {

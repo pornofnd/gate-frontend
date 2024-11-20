@@ -1,7 +1,7 @@
 import { LoginButton } from "@telegram-auth/react";
 import { useEffect, useState } from "react";
 import ReactModal from "react-modal";
-import { useAuthTelegramMutation } from "store/api/ConnectAuthApi";
+import { useAuthTelegramMutation } from "store/api/connectAuthApi";
 import { ITelegramResponse, IToken, Response } from "type/Response";
 import "./TelegramAuth.scss";
 import TgImg from "public/img/Telegram_2019_Logo.svg";

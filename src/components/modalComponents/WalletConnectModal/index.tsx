@@ -1,12 +1,12 @@
 import "./walletConnectModal.scss";
 import Intersect from "/public/img/Intersect.svg";
-import { useGetWalletsQuery } from "../../../store/api/ConnectAuthApi";
+import { useGetWalletsQuery } from "../../../store/api/connectAuthApi";
 
 import { Response } from "type/Response";
 import ItemWallet from "components/modalComponents/ItemWallet";
 import { windowStateActions } from "../../../store/reducer/stateModal";
 import { useDispatch } from "react-redux";
-import { IWallet } from "type/wallets";
+import { IWallet } from "type/Wallets";
 
 export default function WalletConnectModal() {
   const { data } = useGetWalletsQuery() as Response<IWallet[], unknown>;

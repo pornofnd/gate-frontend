@@ -1,0 +1,12 @@
+@import "mixins/size.scss";
+@import "mixins/psoition.scss";
+@import "mixins/text.scss";
+
+.DashboardCategory {
+  @include flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  nav {
+    padding: var(--8, 8px) var(--16, 16px);
+  }
+}

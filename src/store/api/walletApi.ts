@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { Response } from "type/Response";
-import { IListWallet } from 'type/wallets';
+import { IListWallet } from 'type/Wallets';
 
 
 

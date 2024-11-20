@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { IJarCreate } from "type/jar";
+import { IJarCreate, IJarResponse } from "type/Jar";
 import { Response } from "type/Response";
-import { IListWallet } from "type/wallets";
+import { IListWallet } from "type/Wallets";
 
 export const WalletApi = createApi({
   reducerPath: "WalletApi",
@@ -34,14 +34,14 @@ export const WalletApi = createApi({
         body: data,
       }),
     }),
-    jarGet: build.query<Response<IListWallet, unknown>, void>({
+    jarGet: build.query<Response<IJarResponse, unknown>, void>({
       query: () => ({
         url: "get-list",
       }),
     }),
-    jarGetOne: build.query<Response<IListWallet, unknown>, void>({
+    jarGetOne: build.query<Response<IJarResponse, unknown>, void>({
       query: () => ({
-        url: ``
+        url: ``,
       }),
     }),
   }),

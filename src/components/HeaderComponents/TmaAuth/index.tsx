@@ -4,7 +4,7 @@ import {
   retrieveLaunchParams,
 } from "@telegram-apps/sdk-react";
 import TgImg from "public/img/Telegram_2019_Logo.svg";
-import { useTmaAuthTelgramMutation } from "store/api/ConnectAuthApi";
+import { useTmaAuthTelgramMutation } from "store/api/connectAuthApi";
 import { Response } from "type/Response";
 import { useDispatch } from "react-redux";
 import { IError, IGetMError } from "type/Error";
