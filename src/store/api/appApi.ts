@@ -1,11 +1,13 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { IAppResponseData } from "type/App";
+import { IJarCreate } from "type/Jar";
+import { Response } from "type/Response";
 
-
-export const ProductApi = createApi({
-  reducerPath: "ProductApi",
-  tagTypes: ["Product"],
+export const AppApi = createApi({
+  reducerPath: "AppApi",
+  tagTypes: ["App"],
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://gate.pornofnd.com/api/user/jars/",
+    baseUrl: "'https://gate.pornofnd.com/api/user/apps/",
     prepareHeaders: (headers) => {
       const local = localStorage.getItem("token");
       let tokenUser: string | undefined;
@@ -25,12 +27,14 @@ export const ProductApi = createApi({
     },
   }),
   endpoints: (build) => ({
-    // getCurrencies: build.query<Response<>, void>({
-    //   query: () => ({
-    //     url: "get",
-    //   }),
-    // }),
+    appCreate: build.mutation<Response<IAppResponseData, unknown>, IJarCreate>({
+      query: (data) => ({
+        url: "create",
+        method: "POST",
+        body: data,
+      }),
+    }),
   }),
 });
 
-export const {} = ProductApi;
+export const {} = AppApi;
