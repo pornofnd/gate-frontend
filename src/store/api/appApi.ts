@@ -7,7 +7,7 @@ export const AppApi = createApi({
   reducerPath: "AppApi",
   tagTypes: ["App"],
   baseQuery: fetchBaseQuery({
-    baseUrl: "'https://gate.pornofnd.com/api/user/apps/",
+    baseUrl: "https://gate.pornofnd.com/api/user/apps/",
     prepareHeaders: (headers) => {
       const local = localStorage.getItem("token");
       let tokenUser: string | undefined;
@@ -37,4 +37,4 @@ export const AppApi = createApi({
   }),
 });
 
-export const {} = AppApi;
+export const {useAppCreateMutation} = AppApi;

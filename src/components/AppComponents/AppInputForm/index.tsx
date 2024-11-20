@@ -7,6 +7,7 @@ import { Response } from "type/Response";
 import { IJarCreate } from "type/Jar";
 import { useState } from "react";
 import InputJar from "components/JarComponents/InputJar";
+import { useAppCreateMutation } from "store/api/appApi";
 export interface IInputApp {
   name: string;
   description: string;
@@ -17,9 +18,9 @@ export interface IInputApp {
 }
 export default function AppInputForm() {
   const websocketId = useSelector(
-    (state: RootState) => state.jarStateReducer.websocket_id
+    (state: RootState) => state.socketStateReducer.websocket_id
   );
-  const [JarCreateMutation] = useJarCreateMutation();
+  const [appCreateMutation] = useAppCreateMutation();
   const { handleSubmit, control } = useForm<IInputApp>({
     defaultValues: {
       name: "",
@@ -46,10 +47,10 @@ export default function AppInputForm() {
 
     dataForm.append("short_description", inputData.short_description);
     dataForm.append("links", inputData.links);
-    
+    dataForm.append(" default_locale", "en");
     dataForm.append("websocket_id", websocketId);
     console.log(dataForm);
-    const { data, error } = JarCreateMutation(
+    const { data, error } = appCreateMutation(
       dataForm as unknown as IJarCreate
     ) as Response<any, unknown>;
     console.log(data, error);

@@ -7,6 +7,8 @@ import { WalletApi } from "./api/walletApi";
 import { jarStateReducer } from "./reducer/stateJar";
 import { walletStateReducer } from "./reducer/stateWallet";
 import { PublicApi } from "./api/public";
+import { socketStateReducer } from "./reducer/stateSocket";
+import { AppApi } from "./api/appApi";
 
 export const store = configureStore({
   reducer: {
@@ -14,17 +16,20 @@ export const store = configureStore({
     [UserApi.reducerPath]: UserApi.reducer,
     [WalletApi.reducerPath]: WalletApi.reducer,
     [PublicApi.reducerPath]: PublicApi.reducer,
+    [AppApi.reducerPath]:AppApi.reducer,
     windowStateReducer: windowStateReducer,
     userStateReducer: userStateReducer,
     walletStateRducer: walletStateReducer,
     jarStateReducer: jarStateReducer,
+    socketStateReducer: socketStateReducer,
   },
   middleware: (getDefaultMiddlware) =>
     getDefaultMiddlware().concat(
       ConnectApi.middleware,
       UserApi.middleware,
       WalletApi.middleware,
-      PublicApi.middleware
+      PublicApi.middleware,
+      AppApi.middleware,
     ),
 });
 export type RootState = ReturnType<typeof store.getState>;
