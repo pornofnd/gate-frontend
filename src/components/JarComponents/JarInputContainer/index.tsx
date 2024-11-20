@@ -7,11 +7,10 @@ import { Response } from "type/Response";
 import { IJarCreate } from "type/Jar";
 import { useState } from "react";
 
-export interface IInputApp {
+export interface IInputJar {
   Name: string;
   Description: string;
-  Logo: any;
-  Banner: string;
+  Image: any;
 }
 
 export default function JarInputContainer() {
@@ -19,7 +18,7 @@ export default function JarInputContainer() {
     (state: RootState) => state.jarStateReducer.websocket_id
   );
   const [JarCreateMutation] = useJarCreateMutation();
-  const { handleSubmit, control } = useForm<IInputApp>({
+  const { handleSubmit, control } = useForm<IInputJar>({
     defaultValues: {
       Name: "",
       Description: "",
@@ -94,7 +93,7 @@ export default function JarInputContainer() {
         )}
       />
       <Controller
-        name="Logo"
+        name="Image"
         control={control}
         rules={{
           required: "Image is required",

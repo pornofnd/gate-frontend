@@ -7,23 +7,28 @@ import { Response } from "type/Response";
 import { IJarCreate } from "type/Jar";
 import { useState } from "react";
 import InputJar from "components/JarComponents/InputJar";
-export interface IInputJar {
-  Name: string;
-  Description: string;
-  Image: any;
+export interface IInputApp {
+  name: string;
+  description: string;
+  short_description: string;
+  logo: any;
+  banner: any;
+  links: string;
 }
 export default function AppInputForm() {
   const websocketId = useSelector(
     (state: RootState) => state.jarStateReducer.websocket_id
   );
   const [JarCreateMutation] = useJarCreateMutation();
-  const { handleSubmit, control } = useForm<IInputJar>({
+  const { handleSubmit, control } = useForm<IInputApp>({
     defaultValues: {
-      Name: "",
-      Description: "",
+      name: "",
+      description: "",
+      short_description: "",
+      links: "",
     },
   });
-  const onSubmit = (inputData) => {
+  const onSubmit = (inputData: IInputApp) => {
     // const date: IJarCreate = {
     //   websocket_id: websocketId,
     //   display_name: inputData.Name,
@@ -34,14 +39,14 @@ export default function AppInputForm() {
     //   show_in_profile: true,
     // };
     const dataForm = new FormData();
-    dataForm.append("photo", inputData.Image);
-    dataForm.append("description", inputData.Description);
-    dataForm.append("display_name", inputData.Name);
-    dataForm.append("banner", inputData.Image);
+    dataForm.append("logo", inputData.logo);
+    dataForm.append("description", inputData.description);
+    dataForm.append("name", inputData.name);
+    dataForm.append("banner", inputData.banner);
 
-    dataForm.append("allowed_currencies", "aa");
-    dataForm.append("allowed_currencies", "aaaa");
-    dataForm.append("show_in_profile", JSON.stringify(true));
+    dataForm.append("short_description", inputData.short_description);
+    dataForm.append("links", inputData.links);
+    
     dataForm.append("websocket_id", websocketId);
     console.log(dataForm);
     const { data, error } = JarCreateMutation(
@@ -49,14 +54,17 @@ export default function AppInputForm() {
     ) as Response<any, unknown>;
     console.log(data, error);
   };
-  const [image, setImage] = useState<string | null>(null);
-
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const [logo, setLogo] = useState<string | null>(null);
+  const [banner, setBanner] = useState<string | null>(null);
+  const handleFileChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+    setHook: React.Dispatch<React.SetStateAction<string | null>>
+  ) => {
     const file = event.target.files?.[0];
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
-        setImage(reader.result as string);
+        setHook(reader.result as string);
       };
       reader.readAsDataURL(file);
     }
@@ -66,7 +74,7 @@ export default function AppInputForm() {
       {" "}
       <form onSubmit={handleSubmit(onSubmit)}>
         <Controller
-          name="Name"
+          name="name"
           control={control}
           rules={{
             required: "Name required",
@@ -80,7 +88,7 @@ export default function AppInputForm() {
           )}
         />
         <Controller
-          name="Description"
+          name="description"
           control={control}
           rules={{
             required: "Description required",
@@ -94,7 +102,37 @@ export default function AppInputForm() {
           )}
         />
         <Controller
-          name="Image"
+          name="short_description"
+          control={control}
+          rules={{
+            required: "Description required",
+            minLength: { value: 5, message: "Minimum 5 characters" },
+          }}
+          render={({ field, fieldState: { error } }) => (
+            <>
+              <InputJar {...field} />
+              <div>{error && <p>{error.message}</p>}</div>
+            </>
+          )}
+        />
+
+        <Controller
+          name="links"
+          control={control}
+          rules={{
+            required: "Description required",
+            minLength: { value: 5, message: "Minimum 5 characters" },
+          }}
+          render={({ field, fieldState: { error } }) => (
+            <>
+              <InputJar {...field} />
+              <div>{error && <p>{error.message}</p>}</div>
+            </>
+          )}
+        />
+
+        <Controller
+          name="logo"
           control={control}
           rules={{
             required: "Image is required",
@@ -105,15 +143,45 @@ export default function AppInputForm() {
                 type="file"
                 accept="image/*"
                 onChange={(e) => {
-                  handleFileChange(e);
+                  handleFileChange(e, setLogo);
                   if (e.target.files && e.target.files[0]) {
                     field.onChange(e.target.files[0]);
                   }
                 }}
               />
-              {image && (
+              {logo && (
                 <img
-                  src={image}
+                  src={logo}
+                  alt="Uploaded"
+                  style={{ maxWidth: "400px", marginTop: "20px" }}
+                />
+              )}
+              <div>{error && <p>{error.message}</p>}</div>
+            </>
+          )}
+        />
+
+        <Controller
+          name="banner"
+          control={control}
+          // rules={{
+          //   required: "Image is required",
+          // }}
+          render={({ field, fieldState: { error } }) => (
+            <>
+              <input
+                type="file"
+                accept="image/*"
+                onChange={(e) => {
+                  handleFileChange(e, setBanner);
+                  if (e.target.files && e.target.files[0]) {
+                    field.onChange(e.target.files[0]);
+                  }
+                }}
+              />
+              {banner && (
+                <img
+                  src={banner}
                   alt="Uploaded"
                   style={{ maxWidth: "400px", marginTop: "20px" }}
                 />
