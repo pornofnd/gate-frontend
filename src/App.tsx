@@ -1,6 +1,5 @@
 // import { useEffect } from "react";
 import "./App.css";
-import { Layout } from "./layout";
 import { Router } from "./Router";
 // import { miniApp, postEvent, retrieveLaunchParams } from "@telegram-apps/sdk";
 // import { tmaAuth } from "components/TmaAuth";
