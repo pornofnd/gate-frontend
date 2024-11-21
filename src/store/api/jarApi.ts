@@ -44,6 +44,12 @@ export const WalletApi = createApi({
         url: ``,
       }),
     }),
+    jarCountAndBalance: build.query<Response<IJarResponse, unknown>, void>({
+      query: () => ({
+        url: `get-jars-count-and-total-balance`,
+      }),
+    }),
+    
   }),
 });
 

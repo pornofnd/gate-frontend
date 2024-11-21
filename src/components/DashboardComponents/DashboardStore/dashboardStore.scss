@@ -2,7 +2,10 @@
 @import "mixins/psoition.scss";
 @import "mixins/text.scss";
 
-.DashboardStore{
-display: flex;
-
+.DashboardMenu {
+  margin-top: 40px;
+  @include flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  @include size(992px);
 }

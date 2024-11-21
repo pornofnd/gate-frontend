@@ -1,6 +1,6 @@
 import Button from "components/Button";
 import "./dashboardStoreHeader.scss";
-import DashboardCategory from "../DashboardCategory";
+// import DashboardCategory from "../DashboardCategory";
 
 export default function DashboardStoreHeader() {
   return (
@@ -12,7 +12,7 @@ export default function DashboardStoreHeader() {
           sizeClass="DashboardStoreHeaderSectionNameButton"
         />
       </section>
-      <DashboardCategory />
+      {/* <DashboardCategory /> */}
     </header>
   );
 }

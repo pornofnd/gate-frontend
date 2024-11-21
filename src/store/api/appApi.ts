@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { IAppResponseData } from "type/App";
+import { IApp, IAppResponseCereateData } from "type/App";
 import { IJarCreate } from "type/Jar";
 import { Response } from "type/Response";
 
@@ -27,14 +27,19 @@ export const AppApi = createApi({
     },
   }),
   endpoints: (build) => ({
-    appCreate: build.mutation<Response<IAppResponseData, unknown>, IJarCreate>({
+    appCreate: build.mutation<Response<IAppResponseCereateData, unknown>, IJarCreate>({
       query: (data) => ({
         url: "create",
         method: "POST",
         body: data,
       }),
     }),
+    appGetList: build.query<Response<IApp[], unknown>, void>({
+      query: () => ({
+        url: "get-list",
+      }),
+    }),
   }),
 });
 
-export const {useAppCreateMutation} = AppApi;
+export const { useAppCreateMutation ,useAppGetListQuery} = AppApi;

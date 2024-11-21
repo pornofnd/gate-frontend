@@ -9,6 +9,7 @@ import { walletStateReducer } from "./reducer/stateWallet";
 import { PublicApi } from "./api/public";
 import { socketStateReducer } from "./reducer/stateSocket";
 import { AppApi } from "./api/appApi";
+import { appStateReducer } from "./reducer/storeApp";
 
 export const store = configureStore({
   reducer: {
@@ -16,12 +17,13 @@ export const store = configureStore({
     [UserApi.reducerPath]: UserApi.reducer,
     [WalletApi.reducerPath]: WalletApi.reducer,
     [PublicApi.reducerPath]: PublicApi.reducer,
-    [AppApi.reducerPath]:AppApi.reducer,
+    [AppApi.reducerPath]: AppApi.reducer,
     windowStateReducer: windowStateReducer,
     userStateReducer: userStateReducer,
     walletStateRducer: walletStateReducer,
     jarStateReducer: jarStateReducer,
     socketStateReducer: socketStateReducer,
+    appStateReducer: appStateReducer,
   },
   middleware: (getDefaultMiddlware) =>
     getDefaultMiddlware().concat(
@@ -29,7 +31,7 @@ export const store = configureStore({
       UserApi.middleware,
       WalletApi.middleware,
       PublicApi.middleware,
-      AppApi.middleware,
+      AppApi.middleware
     ),
 });
 export type RootState = ReturnType<typeof store.getState>;

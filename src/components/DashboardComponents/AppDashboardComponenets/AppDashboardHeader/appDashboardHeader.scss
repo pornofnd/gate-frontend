@@ -1,0 +1,7 @@
+@import "mixins/size.scss";
+@import "mixins/psoition.scss";
+@import "mixins/text.scss";
+
+.AppDashboardHeader {
+  @include size(992px, 300px);
+}

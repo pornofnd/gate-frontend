@@ -1,0 +1,18 @@
+@import "mixins/size.scss";
+@import "mixins/psoition.scss";
+@import "mixins/text.scss";
+
+.ItemApp {
+  @include size(488px, 80px);
+  @include flex(flex-start);
+  gap: 16px;
+  background: #1f1f1f;
+  border: none;
+  border-radius: 24px;
+  img {
+    object-fit: cover;
+    position: relative;
+    border-radius: 16px;
+    @include size(56px, 56px);
+  }
+}
