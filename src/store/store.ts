@@ -10,6 +10,7 @@ import { PublicApi } from "./api/public";
 import { socketStateReducer } from "./reducer/stateSocket";
 import { AppApi } from "./api/appApi";
 import { appStateReducer } from "./reducer/storeApp";
+import { ProductApi } from "./api/productApi";
 
 export const store = configureStore({
   reducer: {
@@ -18,6 +19,7 @@ export const store = configureStore({
     [WalletApi.reducerPath]: WalletApi.reducer,
     [PublicApi.reducerPath]: PublicApi.reducer,
     [AppApi.reducerPath]: AppApi.reducer,
+    [ProductApi.reducerPath]: ProductApi.reducer,
     windowStateReducer: windowStateReducer,
     userStateReducer: userStateReducer,
     walletStateRducer: walletStateReducer,
@@ -28,6 +30,7 @@ export const store = configureStore({
   middleware: (getDefaultMiddlware) =>
     getDefaultMiddlware().concat(
       ConnectApi.middleware,
+      ProductApi.middleware,
       UserApi.middleware,
       WalletApi.middleware,
       PublicApi.middleware,

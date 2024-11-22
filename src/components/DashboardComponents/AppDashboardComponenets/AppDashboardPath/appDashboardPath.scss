@@ -1,0 +1,8 @@
+@import "mixins/size.scss";
+@import "mixins/psoition.scss";
+@import "mixins/text.scss";
+
+.AppDashboardPath {
+  margin-top: 40px;
+  @include text(rgba(255, 255, 255, 0.56), 20px, "Inter", normal);
+}

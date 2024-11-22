@@ -1,0 +1,10 @@
+@import "mixins/size.scss";
+@import "mixins/psoition.scss";
+@import "mixins/text.scss";
+
+.AppDashboardItem {
+  @include size(96px, 44px);
+  @include flex;
+  @include text(#ffffff, 16px, "Inter", normal);
+  cursor: pointer;
+}

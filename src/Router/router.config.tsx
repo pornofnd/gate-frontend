@@ -14,8 +14,8 @@ import JarGetOne from "page/Jar/JarGetOne";
 import DashboardPage from "page/Dashboard/DashboardPage";
 import DashboardLayout from "page/Dashboard/DashboardLayout";
 import WsDashboard from "page/Dashboard/WsDashboard";
+import AppDashboardLayout from "page/Dashboard/AppDashboardLayout";
 import AppCreate from "page/Dashboard/AppCreate";
-import DashboardApp from "page/Dashboard/DashboardApp";
 
 export const router = createBrowserRouter([
   {
@@ -48,15 +48,15 @@ export const router = createBrowserRouter([
                 path: "jar",
                 element: <DashboardPage />,
               },
+              {
+                path: "app/create",
+                element: <AppCreate />,
+              },
+              {
+                path: "app/:id",
+                element: <AppDashboardLayout />,
+              },
             ],
-          },
-          {
-            path: "app/create",
-            element: <AppCreate />,
-          },
-          {
-            path: "app/:id",
-            element: <DashboardApp />,
           },
         ],
       },

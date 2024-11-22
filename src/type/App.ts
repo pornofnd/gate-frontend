@@ -74,3 +74,7 @@ export interface IApp {
   allowed_ips: string[];
   settings: Settings;
 }
+export interface IAppGetList{
+app:IApp
+type:"private"|"public"
+}

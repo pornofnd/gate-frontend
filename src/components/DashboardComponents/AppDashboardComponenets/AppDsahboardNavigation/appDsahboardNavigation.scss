@@ -1,0 +1,16 @@
+@import "mixins/size.scss";
+@import "mixins/psoition.scss";
+@import "mixins/text.scss";
+
+.AppDsahboardNavigation {
+  //   margin-top: 40px;
+  @include flex;
+  @include size(992px, 105px);
+  background: #242324;
+  background: color(display-p3 0.1412 0.1373 0.1412);
+  &Container {
+    @include flex(flex-start);
+    margin-top: 40px;
+    @include size(944px, 44px);
+  }
+}

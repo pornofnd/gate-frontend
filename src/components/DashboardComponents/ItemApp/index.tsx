@@ -9,5 +9,5 @@ export default function ItemApp({ data }: { data: IApp }) {
       <img src={data.card.banner_urls[0]} alt="" />
       <h1>{data.card.name}</h1>
     </button>
-  );
+ );
 }
