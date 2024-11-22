@@ -1,0 +1,12 @@
+@import "mixins/size.scss";
+@import "mixins/psoition.scss";
+@import "mixins/text.scss";
+
+.AppProducts{
+    @include flex;
+    padding-top: 32px;
+    flex-wrap:wrap ;
+    background: #242324;
+    background: color(display-p3 0.1412 0.1373 0.1412);
+    gap: 16px;
+}

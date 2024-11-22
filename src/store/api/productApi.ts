@@ -26,7 +26,7 @@ export const ProductApi = createApi({
     },
   }),
   endpoints: (build) => ({
-    getListPorduct: build.query<Response<IPorduct, unknown>, string>({
+    getListPorduct: build.query<Response<IPorduct[], unknown>, string>({
       query: (url: string) => ({
         url: `get-list?app_id=${url}`,
       }),

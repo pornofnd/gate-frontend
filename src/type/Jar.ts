@@ -8,7 +8,7 @@ export interface IJarCreate {
   show_in_profile: boolean;
 }
 export interface IJarResponse {
-  jars: Jar[];
+  count: number;
   total_balance: string;
 }
 export interface Jar {

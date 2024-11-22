@@ -6,6 +6,9 @@ import { RootState } from "store/store";
 import { useEffect, useState } from "react";
 import DashboardBalanceInfoSection from "../DashboardBalanceInfoSection";
 import { FirstData, SecondData } from "./dashboardButtonSection.data";
+// import { useJarCountAndBalanceQuery } from "store/api/jarApi";
+// import { IJarResponse } from "type/Jar";
+// import { Response } from "type/Response";
 
 export default function DashboardBalance() {
   const userWallet = useSelector((state: RootState) => state.walletStateRducer);
@@ -14,7 +17,11 @@ export default function DashboardBalance() {
   const userState = useSelector(
     (state: RootState) => state.userStateReducer.data
   );
-  
+  // const { data } = useJarCountAndBalanceQuery() as Response<
+  //   IJarResponse,
+  //   unknown
+  // >;
+  // console.log(data);
   // name bank
   useEffect(() => {
     const fullName =
@@ -64,7 +71,7 @@ export default function DashboardBalance() {
         <DashboardBalanceInfoSection
           nameForCopy={nameForCopy}
           name={"My jars"}
-          userWallet={userWallet}
+          userWallet={""}
           state={false}
           data={SecondData}
         />

@@ -36,6 +36,7 @@ export default function DashboardBalanceInfoSection({
         )}
       </h1>
       <DashboardButtonSection data={data} />
+      
     </section>
   );
 }

@@ -1,0 +1,10 @@
+@import "mixins/size.scss";
+@import "mixins/psoition.scss";
+@import "mixins/text.scss";
+
+.AppCreateModal {
+
+
+    @include size(736px, 576px);
+  
+}

@@ -2,9 +2,11 @@ import "./button.scss";
 export default function Button({
   text,
   sizeClass,
+  func,
 }: {
   text: string;
   sizeClass: string;
+  func?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }) {
-  return <button className={` Button  ${sizeClass}`}>{text}</button>;
+  return <button onClick={func } className={` Button  ${sizeClass}`}>{text}</button>;
 }

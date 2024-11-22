@@ -53,4 +53,4 @@ export const WalletApi = createApi({
   }),
 });
 
-export const { useJarCreateMutation, useJarGetQuery } = WalletApi;
+export const { useJarCreateMutation, useJarGetQuery,useJarCountAndBalanceQuery } = WalletApi;

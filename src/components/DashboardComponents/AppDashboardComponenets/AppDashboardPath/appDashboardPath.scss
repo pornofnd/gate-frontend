@@ -3,6 +3,11 @@
 @import "mixins/text.scss";
 
 .AppDashboardPath {
+  @include flex(start);
   margin-top: 40px;
   @include text(rgba(255, 255, 255, 0.56), 20px, "Inter", normal);
+  &Violet {
+    color: #F6289D;
+    cursor: pointer;
+  }
 }

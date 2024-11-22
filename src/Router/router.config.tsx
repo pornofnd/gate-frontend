@@ -15,7 +15,8 @@ import DashboardPage from "page/Dashboard/DashboardPage";
 import DashboardLayout from "page/Dashboard/DashboardLayout";
 import WsDashboard from "page/Dashboard/WsDashboard";
 import AppDashboardLayout from "page/Dashboard/AppDashboardLayout";
-import AppCreate from "page/Dashboard/AppCreate";
+import AppCreate from "page/App/AppCreate";
+import AppProudcts from "page/App/AppProducts";
 
 export const router = createBrowserRouter([
   {
@@ -55,6 +56,16 @@ export const router = createBrowserRouter([
               {
                 path: "app/:id",
                 element: <AppDashboardLayout />,
+                children: [
+                  {
+                    path: "",
+                    element: <AppProudcts />,
+                  },
+                  {
+                    path: "wallet",
+                    element: <AppCreate />,
+                  },
+                ]
               },
             ],
           },
