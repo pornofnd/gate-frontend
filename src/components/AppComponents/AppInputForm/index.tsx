@@ -40,6 +40,7 @@ export default function AppInputForm() {
     //   show_in_profile: true,
     // };
     const dataForm = new FormData();
+    console.log(websocketId)
     dataForm.append("logo", inputData.logo);
     dataForm.append("description", inputData.description);
     dataForm.append("name", inputData.name);

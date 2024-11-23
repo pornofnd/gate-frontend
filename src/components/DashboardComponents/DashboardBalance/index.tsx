@@ -29,11 +29,16 @@ export default function DashboardBalance() {
       userState.wallet_address ??
       userState.telegram_id;
     setNameForCopy(fullName);
-    let seeName;
+    let seeName = "";
     if (userWallet[0]?.display_name) {
       seeName = fullName;
     } else {
-      seeName = `${fullName.slice(0, 5)}...${fullName.slice(-4)}`;
+      if (userState.wallet_address) {
+        seeName = `${userState.wallet_address.slice(
+          0,
+          5
+        )}...${userState.wallet_address.slice(-4)}`;
+      }
     }
     setName(seeName);
   }, [userWallet, userState]);

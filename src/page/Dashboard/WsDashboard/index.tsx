@@ -14,6 +14,7 @@ export default function WsDashboard() {
     const port = `wss://gate.pornofnd.com/ws/user/webpage?auth_token=${token}`;
     const ws = new WebSocket(port);
     ws.onmessage = (event) => {
+      console.log(event)
       const res = JSON.parse(event.data);
       console.log(res);
       dispatch(socketStateActions.addWebsocketId(res.websocket_id));

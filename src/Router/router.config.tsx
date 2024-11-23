@@ -65,7 +65,7 @@ export const router = createBrowserRouter([
                     path: "wallet",
                     element: <AppCreate />,
                   },
-                ]
+                ],
               },
             ],
           },
@@ -103,31 +103,23 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: "/product",
+    path: "/store",
     element: <Layout />,
     children: [
       {
         path: "",
-        element: <WsProduct />,
-        children: [
-          {
-            path: "create",
-            element: <ProductCreate />,
-          },
-          {
-            path: "",
-            element: <ProductPage />,
-          },
-          {
-            path: "edit",
-            element: <ProductEdit />,
-          },
-          {
-            path: "getone/:id",
-            element: <ProductGetOne />,
-          },
-        ],
+        element: <JarEdit />,
       },
+      {
+        path: ":id",
+        element: <JarEdit />,
+      },
+      // {
+      // path: "",
+      // element: <WsProduct />,
+      // children: [
+      // ],
+      // },
     ],
   },
 ]);
