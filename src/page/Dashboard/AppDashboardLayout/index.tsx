@@ -4,7 +4,7 @@ import AppDsahboardNavigation from "components/DashboardComponents/AppDashboardC
 import { Outlet, useParams } from "react-router-dom";
 import { useAppGetOneQuery } from "store/api/appApi";
 
-import {  IAppGetList } from "type/App";
+import { IAppGetList } from "type/App";
 
 import { Response } from "type/Response";
 
@@ -18,7 +18,7 @@ export default function AppDashboardLayout() {
   // console.log(app.data?.data);
   return (
     <div>
-      <AppDashboardPath />
+      <AppDashboardPath domenPath="Stores" link="dashboard"  />
       {app?.data && <AppDashboardHeader data={app.data.data} />}
       <AppDsahboardNavigation />
       <Outlet />

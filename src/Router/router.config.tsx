@@ -17,6 +17,7 @@ import WsDashboard from "page/Dashboard/WsDashboard";
 import AppDashboardLayout from "page/Dashboard/AppDashboardLayout";
 import AppCreate from "page/App/AppCreate";
 import AppProudcts from "page/App/AppProducts";
+import StoreOne from "page/Store/StoreOne";
 
 export const router = createBrowserRouter([
   {
@@ -112,7 +113,7 @@ export const router = createBrowserRouter([
       },
       {
         path: ":id",
-        element: <JarEdit />,
+        element: <StoreOne />,
       },
       // {
       // path: "",

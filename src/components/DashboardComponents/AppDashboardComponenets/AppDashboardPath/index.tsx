@@ -1,16 +1,25 @@
-
 import "./appDashboardPath.scss";
 import { useNavHook } from "utils/navHook";
-export default function AppDashboardPath() {
+export default function AppDashboardPath({
+  domenPath,
+  link,
+  name,
+}: {
+  domenPath: string;
+  link?: string;
+}) {
   const navigation = useNavHook();
 
   return (
     <section className="AppDashboardPath">
-      <h1 onClick={() => navigation("/dashboard")} className="AppDashboardPathViolet">
-        Steps
-      </h1>{" "}
-      <h1> / </h1>
-      <h1>name</h1>
+      <p
+        onClick={() => navigation(`/${link}`)}
+        className="AppDashboardPathViolet"
+      >
+        {domenPath}
+      </p>{" "}
+      <p> / </p>
+      <p>name</p>
     </section>
   );
 }
