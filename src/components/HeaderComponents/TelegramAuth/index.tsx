@@ -74,7 +74,7 @@ const TelegramAuthModal = () => {
         <div id="telegram-widget-container">
           <LoginButton
             // @pornogatetestbot
-            botUsername="pornogatetestbot"
+            botUsername="porno_gate_bot"
             onAuthCallback={async (res) => {
               const authData: ITelegramResponse = {
                 auth_date: res.auth_date,
