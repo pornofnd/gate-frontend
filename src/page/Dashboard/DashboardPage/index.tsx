@@ -1,4 +1,4 @@
-import DashboardStore from "components/DashboardComponents/DashboardStore";
+import DashboardStore from "Molecules/DashboardStore";
 
 export default function DashboardPage() {
   return <DashboardStore/>;

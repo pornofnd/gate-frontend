@@ -28,7 +28,12 @@
       "public/*": ["public/*"],
       "utils/*": ["utils/*"],
       "mixins/*": ["mixins/*"],
-      "store/*": ["store/*"]
+      "store/*": ["store/*"],
+      "Templates/*": ["Templates/*"],
+      "Atoms/*": ["Atoms/*"],
+      "Organisms/*":["Organisms/*"],
+      "Pages/*":["Pages/*"],
+      "Molecules/*":["Molecules/*"]
     }
   }
 }

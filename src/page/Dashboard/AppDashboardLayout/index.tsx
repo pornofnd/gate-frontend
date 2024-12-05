@@ -1,6 +1,6 @@
 import AppDashboardHeader from "components/DashboardComponents/AppDashboardComponenets/AppDashboardHeader";
-import AppDashboardPath from "components/DashboardComponents/AppDashboardComponenets/AppDashboardPath";
-import AppDsahboardNavigation from "components/DashboardComponents/AppDashboardComponenets/AppDsahboardNavigation";
+import AppDashboardPath from "Atoms/AppDashboardPath";
+import AppDsahboardNavigation from "Molecules/AppDsahboardNavigation";
 import { Outlet, useParams } from "react-router-dom";
 import { useAppGetOneQuery } from "store/api/appApi";
 

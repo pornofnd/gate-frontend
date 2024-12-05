@@ -1,5 +1,5 @@
 
-import TelegramAuth from 'components/HeaderComponents/TelegramAuth'
+import TelegramAuth from 'Molecules/TelegramAuth'
 import './alertTelegram.scss'
 export default function AlertTelegram() {
   return (

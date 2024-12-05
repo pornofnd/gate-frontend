@@ -1,6 +1,6 @@
 // import { useEffect } from "react";
 import "./App.css";
-import { Router } from "./Router";
+import { Router } from "./Pages/Router";
 // import { miniApp, postEvent, retrieveLaunchParams } from "@telegram-apps/sdk";
 // import { tmaAuth } from "components/TmaAuth";
 import { Provider } from "react-redux";

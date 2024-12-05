@@ -1,4 +1,4 @@
-import AppProductItem from "components/AppComponents/AppProductItem";
+import AppProductItem from "Molecules/AppProductItem";
 import { useParams } from "react-router-dom";
 import { useGetListPorductQuery } from "store/api/productApi";
 import { IPorduct } from "type/Product";

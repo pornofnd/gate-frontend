@@ -1,7 +1,7 @@
-import CardCategory from "components/ContainerCardCategoryComponents/CardCategory";
+import CardCategory from "Molecules/CardCategory";
 import { data } from "./NFTCollectionCategoryContainer.data";
 import "./NFTCollectionCategoryContainer.scss";
-import TitleCardCategory from "../TitleCardCategory";
+import TitleCardCategory from "../../../Atoms/TitleCardCategory";
 const dataTitle = {
   title: "NFT Collections",
   desc: "Collect and trade unique digital assets on various blockchains.",

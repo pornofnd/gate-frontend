@@ -1,5 +1,5 @@
-import TitleCardCategory from "../TitleCardCategory";
-import CardCategory from "../CardCategory";
+import TitleCardCategory from "../../../Atoms/TitleCardCategory/index.tsx";
+import CardCategory from "../../../Molecules/CardCategory/index.tsx";
 import "./gamesCollectionCategoryContainer.scss"
 import { data } from "./gamesCollectionCategoryContainer.data.ts";
 const dataTitle = {

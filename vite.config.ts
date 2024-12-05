@@ -14,6 +14,11 @@ export default defineConfig({
       utils: "/src/utils",
       store: "/src/store/",
       page: "/src/page",
+      Templates: "/src/Templates",
+      Atoms: "/src/Atoms",
+      Organisms:"/src/Organisms",
+      Pages:"/src/Pages",
+      Molecules:"/src/Molecules"
     },
   },
 });

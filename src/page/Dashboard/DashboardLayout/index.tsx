@@ -1,4 +1,4 @@
-import DashboardBalance from "components/DashboardComponents/DashboardBalance";
+import DashboardBalance from "Organisms/DashboardBalance";
 // import DashboardNavigation from "components/DashboardComponents/DashboardNavigation";
 import { Outlet } from "react-router-dom";
 
