@@ -7,8 +7,8 @@ import { windowStateActions } from "../../store/reducer/stateModal";
 import { RootState } from "store/store";
 import HeaderAuthUser from "Organisms/HeaderAuthUser";
 
-import WalletAuthModal from "components/modalComponents/WalletAuthModal";
-import WalletModal from "components/modalComponents/WalletModal";
+import WalletAuthModal from "Templates/WalletAuthModal";
+import WalletModal from "Templates/WalletModal";
 import { useEffect, useState } from "react";
 import TmaAuth from "Molecules/TmaAuth";
 export default function Header() {

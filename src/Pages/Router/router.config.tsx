@@ -1,23 +1,23 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../../Templates/Home";
-import JarPage from "../../page/Jar/JarPage";
-import WsJar from "page/Jar/WsJar";
+import JarPage from "../JarPage";
+import WsJar from "Pages/WsJar";
 import JarCreate from "Molecules/JarCreate";
-import JarEdit from "page/Jar/JarEdit";
-import WsProduct from "page/Product/WsProduct";
-import ProductCreate from "page/Product/ProductCreate";
-import ProductPage from "page/Product/ProudctPage";
+import JarEdit from "Pages/JarEdit";
+import WsProduct from "Pages/WsProduct";
+import ProductCreate from "Pages/ProductCreate";
+import ProductPage from "Pages/ProudctPage";
 import { Layout } from "../layout";
-import ProductGetOne from "page/Product/ProductGetOne";
-import ProductEdit from "page/Product/ProductEdit";
-import JarGetOne from "page/Jar/JarGetOne";
-import DashboardPage from "page/Dashboard/DashboardPage";
-import DashboardLayout from "page/Dashboard/DashboardLayout";
-import WsDashboard from "page/Dashboard/WsDashboard";
-import AppDashboardLayout from "page/Dashboard/AppDashboardLayout";
-import AppCreate from "page/App/AppCreate";
-import AppProudcts from "page/App/AppProducts";
-import StoreOne from "page/Store/StoreOne";
+import ProductGetOne from "Pages/ProductGetOne";
+import ProductEdit from "Pages/ProductEdit";
+import JarGetOne from "Pages/JarGetOne";
+import DashboardPage from "Pages/DashboardPage";
+import DashboardLayout from "Pages/DashboardLayout";
+import WsDashboard from "Pages/WsDashboard";
+import AppDashboardLayout from "Pages/AppDashboardLayout";
+import AppCreate from "Pages/AppCreate";
+import AppProudcts from "Templates/AppProducts";
+import StoreOne from "Pages/StoreOne";
 
 export const router = createBrowserRouter([
   {

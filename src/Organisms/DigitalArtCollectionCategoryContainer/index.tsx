@@ -1,5 +1,5 @@
 import CardCategory from "../../Molecules/CardCategory";
-import TitleCardCategory from "../../Atoms/TitleCardCategory";
+import TitleCardCategory from "../TitleCardCategory";
 import { data } from "./digitalArtCollectionCategoryContainer.data";
 import "./digitalArtCollectionCategoryContainer.scss";
 const dataTitle = {

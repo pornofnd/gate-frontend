@@ -1,4 +1,4 @@
-import { IDAtaCategoryCard } from "components/ContainerCardCategoryComponents/NFTCollectionCategoryContainer/NFTCollectionCategoryContainer.data";
+import { IDAtaCategoryCard } from "Templates/NFTCollectionCategoryContainer/NFTCollectionCategoryContainer.data";
 import "./cardCategory.scss";
 export default function CardCategory({ data }: { data: IDAtaCategoryCard }) {
   return (
