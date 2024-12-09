@@ -1,0 +1,9 @@
+@import "mixins/mixins";
+.DashboardStoreHeaderTitle {
+  @include size(944px, 44px);
+  @include flex(space-between);
+  @include text(#ffffff, 24px, "Inter", normal);
+  &Button {
+    @include size(113px, 44px);
+  }
+}

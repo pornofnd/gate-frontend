@@ -1,0 +1,12 @@
+@import "mixins/mixins";
+
+.DashboardStoreList {
+  @include flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  @include size(992px);
+  border: 12px;
+  box-sizing: border-box;
+
+  padding-bottom: 28px;
+}

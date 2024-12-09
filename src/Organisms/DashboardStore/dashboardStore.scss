@@ -1,0 +1,15 @@
+@import "mixins/size.scss";
+@import "mixins/psoition.scss";
+@import "mixins/text.scss";
+
+.DashboardStore {
+  @include size(992px);
+  background: #1d1d1d;
+  margin-top: 40px;
+  border-radius: 28px;
+  box-sizing: border-box;
+  @include flex(center, center, column);
+  padding: 24px;
+  gap: 24px;
+  margin-bottom: 44px;
+}

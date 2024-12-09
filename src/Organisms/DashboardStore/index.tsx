@@ -6,9 +6,9 @@ import { appStateActions } from "store/reducer/storeApp";
 import { IApp } from "type/App";
 import { Response } from "type/Response";
 import { RootState } from "store/store";
-import ItemApp from "../../Atoms/ItemApp";
-import Button from "Atoms/Button";
 import AppCreateModal from "Organisms/AppCreateModal";
+import DashboardStoreList from "Molecules/DashboardStoreList";
+import DashboardStoreHeaderTitle from "Molecules/DashboardStoreHeaderTitle/idnex";
 
 export default function DashboardStore() {
   const dispatch = useDispatch();
@@ -21,21 +21,11 @@ export default function DashboardStore() {
       dispatch(appStateActions.addApp(data.data));
     }
   }, [data]);
-  function openModal() {
-    setIsOpen(true);
-  }
+  console.log(setIsOpen);
   return (
-    <section className="DashboardMenu">
-      <Button
-        text="New Stores"
-        sizeClass="DashboardButtonSection"
-        func={openModal}
-      />
-      <article className="DashboardStore">
-        {app.app.map((elem) => (
-          <ItemApp data={elem} key={elem.id} />
-        ))}
-      </article>
+    <section className="DashboardStore">
+      <DashboardStoreHeaderTitle setIsOpen={setIsOpen} />
+      <DashboardStoreList store={app.app} />
       <AppCreateModal modalIsOpen={modalIsOpen} setIsOpen={setIsOpen} />
     </section>
   );
