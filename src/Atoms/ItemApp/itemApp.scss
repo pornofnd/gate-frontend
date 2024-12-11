@@ -4,17 +4,30 @@
 
 .ItemApp {
   @include size(464px, 80px);
-  @include flex(flex-start);
+  @include flex(space-between);
   gap: 16px;
   background: #1f1f1f;
+  cursor: pointer;
+
   border: 12px;
+  @include text(#ffffff, 14px, "Inter", normal);
   border-radius: 24px;
   border: 1.5px solid color(display-p3 1 1 1 / 0.04);
   box-sizing: border-box;
-  img {
-    object-fit: cover;
-    position: relative;
-    border-radius: 16px;
-    @include size(56px, 56px);
+  padding: 12px;
+  &Left {
+    @include flex;
+    img {
+      object-fit: cover;
+      position: relative;
+      border-radius: 16px;
+      @include size(56px, 56px);
+    }
+    h1 {
+      margin-left: 16px;
+    }
+  }
+  &ArrowRight {
+    @include size(20px, 20px);
   }
 }

@@ -1,20 +1,22 @@
 import { windowStateActions } from "store/reducer/stateModal";
 import "./headerAuthUser.scss";
 import { useDispatch, useSelector } from "react-redux";
-import shopCart from "/img/Header/shopping-cart-underline.svg";
-import dashboardImg from "/img/Header/computer-desktop.svg";
+import shopCart from "img/Header/shopping-cart-underline.svg";
+import dashboardImg from "img/Header/computer-desktop.svg";
 import { useEffect } from "react";
 import { walletStateActions } from "store/reducer/stateWallet";
 import { useGetListQuery } from "store/api/walletApi";
 import { IListWallet } from "type/Wallets";
 import { Response } from "type/Response";
 import { RootState } from "store/store";
-import StoreImg from "/img/Header/home.svg";
-import walletImg from "/img/Header/wallet-underline.svg";
-import BellImg from "/img/Header/bell-alert.svg";
-
+import StoreImg from "img/Header/home.svg";
+import walletImg from "img/Header/wallet-underline.svg";
+import BellImg from "img/Header/bell-alert.svg";
 import { useNavHook } from "utils/navHook";
+import { useLocation } from "react-router-dom";
+
 export default function HeaderAuthUser() {
+  const location = useLocation();
   const dispatch = useDispatch();
   const userWallet = useSelector((state: RootState) => state.walletStateRducer);
   const navigation = useNavHook();
@@ -36,6 +38,7 @@ export default function HeaderAuthUser() {
   const openHandler = () => {
     dispatch(windowStateActions.authWindow());
   };
+  const firstPath = location.pathname.split("/")[1];
   return (
     <article className="HeaderUser">
       <button className="HeaderUserStore">
@@ -46,12 +49,19 @@ export default function HeaderAuthUser() {
         onClick={() => {
           navigation("/dashboard");
         }}
-        className="HeaderUserDashboard"
+        className={
+          firstPath != "dashboard"
+            ? "HeaderUserDashboard"
+            : "HeaderUserDashboard HeaderUserActiveButton"
+        }
       >
         <img src={dashboardImg} alt="" />
         <p>My Dashboard</p>
       </button>
-      <section className="HeaderUserProfile" onClick={openHandler}>
+      <section
+        className={firstPath == "" ? "HeaderUserProfile HeaderUserActiveButton" : "HeaderUserProfile"}
+        onClick={() => openHandler()}
+      >
         <img src={walletImg} alt="" />
         <article className="HeaderUserProfileContainerMoney">
           {userWallet[0]?.balance["TON"] ? (

@@ -33,7 +33,8 @@
       "Atoms/*": ["Atoms/*"],
       "Organisms/*":["Organisms/*"],
       "Pages/*":["Pages/*"],
-      "Molecules/*":["Molecules/*"]
+      "Molecules/*":["Molecules/*"],
+      "img/*":["img/*"]
     }
   }
 }

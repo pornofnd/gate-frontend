@@ -18,7 +18,8 @@ export default defineConfig({
       Atoms: "/src/Atoms",
       Organisms:"/src/Organisms",
       Pages:"/src/Pages",
-      Molecules:"/src/Molecules"
+      Molecules:"/src/Molecules",
+      img:"/public/img"
     },
   },
 });

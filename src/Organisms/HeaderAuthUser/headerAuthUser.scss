@@ -28,11 +28,13 @@
       margin-left: 9px;
     }
   }
+
   &Profile {
     margin-left: 10px;
     @include flex(space-around);
     @include size(245px, 44px);
-    background: #4f4f4f;
+    background: #1d1d1d;
+
     border-radius: 72px;
     // text-align: center;
     &ContainerMoney {
@@ -64,4 +66,7 @@
     // @include size(19px,18px);
     // }
   }
+}
+.HeaderUserActiveButton {
+  background: #4f4f4f;
 }
