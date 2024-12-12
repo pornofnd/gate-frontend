@@ -11,10 +11,17 @@ export default function AppDsahboardNavigation() {
     <section className="AppDsahboardNavigation">
       <article className="AppDsahboardNavigationContainer">
         {data.map((elem: INavData) => (
-          <AppDashboardItem data={elem}  />
+          <AppDashboardItem
+            key={elem.link}
+            data={elem}
+            activeMenu={
+              location.pathname.split("/")[
+                location.pathname.split("/").length - 1
+              ] 
+            }
+          />
         ))}
       </article>
     </section>
   );
 }
-

@@ -8,9 +8,12 @@
   @include size(992px, 105px);
   background: #242324;
   background: color(display-p3 0.1412 0.1373 0.1412);
+
   &Container {
     @include flex(flex-start);
     margin-top: 40px;
+    box-sizing: border-box;
+    border-bottom: #808080 3px solid;
     @include size(944px, 44px);
   }
 }

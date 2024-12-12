@@ -3,6 +3,7 @@
 @import "mixins/text.scss";
 
 .AppProductItem {
+  margin-top: 32px;
   img {
     border-radius: 24px;
     @include size(304px, 144px);

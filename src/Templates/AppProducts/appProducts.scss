@@ -2,11 +2,15 @@
 @import "mixins/psoition.scss";
 @import "mixins/text.scss";
 
-.AppProducts{
-    @include flex;
-    padding-top: 32px;
-    flex-wrap:wrap ;
-    background: #242324;
-    background: color(display-p3 0.1412 0.1373 0.1412);
-    gap: 16px;
+.AppProducts {
+  @include flex;
+  padding-top: 32px;
+  flex-wrap: wrap;
+  background: #242324;
+  background: color(display-p3 0.1412 0.1373 0.1412);
+  gap: 16px;
+  box-sizing: border-box;
+  padding-bottom: 24px;
+  margin-bottom: 180px;
+  border-radius: 0 0 24px 24px;
 }

@@ -13,8 +13,13 @@ export default function AppProudcts() {
   console.log(data);
   return (
     <div className="AppProducts">
-      {data.data &&
-        data.data.data.map((elem) => <AppProductItem data={elem} />)}
+      {data.data ? (
+        data.data.data.map((elem) => (
+          <AppProductItem key={elem.id} data={elem} />
+        ))
+      ) : (
+        <></>
+      )}
     </div>
   );
 }

@@ -38,7 +38,7 @@ export default function HeaderAuthUser() {
   const openHandler = () => {
     dispatch(windowStateActions.authWindow());
   };
-  const firstPath = location.pathname.split("/")[1];
+  const firstPath = location.pathname.split("/")[0];
   return (
     <article className="HeaderUser">
       <button className="HeaderUserStore">

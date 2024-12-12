@@ -6,7 +6,10 @@ export default function ItemApp({ data }: { data: IApp }) {
   const navigateTo = useNavHook();
   console.log(data);
   return (
-    <button className="ItemApp" onClick={() => navigateTo(`app/${data.id}`)}>
+    <button
+      className="ItemApp"
+      onClick={() => navigateTo(`app/${data.id}/product`)}
+    >
       <div className="ItemAppLeft">
         <img src={data.card.banner_urls[0]} alt="" />
         <h1>{data.card.name}</h1>

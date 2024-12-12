@@ -59,7 +59,7 @@ export const router = createBrowserRouter([
                 element: <AppDashboardLayout />,
                 children: [
                   {
-                    path: "",
+                    path: "product",
                     element: <AppProudcts />,
                   },
                   {
