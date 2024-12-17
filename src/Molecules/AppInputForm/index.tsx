@@ -2,12 +2,12 @@ import { Controller, useForm } from "react-hook-form";
 
 import { RootState } from "store/store";
 import { useSelector } from "react-redux";
-import { useJarCreateMutation } from "store/api/jarApi";
 import { Response } from "type/Response";
 import { IJarCreate } from "type/Jar";
 import { useState } from "react";
 import InputJar from "Atoms/InputJar";
 import { useAppCreateMutation } from "store/api/appApi";
+import { dataInput } from "./AppInputForm.data";
 export interface IInputApp {
   name: string;
   description: string;
@@ -30,17 +30,8 @@ export default function AppInputForm() {
     },
   });
   const onSubmit = (inputData: IInputApp) => {
-    // const date: IJarCreate = {
-    //   websocket_id: websocketId,
-    //   display_name: inputData.Name,
-    //   description: inputData.Description,
-    //   photo: null,
-    //   banner_url: null,
-    //   allowed_currencies: [],
-    //   show_in_profile: true,
-    // };
     const dataForm = new FormData();
-    console.log(websocketId)
+    console.log(websocketId);
     dataForm.append("logo", inputData.logo);
     dataForm.append("description", inputData.description);
     dataForm.append("name", inputData.name);
@@ -73,65 +64,21 @@ export default function AppInputForm() {
   };
   return (
     <div>
-      {" "}
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Controller
-          name="name"
-          control={control}
-          rules={{
-            required: "Name required",
-            minLength: { value: 2, message: "Minimum 2 characters" },
-          }}
-          render={({ field, fieldState: { error } }) => (
-            <>
-              <InputJar {...field} />
-              <div>{error && <p>{error.message}</p>}</div>
-            </>
-          )}
-        />
-        <Controller
-          name="description"
-          control={control}
-          rules={{
-            required: "Description required",
-            minLength: { value: 5, message: "Minimum 5 characters" },
-          }}
-          render={({ field, fieldState: { error } }) => (
-            <>
-              <InputJar {...field} />
-              <div>{error && <p>{error.message}</p>}</div>
-            </>
-          )}
-        />
-        <Controller
-          name="short_description"
-          control={control}
-          rules={{
-            required: "Description required",
-            minLength: { value: 5, message: "Minimum 5 characters" },
-          }}
-          render={({ field, fieldState: { error } }) => (
-            <>
-              <InputJar {...field} />
-              <div>{error && <p>{error.message}</p>}</div>
-            </>
-          )}
-        />
-
-        <Controller
-          name="links"
-          control={control}
-          rules={{
-            required: "Description required",
-            minLength: { value: 5, message: "Minimum 5 characters" },
-          }}
-          render={({ field, fieldState: { error } }) => (
-            <>
-              <InputJar {...field} />
-              <div>{error && <p>{error.message}</p>}</div>
-            </>
-          )}
-        />
+        {dataInput.map((elem) => (
+          <Controller
+            key={elem.name}
+            name={elem.name}
+            control={control}
+            rules={elem.rules}
+            render={({ field, fieldState: { error } }) => (
+              <>
+                <InputJar {...field} />
+                <div>{error && <p>{error.message}</p>}</div>
+              </>
+            )}
+          />
+        ))}
 
         <Controller
           name="logo"
