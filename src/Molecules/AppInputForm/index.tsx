@@ -1,13 +1,15 @@
 import { Controller, useForm } from "react-hook-form";
-
 import { RootState } from "store/store";
 import { useSelector } from "react-redux";
 import { Response } from "type/Response";
 import { IJarCreate } from "type/Jar";
-import { useState } from "react";
+import React, { useState } from "react";
 import InputJar from "Atoms/InputJar";
 import { useAppCreateMutation } from "store/api/appApi";
 import { dataInput } from "./AppInputForm.data";
+import "./appInputForm.scss";
+import plusImg from "img/AppInput/plus.svg";
+import Button from "Atoms/Button";
 export interface IInputApp {
   name: string;
   description: string;
@@ -50,10 +52,17 @@ export default function AppInputForm() {
   const [logo, setLogo] = useState<string | null>(null);
   const [banner, setBanner] = useState<string | null>(null);
   const handleFileChange = (
-    event: React.ChangeEvent<HTMLInputElement>,
+    event:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.DragEvent<HTMLLabelElement>,
     setHook: React.Dispatch<React.SetStateAction<string | null>>
   ) => {
-    const file = event.target.files?.[0];
+    let file;
+    if ("dataTransfer" in event) {
+      file = event.dataTransfer.files?.[0];
+    } else {
+      file = event.target.files?.[0];
+    }
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
@@ -63,23 +72,9 @@ export default function AppInputForm() {
     }
   };
   return (
-    <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        {dataInput.map((elem) => (
-          <Controller
-            key={elem.name}
-            name={elem.name}
-            control={control}
-            rules={elem.rules}
-            render={({ field, fieldState: { error } }) => (
-              <>
-                <InputJar {...field} />
-                <div>{error && <p>{error.message}</p>}</div>
-              </>
-            )}
-          />
-        ))}
-
+    <form className="AppInputForm" onSubmit={handleSubmit(onSubmit)}>
+      <h1 className="AppInputFormTitle">Create new store</h1>
+      <section className="AppInputFormSectionImg">
         <Controller
           name="logo"
           control={control}
@@ -91,20 +86,43 @@ export default function AppInputForm() {
               <input
                 type="file"
                 accept="image/*"
+                id="AppInputFormLogo"
+                style={{ display: "none" }}
                 onChange={(e) => {
                   handleFileChange(e, setLogo);
                   if (e.target.files && e.target.files[0]) {
+                    console.log(e);
                     field.onChange(e.target.files[0]);
                   }
+                  handleFileChange(e, setLogo);
+                  field.onChange(e);
                 }}
               />
-              {logo && (
-                <img
-                  src={logo}
-                  alt="Uploaded"
-                  style={{ maxWidth: "400px", marginTop: "20px" }}
-                />
-              )}
+              <label
+                htmlFor="AppInputFormLogo"
+                className="AppInputFormLabelLogo"
+                onDragOver={(e) => e.preventDefault()}
+                onDrop={(e) => {
+                  e.preventDefault();
+                  const file = e.dataTransfer.files[0];
+                  if (file && file.type.startsWith("image/")) {
+                    handleFileChange(e, setLogo);
+                    field.onChange(file);
+                  }
+                }}
+              >
+                {logo ? (
+                  <img
+                    src={logo}
+                    alt="Uploaded"
+                    className="AppInputFormImgLogo"
+                  />
+                ) : (
+                  <div className="AppInputFormEmptyLogo">
+                    <img src={plusImg} alt="" draggable="false" />
+                  </div>
+                )}
+              </label>
               <div>{error && <p>{error.message}</p>}</div>
             </>
           )}
@@ -121,27 +139,69 @@ export default function AppInputForm() {
               <input
                 type="file"
                 accept="image/*"
+                id="AppInputFormBanner"
+                style={{ display: "none" }}
                 onChange={(e) => {
                   handleFileChange(e, setBanner);
                   if (e.target.files && e.target.files[0]) {
                     field.onChange(e.target.files[0]);
                   }
+                  handleFileChange(e, setBanner);
+                  field.onChange(e);
                 }}
               />
-              {banner && (
-                <img
-                  src={banner}
-                  alt="Uploaded"
-                  style={{ maxWidth: "400px", marginTop: "20px" }}
-                />
-              )}
+              <label
+                htmlFor="AppInputFormBanner"
+                className="AppInputFormLabelBanner"
+                onDragOver={(e) => e.preventDefault()}
+                onDrop={(e) => {
+                  e.preventDefault();
+                  const file = e.dataTransfer.files[0];
+                  if (file && file.type.startsWith("image/")) {
+                    handleFileChange(e, setBanner);
+                    field.onChange(file);
+                  }
+                }}
+              >
+                {banner ? (
+                  <img
+                    src={banner}
+                    alt="Uploaded"
+                    className="AppInputFormImgBanner"
+                  />
+                ) : (
+                  <div className="AppInputFormEmptyBanner">
+                    <img src={plusImg} alt="" draggable="false" />
+                    <h1>Add picture. Optimal size 992 x 180px</h1>
+                  </div>
+                )}
+              </label>
+
               <div>{error && <p>{error.message}</p>}</div>
             </>
           )}
         />
+      </section>
+      {dataInput.map((elem) => (
+        <Controller
+          key={elem.name}
+          name={elem.name}
+          control={control}
+          rules={elem.rules}
+          render={({ field, fieldState: { error } }) => (
+            <>
+              <InputJar {...field} />
+              <div>{error && <p>{error.message}</p>}</div>
+            </>
+          )}
+        />
+      ))}
 
-        <input type="submit" />
-      </form>
-    </div>
+      <Button
+        type="submit"
+        text="Publish store"
+        sizeClass="AppInputFormButtonPink"
+      />
+    </form>
   );
 }

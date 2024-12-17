@@ -8,6 +8,7 @@ export const dataInput: IDataInputApp[] = [
   },
   {
     name: "description",
+    
     rules: {
       required: "Description required",
       minLength: { value: 5, message: "Minimum 5 characters" },

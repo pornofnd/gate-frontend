@@ -3,8 +3,7 @@
 @import "mixins/text.scss";
 
 .AppCreateModal {
+  background: #292929;
 
-
-    @include size(736px, 576px);
-  
+  @include size(736px, 576px);
 }
