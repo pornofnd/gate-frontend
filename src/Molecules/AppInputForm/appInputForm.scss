@@ -1,10 +1,11 @@
 @import "mixins/mixins";
 .AppInputForm {
   background: #292929;
-  @include size(672px, 512px);
+  @include size(672px, 100%);
   @include flex(space-between, start, column);
   &Title {
     @include text(white, 24px, "Inter");
+    padding-bottom: 10px;
   }
 }
 .AppInputFormLabelLogo {
@@ -65,4 +66,7 @@
 }
 .AppInputFormSectionImg {
   @include flex(space-around);
+}
+.AppInputFormButtonPink {
+  @include size(180px, 44px);
 }

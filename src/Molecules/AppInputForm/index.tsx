@@ -127,7 +127,6 @@ export default function AppInputForm() {
             </>
           )}
         />
-
         <Controller
           name="banner"
           control={control}
@@ -182,21 +181,26 @@ export default function AppInputForm() {
           )}
         />
       </section>
-      {dataInput.map((elem) => (
-        <Controller
-          key={elem.name}
-          name={elem.name}
-          control={control}
-          rules={elem.rules}
-          render={({ field, fieldState: { error } }) => (
-            <>
-              <InputJar {...field} />
-              <div>{error && <p>{error.message}</p>}</div>
-            </>
-          )}
-        />
-      ))}
-
+      <section>
+        {dataInput.map((elem) => (
+          <Controller
+            key={elem.name}
+            name={elem.name}
+            control={control}
+            rules={elem.rules}
+            render={({ field, fieldState: { error } }) => (
+              <>
+                <InputJar
+                  {...field}
+                  inputClass={elem.inputClass}
+                  placholderText={elem.placholderText}
+                />
+                <div>{error && <p>{error.message}</p>}</div>
+              </>
+            )}
+          />
+        ))}
+      </section>
       <Button
         type="submit"
         text="Publish store"
