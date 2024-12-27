@@ -6,5 +6,11 @@
   background: #292929;
 
   @include size(736px, 626px);
-  @include flex;
+  padding: 32px;
+  box-sizing: border-box;
+  @include flex(space-between, start, column);
+  &Title {
+    margin-bottom: 32px;
+    @include text(white, 24px, "Inter");
+  }
 }

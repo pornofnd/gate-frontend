@@ -14,23 +14,7 @@
     color: #f6289d;
   }
 }
-.bigInputJar {
-  text-align: start;
-  @include flex(start, start);
-  padding-top: 0%;
-  @include size(672px, 104px);
-  background: #242424;
-  border: #808080 0.25px solid;
-  box-sizing: border-box;
-  padding: 12px;
-  border-radius: 8px;
-  color: white;
-  &:focus {
-    border: #f6289d 2px solid;
-    outline: none;
-    color: #f6289d;
-  }
-}
+
 .mediumInputJar {
   @include size(672px, 44px);
   background: #242424;

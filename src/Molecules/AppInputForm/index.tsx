@@ -6,7 +6,7 @@ import { IJarCreate } from "type/Jar";
 import React, { useState } from "react";
 import InputJar from "Atoms/InputJar";
 import { useAppCreateMutation } from "store/api/appApi";
-import { dataInput } from "./AppInputForm.data";
+import { dataInput, dataInputAppTextArea } from "./AppInputForm.data";
 import "./appInputForm.scss";
 import plusImg from "img/AppInput/plus.svg";
 import Button from "Atoms/Button";
@@ -18,7 +18,10 @@ export interface IInputApp {
   banner: any;
   links: string;
 }
-export default function AppInputForm() {
+interface IAppInputForm {
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+export default function AppInputForm({ setIsOpen }: IAppInputForm) {
   const websocketId = useSelector(
     (state: RootState) => state.socketStateReducer.websocket_id
   );
@@ -73,7 +76,6 @@ export default function AppInputForm() {
   };
   return (
     <form className="AppInputForm" onSubmit={handleSubmit(onSubmit)}>
-      <h1 className="AppInputFormTitle">Create new store</h1>
       <section className="AppInputFormSectionImg">
         <Controller
           name="logo"
@@ -181,7 +183,7 @@ export default function AppInputForm() {
           )}
         />
       </section>
-      <section>
+      <section className="AppInputFormInputSection">
         {dataInput.map((elem) => (
           <Controller
             key={elem.name}
@@ -200,12 +202,36 @@ export default function AppInputForm() {
             )}
           />
         ))}
+        <Controller
+          key={dataInputAppTextArea.name}
+          name={dataInputAppTextArea.name}
+          control={control}
+          rules={dataInputAppTextArea.rules}
+          render={({ field, fieldState: { error } }) => (
+            <>
+              <textarea className="AppInputFormTextArea" {...field}></textarea>
+              <div>{error && <p>{error.message}</p>}</div>
+            </>
+          )}
+        />
       </section>
-      <Button
-        type="submit"
-        text="Publish store"
-        sizeClass="AppInputFormButtonPink"
-      />
+
+      <section className="AppInputFormButtonSection">
+        <Button
+          type="submit"
+          text="Publish store"
+          sizeClass="AppInputFormButtonSectionButton"
+        />
+        <Button
+          text="Cancel"
+          sizeClass="AppInputFormButtonSectionButton"
+          colorClass="AppInputFormButtonSectionCancel"
+          type="button"
+          func={() => {
+            setIsOpen(false);
+          }}
+        />
+      </section>
     </form>
   );
 }

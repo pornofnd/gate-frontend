@@ -1,12 +1,8 @@
 @import "mixins/mixins";
 .AppInputForm {
   background: #292929;
-  @include size(672px, 100%);
+  @include size(672px, 90%);
   @include flex(space-between, start, column);
-  &Title {
-    @include text(white, 24px, "Inter");
-    padding-bottom: 10px;
-  }
 }
 .AppInputFormLabelLogo {
   @include size(128px, 128px);
@@ -14,6 +10,9 @@
   display: inline-block;
   border-radius: 100px;
   position: relative;
+}
+.AppInputFormSectionImg {
+  gap: 0 12px;
 }
 .AppInputFormLabelBanner {
   @include size(520px, 128px);
@@ -43,10 +42,14 @@
   left: 50%;
 
   transform: translate(-50%, -50%);
-
   img {
     position: absolute;
   }
+}
+.AppInputFormInputSection {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 8px;
 }
 .AppInputFormEmptyBanner {
   @include flex;
@@ -67,6 +70,47 @@
 .AppInputFormSectionImg {
   @include flex(space-around);
 }
-.AppInputFormButtonPink {
-  @include size(180px, 44px);
+.AppInputFormButtonSection {
+  @include size(376px, 44px);
+  @include flex(space-between);
+  &Button {
+    @include size(180px, 44px);
+  }
+  &Cancel {
+    background: var(
+      --gr,
+      linear-gradient(
+        180deg,
+        rgba(255, 234, 253, 0.02) 0%,
+        rgba(253, 201, 242, 0.02) 100%
+      )
+    );
+    // background: color(display-p3 0.1412 0.1373 0.1412);
+    color: white;
+  }
+}
+.AppInputFormTextArea {
+  text-align: start;
+  @include flex(start, start);
+
+  padding: 0 12px 0 12px;
+  @include size(672px, 104px);
+  background: #242424;
+  border: #808080 0.25px solid;
+  box-sizing: border-box;
+  padding: 12px;
+  border-radius: 8px;
+  color: white;
+
+  &:focus {
+    border: #f6289d 2px solid;
+    outline: none;
+    color: #f6289d;
+  }
+  &::placeholder {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    transform: translateY(10px);
+  }
 }

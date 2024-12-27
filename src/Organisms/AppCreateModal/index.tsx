@@ -12,7 +12,7 @@ const customStyles = {
     transform: "translate(-50%, -50%)",
     background: " #292929",
     border: "none",
-    padding: "32px",
+    padding: "0px",
     borderRadius: "10px",
   },
   overlay: {
@@ -45,7 +45,8 @@ export default function AppCreateModal({
       contentLabel="Example Modal"
     >
       <section className="AppCreateModal">
-        <AppInputForm />
+        <h1 className="AppCreateModalTitle">Create new store</h1>
+        <AppInputForm setIsOpen={setIsOpen} />
       </section>
     </Modal>
   );

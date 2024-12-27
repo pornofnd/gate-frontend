@@ -12,12 +12,12 @@ interface InputJarProps {
 }
 
 const InputJar = forwardRef<HTMLInputElement, InputJarProps>(function InputJar(
-  { value, onChange, onBlur, name, rules, inputClass },
+  { value, onChange, onBlur, name, rules, inputClass, placholderText },
   ref
 ) {
   return (
     <input
-      className={inputClass}
+      className={`${inputClass} inputJar`}
       type="text"
       name={name}
       value={value}
@@ -25,7 +25,7 @@ const InputJar = forwardRef<HTMLInputElement, InputJarProps>(function InputJar(
       onBlur={onBlur}
       ref={ref}
       {...rules}
-      placeholder="Enter your first name"
+      placeholder={placholderText}
     />
   );
 });

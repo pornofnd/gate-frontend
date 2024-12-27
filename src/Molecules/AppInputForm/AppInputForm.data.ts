@@ -6,7 +6,7 @@ export const dataInput: IDataInputApp[] = [
       minLength: { value: 2, message: "Minimum 2 characters" },
     },
     inputClass: "smallInputJar",
-    placholderText:"Name store"
+    placholderText: "Name store",
   },
   {
     name: "links",
@@ -15,7 +15,7 @@ export const dataInput: IDataInputApp[] = [
       minLength: { value: 5, message: "Minimum 5 characters" },
     },
     inputClass: "smallInputJar",
-    placholderText:"Nickname in Telegram"
+    placholderText: "Nickname in Telegram",
   },
   {
     name: "short_description",
@@ -24,21 +24,21 @@ export const dataInput: IDataInputApp[] = [
       minLength: { value: 5, message: "Minimum 5 characters" },
     },
     inputClass: "mediumInputJar",
-    placholderText :"Short description"
-  },
-  {
-    name: "description",
-    rules: {
-      required: "Description required",
-      minLength: { value: 5, message: "Minimum 5 characters" },
-    },
-    inputClass: "bigInputJar",
-    placholderText:"Description 220 symbols"
+    placholderText: "Short description",
   },
 ];
 export interface IDataInputApp {
   name: "name" | "description" | "short_description" | "links";
   rules: any;
   inputClass: "smallInputJar" | "bigInputJar" | "mediumInputJar";
-  placholderText :string
+  placholderText: string;
 }
+export const dataInputAppTextArea: IDataInputApp = {
+  name: "description",
+  rules: {
+    required: "Description required",
+    minLength: { value: 5, message: "Minimum 5 characters" },
+  },
+  inputClass: "bigInputJar",
+  placholderText: "Description 220 symbols",
+};

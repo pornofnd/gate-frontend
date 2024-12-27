@@ -5,10 +5,13 @@
 .Button {
   border: none;
   border-radius: var(--72, 72px);
+
+  @include text(#ffffff, 16px, "Inter", normal);
+}
+.ButtonDefaultColor {
   background: var(--Button-Primary-default, #ff00a3);
   background: var(
     --Button-Primary-default,
     color(display-p3 0.9646 0.1585 0.6154)
   );
-  @include text(#ffffff, 16px, "Inter", normal);
 }
