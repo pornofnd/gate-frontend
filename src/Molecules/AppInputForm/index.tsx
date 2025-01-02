@@ -36,7 +36,7 @@ export default function AppInputForm({ setIsOpen }: IAppInputForm) {
   });
   const onSubmit = (inputData: IInputApp) => {
     const dataForm = new FormData();
-    console.log(websocketId);
+    console.log(inputData.logo);
     dataForm.append("logo", inputData.logo);
     dataForm.append("description", inputData.description);
     dataForm.append("name", inputData.name);
@@ -46,7 +46,7 @@ export default function AppInputForm({ setIsOpen }: IAppInputForm) {
     dataForm.append("links", inputData.links);
     dataForm.append(" default_locale", "en");
     dataForm.append("websocket_id", websocketId);
-    console.log(dataForm);
+  
     const { data, error } = appCreateMutation(
       dataForm as unknown as IJarCreate
     ) as Response<any, unknown>;
@@ -90,14 +90,14 @@ export default function AppInputForm({ setIsOpen }: IAppInputForm) {
                 accept="image/*"
                 id="AppInputFormLogo"
                 style={{ display: "none" }}
-                onChange={(e) => {
+                onChange={(e) => { 
+                  
+                  console.log(e)
                   handleFileChange(e, setLogo);
-                  if (e.target.files && e.target.files[0]) {
-                    console.log(e);
-                    field.onChange(e.target.files[0]);
-                  }
-                  handleFileChange(e, setLogo);
-                  field.onChange(e);
+                console.log(e)
+                if (e.target.files && e.target.files[0]) {
+                  field.onChange(e.target.files[0]);
+                }
                 }}
               />
               <label
@@ -106,6 +106,7 @@ export default function AppInputForm({ setIsOpen }: IAppInputForm) {
                 onDragOver={(e) => e.preventDefault()}
                 onDrop={(e) => {
                   e.preventDefault();
+                  console.log("sika")
                   const file = e.dataTransfer.files[0];
                   if (file && file.type.startsWith("image/")) {
                     handleFileChange(e, setLogo);
@@ -148,7 +149,7 @@ export default function AppInputForm({ setIsOpen }: IAppInputForm) {
                     field.onChange(e.target.files[0]);
                   }
                   handleFileChange(e, setBanner);
-                  field.onChange(e);
+                  
                 }}
               />
               <label
