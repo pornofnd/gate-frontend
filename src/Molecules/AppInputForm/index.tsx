@@ -10,6 +10,8 @@ import { dataInput, dataInputAppTextArea } from "./AppInputForm.data";
 import "./appInputForm.scss";
 import plusImg from "img/AppInput/plus.svg";
 import Button from "Atoms/Button";
+import { handleFileChange } from "utils/readFileAsDataURL";
+import AppInputImg from "Atoms/AppInputImg/idnex";
 export interface IInputApp {
   name: string;
   description: string;
@@ -54,26 +56,7 @@ export default function AppInputForm({ setIsOpen }: IAppInputForm) {
   };
   const [logo, setLogo] = useState<string | null>(null);
   const [banner, setBanner] = useState<string | null>(null);
-  const handleFileChange = (
-    event:
-      | React.ChangeEvent<HTMLInputElement>
-      | React.DragEvent<HTMLLabelElement>,
-    setHook: React.Dispatch<React.SetStateAction<string | null>>
-  ) => {
-    let file;
-    if ("dataTransfer" in event) {
-      file = event.dataTransfer.files?.[0];
-    } else {
-      file = event.target.files?.[0];
-    }
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        setHook(reader.result as string);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
+ 
   return (
     <form className="AppInputForm" onSubmit={handleSubmit(onSubmit)}>
       <section className="AppInputFormSectionImg">
@@ -91,10 +74,7 @@ export default function AppInputForm({ setIsOpen }: IAppInputForm) {
                 id="AppInputFormLogo"
                 style={{ display: "none" }}
                 onChange={(e) => { 
-                  
-                  console.log(e)
                   handleFileChange(e, setLogo);
-                console.log(e)
                 if (e.target.files && e.target.files[0]) {
                   field.onChange(e.target.files[0]);
                 }
@@ -114,17 +94,7 @@ export default function AppInputForm({ setIsOpen }: IAppInputForm) {
                   }
                 }}
               >
-                {logo ? (
-                  <img
-                    src={logo}
-                    alt="Uploaded"
-                    className="AppInputFormImgLogo"
-                  />
-                ) : (
-                  <div className="AppInputFormEmptyLogo">
-                    <img src={plusImg} alt="" draggable="false" />
-                  </div>
-                )}
+                <AppInputImg banner={logo} typeInput="Logo"/>
               </label>
               <div>{error && <p>{error.message}</p>}</div>
             </>
@@ -165,18 +135,7 @@ export default function AppInputForm({ setIsOpen }: IAppInputForm) {
                   }
                 }}
               >
-                {banner ? (
-                  <img
-                    src={banner}
-                    alt="Uploaded"
-                    className="AppInputFormImgBanner"
-                  />
-                ) : (
-                  <div className="AppInputFormEmptyBanner">
-                    <img src={plusImg} alt="" draggable="false" />
-                    <h1>Add picture. Optimal size 992 x 180px</h1>
-                  </div>
-                )}
+              <AppInputImg banner={banner} typeInput="Banner"/>
               </label>
 
               <div>{error && <p>{error.message}</p>}</div>
