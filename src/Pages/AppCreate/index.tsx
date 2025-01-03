@@ -1,4 +1,4 @@
-import AppInputForm from "Molecules/AppInputForm";
+import AppInputForm from "Organisms/AppInputForm";
 
 export default function AppCreate() {
   return (

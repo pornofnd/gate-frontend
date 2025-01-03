@@ -1,7 +1,7 @@
 import React from "react";
 import "./appCreateModal.scss";
 import Modal from "react-modal";
-import AppInputForm from "../../Molecules/AppInputForm";
+import AppInputForm from "../AppInputForm";
 const customStyles = {
   content: {
     top: "50%",

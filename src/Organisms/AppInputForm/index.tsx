@@ -1,4 +1,4 @@
-import { Controller, useForm } from "react-hook-form";
+import { Controller, set, useForm } from "react-hook-form";
 import { RootState } from "store/store";
 import { useSelector } from "react-redux";
 import { Response } from "type/Response";
@@ -8,10 +8,10 @@ import InputJar from "Atoms/InputJar";
 import { useAppCreateMutation } from "store/api/appApi";
 import { dataInput, dataInputAppTextArea } from "./AppInputForm.data";
 import "./appInputForm.scss";
-import plusImg from "img/AppInput/plus.svg";
 import Button from "Atoms/Button";
 import { handleFileChange } from "utils/readFileAsDataURL";
 import AppInputImg from "Atoms/AppInputImg/idnex";
+import AppInputLabel from "Molecules/AppInputLabel";
 export interface IInputApp {
   name: string;
   description: string;
@@ -67,37 +67,8 @@ export default function AppInputForm({ setIsOpen }: IAppInputForm) {
             required: "Image is required",
           }}
           render={({ field, fieldState: { error } }) => (
-            <>
-              <input
-                type="file"
-                accept="image/*"
-                id="AppInputFormLogo"
-                style={{ display: "none" }}
-                onChange={(e) => { 
-                  handleFileChange(e, setLogo);
-                if (e.target.files && e.target.files[0]) {
-                  field.onChange(e.target.files[0]);
-                }
-                }}
-              />
-              <label
-                htmlFor="AppInputFormLogo"
-                className="AppInputFormLabelLogo"
-                onDragOver={(e) => e.preventDefault()}
-                onDrop={(e) => {
-                  e.preventDefault();
-                  console.log("sika")
-                  const file = e.dataTransfer.files[0];
-                  if (file && file.type.startsWith("image/")) {
-                    handleFileChange(e, setLogo);
-                    field.onChange(file);
-                  }
-                }}
-              >
-                <AppInputImg banner={logo} typeInput="Logo"/>
-              </label>
-              <div>{error && <p>{error.message}</p>}</div>
-            </>
+             <AppInputLabel field={field} setImg={setLogo} error={error} img={logo} typeInput="Logo"/>
+        
           )}
         />
         <Controller
@@ -107,39 +78,7 @@ export default function AppInputForm({ setIsOpen }: IAppInputForm) {
           //   required: "Image is required",
           // }}
           render={({ field, fieldState: { error } }) => (
-            <>
-              <input
-                type="file"
-                accept="image/*"
-                id="AppInputFormBanner"
-                style={{ display: "none" }}
-                onChange={(e) => {
-                  handleFileChange(e, setBanner);
-                  if (e.target.files && e.target.files[0]) {
-                    field.onChange(e.target.files[0]);
-                  }
-                  handleFileChange(e, setBanner);
-                  
-                }}
-              />
-              <label
-                htmlFor="AppInputFormBanner"
-                className="AppInputFormLabelBanner"
-                onDragOver={(e) => e.preventDefault()}
-                onDrop={(e) => {
-                  e.preventDefault();
-                  const file = e.dataTransfer.files[0];
-                  if (file && file.type.startsWith("image/")) {
-                    handleFileChange(e, setBanner);
-                    field.onChange(file);
-                  }
-                }}
-              >
-              <AppInputImg banner={banner} typeInput="Banner"/>
-              </label>
-
-              <div>{error && <p>{error.message}</p>}</div>
-            </>
+        <AppInputLabel field={field} setImg={setBanner} error={error} img={banner} typeInput="Banner"/>
           )}
         />
       </section>
