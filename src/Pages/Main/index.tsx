@@ -1,4 +1,4 @@
-import MainTitle from "Molecules/MaintTitle/idnex";
+import MainTitle from "Molecules/MaintTitle";
 import "./main.scss";
 import SearchInput from "Atoms/SearchInput";
 import CardMenuContainer from "Molecules/CardMenuContainer/idnex";

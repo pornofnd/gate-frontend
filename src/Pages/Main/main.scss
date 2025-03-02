@@ -10,28 +10,7 @@ $phone-screen: 650px;
   @include size(65.75%, auto);
   margin-top: 56px;
   @include flex(center, center, column);
-  &Title {
-    @include TextPosition;
-    display: table-row;
-    @include size(100%, 174px);
-    @include text(white, 60px, "Inter", black);
-    @include textLineClamp(2);
-    // font-weight: 900;
-    p {
-      display: inline;
-      @include size(auto, min-height);
-      @include textColor(#f6289d);
-    }
-    @media (max-width: $medium-screen) {
-      @include textLineClamp(5);
-      @include size(100%, auto);
-    }
-    // @include mediaText($large-screen, 55px);
-    @include mediaText($medium-screen, 52px);
-    // @include mediaText($small-screen, 45px);
-    @include mediaText($smaller-screen, 45px);
-    @include mediaText($phone-screen, 40px);
-  }
+
   .searchInput {
     margin-top: 56px;
   }

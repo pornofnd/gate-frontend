@@ -11,15 +11,16 @@ export default defineConfig({
       public: "/public",
       components: "/src/components",
       mixins: "/src/mixins",
+      variablesCss: "/src/variablesCss",
       utils: "/src/utils",
       store: "/src/store/",
       page: "/src/page",
       Templates: "/src/Templates",
       Atoms: "/src/Atoms",
-      Organisms:"/src/Organisms",
-      Pages:"/src/Pages",
-      Molecules:"/src/Molecules",
-      img:"/public/img"
+      Organisms: "/src/Organisms",
+      Pages: "/src/Pages",
+      Molecules: "/src/Molecules",
+      img: "/public/img"
     },
   },
 });

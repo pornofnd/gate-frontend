@@ -1,3 +1,4 @@
+import "./mainTitle.scss";
 export default function MainTitle() {
   return (
     <h1 className="mainTitle">
