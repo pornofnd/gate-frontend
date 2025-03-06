@@ -6,6 +6,7 @@ $medium-screen: 1350px;
 $small-screen: 1000px;
 $smaller-screen: 850px;
 $phone-screen: 650px;
+
 .main {
   @include size(65.75%, auto);
   margin-top: 56px;

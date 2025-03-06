@@ -1,10 +1,10 @@
-@use "variablesCss/media.scss";
+@use "abstracts/variables/media.scss";
 @import "mixins/mixins.scss";
 
 .mainTitle {
   @include TextPosition;
   display: table-row;
-  @include size(100vw, 174px);
+  @include size(100%, 174px);
   @include text(white, 60px, "Inter", black);
   @include textLineClamp(2);
 
@@ -15,15 +15,14 @@
     @include textColor(#f6289d);
   }
 
-  @media (max-width: 850px) {
+  @media (max-widt: media.$medium-screen) {
     @include textLineClamp(5);
-    @include text(red, 44px, "Inter", red);
-    @include size(91vw, auto);
+    @include size(100%, auto);
   }
 
   // @include mediaText($large-screen, 55px);
-  @include mediaText(variablesCss/media.$medium-screen, 52px);
+  @include mediaText(media.$medium-screen, 52px);
   // @include mediaText($small-screen, 45px);
-  @include mediaText(variablesCss/media.$smaller-screen, 45px);
-  @include mediaText(variablesCss/media.$phone-screen, 40px);
+  @include mediaText(media.$smaller-screen, 45px);
+  @include mediaText(media.$phone-screen, 40px);
 }

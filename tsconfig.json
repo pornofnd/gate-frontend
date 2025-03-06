@@ -42,6 +42,9 @@
       "mixins/*": [
         "mixins/*"
       ],
+      "abstracts/*": [
+        "abstracts/*"
+      ],
       "store/*": [
         "store/*"
       ],
