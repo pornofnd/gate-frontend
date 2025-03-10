@@ -1,6 +1,4 @@
-@import "mixins/size.scss";
-@import "mixins/psoition.scss";
-@import "mixins/text.scss";
+@import "mixins/mixins.scss";
 
 .DashboardStore {
   @include size(992px);

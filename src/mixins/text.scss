@@ -28,15 +28,3 @@
   @include textFont($font);
   @include textWeight($weight);
 }
-
-@mixin mediaText($screen, $size, $color: white) {
-  @media (max-width: $screen) {
-    @include text($color, $size, "Inter", black);
-  }
-}
-
-@mixin respond-to($media) {
-  @media (max-width: $media) {
-    @content;
-  }
-}

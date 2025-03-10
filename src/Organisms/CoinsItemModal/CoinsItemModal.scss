@@ -1,6 +1,4 @@
-@import "mixins/size.scss";
-@import "mixins/psoition.scss";
-@import "mixins/text.scss";
+@import "mixins/mixins.scss";
 
 .CoinsItemModal {
   @include size(320px, 33px);

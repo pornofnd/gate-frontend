@@ -1,6 +1,4 @@
-@import "mixins/size.scss";
-@import "mixins/psoition.scss";
-@import "mixins/text.scss";
+@import "mixins/mixins.scss";
 
 .CardCategory {
   @include size(320px, 222px);

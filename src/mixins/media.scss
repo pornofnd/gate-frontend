@@ -1,0 +1,28 @@
+@import "size";
+@import "psoition";
+@import "text";
+
+@mixin respond-to($media) {
+  @media (max-width: $media) {
+    @content;
+  }
+}
+
+@mixin mediaAbsolute($screen,$top, $left) {
+  @media (max-width: $screen) {
+    @include absolute($top, $left);
+  }
+}
+
+@mixin mediaText($screen, $size, $color: white) {
+  @media (max-width: $screen) {
+    @include text($color, $size, "Inter", black);
+  }
+}
+
+@mixin mediaSize($screen,$width ,$height) {
+  @media (max-width: $screen) {
+    @include size($width, $height);
+  }
+}
+  

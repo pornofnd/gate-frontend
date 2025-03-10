@@ -1,4 +1,4 @@
-@import "mixins/psoition.scss";
+@import "mixins/mixins.scss";
 .background {
   @include flex(start, center, column);
   background: #161616;

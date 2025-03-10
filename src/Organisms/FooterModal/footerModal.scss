@@ -1,6 +1,4 @@
-@import "mixins/size.scss";
-@import "mixins/psoition.scss";
-@import "mixins/text.scss";
+@import "mixins/mixins.scss";
 
 .footerModal {
   @include size(352px, 64px);
