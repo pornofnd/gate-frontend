@@ -2,24 +2,30 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { ITelegramResponse, IToken, Response } from "type/Response";
 import { IWallet } from "type/Wallets";
 
+const getToken = () => {
+  const local = localStorage.getItem("token");
+  let tokenUser: string | undefined;
+
+  if (local && typeof local == "string") {
+    try {
+      tokenUser = JSON.parse(local);
+    } catch (e) {
+      tokenUser = local;
+    }
+  }
+  return tokenUser
+
+};
+
+
 export const ConnectApi = createApi({
   reducerPath: "ConnectApi",
   tagTypes: ["Auth"],
   baseQuery: fetchBaseQuery({
     baseUrl: "https://gate.pornofnd.com/api/user/auth/",
     prepareHeaders: (headers) => {
-      const local = localStorage.getItem("token");
-      let tokenUser: string | undefined;
 
-      if (local && typeof local == "string") {
-        try {
-          tokenUser = JSON.parse(local);
-        } catch (e) {
-          tokenUser = local;
-          console.log(e);
-        }
-      }
-
+      const tokenUser = getToken()
       if (tokenUser) {
         headers.set("Authorization", tokenUser);
       }

@@ -1,5 +1,5 @@
 import { Controller, useForm } from "react-hook-form";
-import InputJar from "../../../Atoms/InputJar";
+import InputJar from "../../Atoms/InputJar";
 import { RootState } from "store/store";
 import { useSelector } from "react-redux";
 import { useJarCreateMutation } from "store/api/jarApi";
@@ -25,15 +25,7 @@ export default function JarInputContainer() {
     },
   });
   const onSubmit = (inputData) => {
-    // const date: IJarCreate = {
-    //   websocket_id: websocketId,
-    //   display_name: inputData.Name,
-    //   description: inputData.Description,
-    //   photo: null,
-    //   banner_url: null,
-    //   allowed_currencies: [],
-    //   show_in_profile: true,
-    // };
+
     const dataForm = new FormData();
     dataForm.append("photo", inputData.Image);
     dataForm.append("description", inputData.Description);
@@ -44,11 +36,9 @@ export default function JarInputContainer() {
     dataForm.append("allowed_currencies", "aaaa");
     dataForm.append("show_in_profile", JSON.stringify(true));
     dataForm.append("websocket_id", websocketId);
-    console.log(dataForm);
     const { data, error } = JarCreateMutation(
       dataForm as unknown as IJarCreate
     ) as Response<any, unknown>;
-    console.log(data, error);
   };
   const [image, setImage] = useState<string | null>(null);
 

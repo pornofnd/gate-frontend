@@ -1,9 +1,9 @@
 
-import JarInputContainer from '../WaletCard/JarInputContainer'
+import JarInputContainer from '../JarInputContainer'
 
 export default function JarCreate() {
 
   return (
-    <div><JarInputContainer/></div>
+    <div><JarInputContainer /></div>
   )
 }

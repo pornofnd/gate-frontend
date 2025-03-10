@@ -17,7 +17,6 @@ export const WalletApi = createApi({
           tokenUser = JSON.parse(local);
         } catch (e) {
           tokenUser = local;
-          console.log(e);
         }
       }
       if (tokenUser) {
@@ -49,8 +48,8 @@ export const WalletApi = createApi({
         url: `get-jars-count-and-total-balance`,
       }),
     }),
-    
+
   }),
 });
 
-export const { useJarCreateMutation, useJarGetQuery,useJarCountAndBalanceQuery } = WalletApi;
+export const { useJarCreateMutation, useJarGetQuery, useJarCountAndBalanceQuery } = WalletApi;

@@ -4,8 +4,8 @@ import { Router } from "./Pages/Router";
 // import { miniApp, postEvent, retrieveLaunchParams } from "@telegram-apps/sdk";
 // import { tmaAuth } from "components/TmaAuth";
 import { Provider } from "react-redux";
-import { store } from "./store/store";
-
+import { store, persistor } from "./store/store";
+import { PersistGate } from 'redux-persist/integration/react';
 function App() {
   //   useEffect(() => {
   //     // Вызываем функцию для инициализации TMA авторизации если вход через TMA
@@ -20,7 +20,10 @@ function App() {
   // }, []);
   return (
     <Provider store={store}>
-      <Router />
+      <PersistGate loading={null} persistor={persistor}>
+        <Router />
+      </PersistGate>
+
     </Provider>
   );
 }
