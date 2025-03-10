@@ -11,7 +11,7 @@ import { FirstData, SecondData } from "./dashboardButtonSection.data";
 // import { Response } from "type/Response";
 
 export default function DashboardBalance() {
-  const userWallet = useSelector((state: RootState) => state.walletStateRducer);
+  const userWallet = useSelector((state: RootState) => state.walletStateReducer);
   const [name, setName] = useState<string>("");
   const [nameForCopy, setNameForCopy] = useState<string>("");
   const userState = useSelector(

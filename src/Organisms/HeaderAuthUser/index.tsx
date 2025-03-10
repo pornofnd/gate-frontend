@@ -18,7 +18,7 @@ import { useLocation } from "react-router-dom";
 export default function HeaderAuthUser() {
   const location = useLocation();
   const dispatch = useDispatch();
-  const userWallet = useSelector((state: RootState) => state.walletStateRducer);
+  const userWallet = useSelector((state: RootState) => state.walletStateReducer);
   const navigation = useNavHook();
   if (localStorage.getItem("token")) {
     const { data, error } = useGetListQuery() as Response<
@@ -64,7 +64,7 @@ export default function HeaderAuthUser() {
       >
         <img src={walletImg} alt="" />
         <article className="HeaderUserProfileContainerMoney">
-          {userWallet[0]?.balance["TON"] ? (
+          {userWallet && userWallet[0]?.balance["TON"] ? (
             <h1>{userWallet[0].balance["TON"]}</h1>
           ) : (
             <h1>0</h1>
@@ -73,7 +73,7 @@ export default function HeaderAuthUser() {
           <div></div>
         </article>
         <article className="HeaderUserProfileContainerMoney">
-          {userWallet[0]?.balance["USDT"] ? (
+          {userWallet && userWallet[0]?.balance["USDT"] ? (
             <h1>{userWallet[0]?.balance["USDT"]}</h1>
           ) : (
             <h1>0</h1>
