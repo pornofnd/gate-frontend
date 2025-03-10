@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./walletAuthModal.scss";
 import WalletConnectModal from "Organisms/WalletConnectModal";
 import { useEffect, useState } from "react";
@@ -9,14 +9,27 @@ import { IError, IGetMError } from "type/Error";
 import { Response } from "type/Response";
 import { useGetMeQuery } from "store/api/userApi";
 import { userStateActions } from "store/reducer/stateUser";
+import { RootState } from "store/store";
+import { tokenStateActions } from "store/reducer/stateToken";
 
 // import  GetMeApi  from "utils/GetMeApi";
 
 export default function WalletAuthModal() {
   const dispatch = useDispatch();
   // const userState = useSelector((state :RootState) => state.userStateReducer);
+  const tokenState = useSelector((state: RootState) => state.tokenStateReducer)
   const [isAuthorized, setIsAuthorized] = useState(false);
   useEffect(() => {
+    //example
+    const add = async () => {
+      console.log(tokenState.token)
+      await dispatch(tokenStateActions.addToken("aa"))
+
+    }
+
+
+
+
     const TmaAuth = localStorage.getItem("token");
     const sessionId = localStorage.getItem("sessionId");
     let session;
@@ -26,14 +39,12 @@ export default function WalletAuthModal() {
     }
     if (TmaAuth) {
       session = JSON.parse(TmaAuth);
-      console.log("TMA");
     }
     if (session) {
       port = `wss://gate.pornofnd.com/ws/user/auth?session_id=${session}`;
     } else {
       port = "wss://gate.pornofnd.com/ws/user/auth?session_id";
     }
-    console.log(port);
     const ws = new WebSocket(port);
     ws.onmessage = (event) => {
       const res = JSON.parse(event.data);
