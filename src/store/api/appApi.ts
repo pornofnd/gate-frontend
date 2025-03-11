@@ -36,10 +36,12 @@ export const AppApi = createApi({
         method: "POST",
         body: data,
       }),
+      invalidatesTags: ["App"]
     }),
     appGetList: build.query<Response<IApp[], unknown>, void>({
       query: () => ({
         url: "get-list",
+        providesTags: ['App'],
       }),
     }),
     appGetOne: build.query<Response<IAppGetList, unknown>, string>({

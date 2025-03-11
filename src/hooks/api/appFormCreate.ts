@@ -1,10 +1,19 @@
+import { IDataInputApp } from "Organisms/AppInputForm/AppInputForm.data";
+import { useAppCreateMutation } from "store/api/appApi";
+import { IInputApp } from "type/createApp";
 import { IJarCreate } from "type/Jar";
 import { Response } from "type/Response";
+import { RootState } from "store/store";
+import { useSelector } from "react-redux";
 
-const useAppCreate = (websocketId: string) => {
+const useAppCreate = () => {
+  const [appCreateMutation] = useAppCreateMutation();
+  const websocketId = useSelector(
+    (state: RootState) => state.socketStateReducer.websocket_id
+  );
 
   const onSubmit = (inputData: IInputApp) => {
-    const dataForm: IJarCreate = new FormData();
+    const dataForm = new FormData();
     dataForm.append("logo", inputData.logo);
     dataForm.append("description", inputData.description);
     dataForm.append("name", inputData.name);

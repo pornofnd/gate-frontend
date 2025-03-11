@@ -1,6 +1,4 @@
 import { Controller, set, useForm } from "react-hook-form";
-import { RootState } from "store/store";
-import { useSelector } from "react-redux";
 import { Response } from "type/Response";
 import { IJarCreate } from "type/Jar";
 import React, { useState } from "react";
@@ -12,22 +10,17 @@ import Button from "Atoms/Button";
 import { handleFileChange } from "utils/readFileAsDataURL";
 import AppInputImg from "Atoms/AppInputImg/idnex";
 import AppInputLabel from "Molecules/AppInputLabel";
-export interface IInputApp {
-  name: string;
-  description: string;
-  short_description: string;
-  logo: any;
-  banner: any;
-  links: string;
-}
+import { IInputApp } from "type/createApp";
+import useAppCreate from "hooks/api/appFormCreate";
+
 interface IAppInputForm {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
+
 export default function AppInputForm({ setIsOpen }: IAppInputForm) {
-  const websocketId = useSelector(
-    (state: RootState) => state.socketStateReducer.websocket_id
-  );
-  const [appCreateMutation] = useAppCreateMutation();
+  const [error, setError] = useState<null | string>()
+
+  const { onSubmit } = useAppCreate();
   const { handleSubmit, control } = useForm<IInputApp>({
     defaultValues: {
       name: "",
@@ -36,27 +29,15 @@ export default function AppInputForm({ setIsOpen }: IAppInputForm) {
       links: "",
     },
   });
-  const onSubmit = (inputData: IInputApp) => {
-    const dataForm = new FormData();
-    dataForm.append("logo", inputData.logo);
-    dataForm.append("description", inputData.description);
-    dataForm.append("name", inputData.name);
-    dataForm.append("banner", inputData.banner);
+  const Submit = (inputData: IInputApp) => {
+    const { error, data } = onSubmit(inputData)
 
-    dataForm.append("short_description", inputData.short_description);
-    dataForm.append("links", inputData.links);
-    dataForm.append(" default_locale", "en");
-    dataForm.append("websocket_id", websocketId);
-
-    const { data, error } = appCreateMutation(
-      dataForm as unknown as IJarCreate
-    ) as Response<any, unknown>;
-  };
+  }
   const [logo, setLogo] = useState<string | null>(null);
   const [banner, setBanner] = useState<string | null>(null);
 
   return (
-    <form className="AppInputForm" onSubmit={handleSubmit(onSubmit)}>
+    <form className="AppInputForm" onSubmit={handleSubmit(Submit)}>
       <section className="AppInputFormSectionImg">
         <Controller
           name="logo"

@@ -21,7 +21,8 @@ export default defineConfig({
       Organisms: "/src/Organisms",
       Pages: "/src/Pages",
       Molecules: "/src/Molecules",
-      img: "/public/img"
+      img: "/public/img",
+      hooks: "/src/hooks"
     },
   },
 });
