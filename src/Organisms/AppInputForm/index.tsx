@@ -38,7 +38,6 @@ export default function AppInputForm({ setIsOpen }: IAppInputForm) {
   });
   const onSubmit = (inputData: IInputApp) => {
     const dataForm = new FormData();
-    console.log(inputData.logo);
     dataForm.append("logo", inputData.logo);
     dataForm.append("description", inputData.description);
     dataForm.append("name", inputData.name);
@@ -48,15 +47,14 @@ export default function AppInputForm({ setIsOpen }: IAppInputForm) {
     dataForm.append("links", inputData.links);
     dataForm.append(" default_locale", "en");
     dataForm.append("websocket_id", websocketId);
-  
+
     const { data, error } = appCreateMutation(
       dataForm as unknown as IJarCreate
     ) as Response<any, unknown>;
-    console.log(data, error);
   };
   const [logo, setLogo] = useState<string | null>(null);
   const [banner, setBanner] = useState<string | null>(null);
- 
+
   return (
     <form className="AppInputForm" onSubmit={handleSubmit(onSubmit)}>
       <section className="AppInputFormSectionImg">
@@ -67,8 +65,8 @@ export default function AppInputForm({ setIsOpen }: IAppInputForm) {
             required: "Image is required",
           }}
           render={({ field, fieldState: { error } }) => (
-             <AppInputLabel field={field} setImg={setLogo} error={error} img={logo} typeInput="Logo"/>
-        
+            <AppInputLabel field={field} setImg={setLogo} error={error} img={logo} typeInput="Logo" />
+
           )}
         />
         <Controller
@@ -78,7 +76,7 @@ export default function AppInputForm({ setIsOpen }: IAppInputForm) {
           //   required: "Image is required",
           // }}
           render={({ field, fieldState: { error } }) => (
-        <AppInputLabel field={field} setImg={setBanner} error={error} img={banner} typeInput="Banner"/>
+            <AppInputLabel field={field} setImg={setBanner} error={error} img={banner} typeInput="Banner" />
           )}
         />
       </section>
