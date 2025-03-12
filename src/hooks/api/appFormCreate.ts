@@ -12,7 +12,7 @@ const useAppCreate = () => {
     (state: RootState) => state.socketStateReducer.websocket_id
   );
 
-  const onSubmit = (inputData: IInputApp) => {
+  const onSubmit = async (inputData: IInputApp) => {
     const dataForm = new FormData();
     dataForm.append("logo", inputData.logo);
     dataForm.append("description", inputData.description);
@@ -23,7 +23,7 @@ const useAppCreate = () => {
     dataForm.append("default_locale", "en");
     dataForm.append("websocket_id", websocketId);
 
-    const { data, error } = appCreateMutation(
+    const { data, error } = await appCreateMutation(
       dataForm as unknown as IJarCreate
     ) as Response<any, unknown>;
 

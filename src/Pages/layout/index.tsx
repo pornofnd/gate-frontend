@@ -1,7 +1,6 @@
 
 import "./layout.scss";
 import Header from "Templates/Header";
-// import { TonConnectUIProvider } from "@tonconnect/ui-react";
 import { IError, IGetMError } from "type/Error";
 import { Response } from "type/Response";
 import { IUserTelegram, IUserWallet } from "type/User";
@@ -18,7 +17,6 @@ export const Layout = () => {
       IUserWallet | IUserTelegram,
       IError<IGetMError>
     >;
-    console.log(error);
     if (error?.data.detail == "Invalid auth token") {
       localStorage.removeItem("token");
     }

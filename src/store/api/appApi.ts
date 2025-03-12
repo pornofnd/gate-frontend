@@ -41,8 +41,8 @@ export const AppApi = createApi({
     appGetList: build.query<Response<IApp[], unknown>, void>({
       query: () => ({
         url: "get-list",
-        providesTags: ['App'],
       }),
+      providesTags: ['App'],
     }),
     appGetOne: build.query<Response<IAppGetList, unknown>, string>({
       query: (url: string) => ({

@@ -9,23 +9,28 @@ import { RootState } from "store/store";
 import AppCreateModal from "Organisms/AppCreateModal";
 import DashboardStoreList from "Molecules/DashboardStoreList";
 import DashboardStoreHeaderTitle from "Molecules/DashboardStoreHeaderTitle/idnex";
+import DashboardLoadList from "Molecules/DashboardLoadList";
+
 
 export default function DashboardStore() {
   const dispatch = useDispatch();
   const app = useSelector((state: RootState) => state.appStateReducer);
-  const { data, error } = useAppGetListQuery() as Response<IApp[], unknown>;
+  const { data, error, isLoading } = useAppGetListQuery() as Response<IApp[], unknown>;
   const [modalIsOpen, setIsOpen] = useState<boolean>(false);
   useEffect(() => {
-    console.log(data);
+    console.log(isLoading);
     if (data) {
       dispatch(appStateActions.addApp(data.data));
     }
   }, [data]);
-  console.log(setIsOpen);
   return (
     <section className="DashboardStore">
       <DashboardStoreHeaderTitle setIsOpen={setIsOpen} />
-      <DashboardStoreList store={app.app} />
+      {!isLoading ?
+        <DashboardStoreList store={app.app} />
+        :
+        <DashboardLoadList />
+      }
       <AppCreateModal modalIsOpen={modalIsOpen} setIsOpen={setIsOpen} />
     </section>
   );

@@ -27,5 +27,6 @@ export interface IRes<T> {
 export interface Response<T, Y> {
   data?: IRes<T>;
   error?: Y;
+  isLaoding: boolean;
   meta?: { request: Request; response: Response<T, Y> };
 }

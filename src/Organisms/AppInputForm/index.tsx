@@ -18,26 +18,32 @@ interface IAppInputForm {
 }
 
 export default function AppInputForm({ setIsOpen }: IAppInputForm) {
-  const [error, setError] = useState<null | string>()
+  const [error, setError] = useState<any>()
 
   const { onSubmit } = useAppCreate();
-  const { handleSubmit, control } = useForm<IInputApp>({
+  const { handleSubmit, control, reset } = useForm<IInputApp>({
     defaultValues: {
       name: "",
       description: "",
       short_description: "",
       links: "",
-    },
+    }
   });
-  const Submit = (inputData: IInputApp) => {
-    const { error, data } = onSubmit(inputData)
-
+  const handleFormSubmit = async (inputData: IInputApp) => {
+    const { error, data } = await onSubmit(inputData)
+    if (data) {
+      reset()
+      setIsOpen(false)
+    }
+    if (error) {
+      setError(error)
+    }
   }
   const [logo, setLogo] = useState<string | null>(null);
   const [banner, setBanner] = useState<string | null>(null);
 
   return (
-    <form className="AppInputForm" onSubmit={handleSubmit(Submit)}>
+    <form className="AppInputForm" onSubmit={handleSubmit(handleFormSubmit)}>
       <section className="AppInputFormSectionImg">
         <Controller
           name="logo"
@@ -93,7 +99,7 @@ export default function AppInputForm({ setIsOpen }: IAppInputForm) {
           )}
         />
       </section>
-
+      <h1 className="errorText">{error}</h1>
       <section className="AppInputFormButtonSection">
         <Button
           type="submit"

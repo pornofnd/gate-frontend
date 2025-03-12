@@ -11,6 +11,7 @@ import { userStateActions } from "store/reducer/stateUser";
 import { windowStateActions } from "store/reducer/stateModal";
 import { useDispatch } from "react-redux";
 import { IError, IGetMError } from "type/Error";
+import { tokenStateActions } from "store/reducer/stateToken";
 const TelegramAuthModal = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAuthorized, setIsAuthorized] = useState(false);
@@ -23,7 +24,7 @@ const TelegramAuthModal = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
-  const { data, error } = useGetMeQuery(undefined, {
+  const { data, error, isLoading } = useGetMeQuery(undefined, {
     skip: !isAuthorized,
   }) as Response<IUserWallet | IUserTelegram, IError<IGetMError>>;
 
@@ -61,7 +62,7 @@ const TelegramAuthModal = () => {
             bottom: "auto",
             display: "flex",
             flexDirection: " column",
-            justifyContent: "center", 
+            justifyContent: "center",
             alignItems: "center",
             transform: "translate(-50%, -50%)",
             width: "400px",
@@ -91,6 +92,7 @@ const TelegramAuthModal = () => {
               if (data?.data) {
                 const token = JSON.stringify(data.data);
                 localStorage.setItem("token", token);
+                dispatch(tokenStateActions.addToken(token))
                 closeModal();
                 setIsAuthorized(true);
               }

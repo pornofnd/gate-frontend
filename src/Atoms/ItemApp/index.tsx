@@ -4,7 +4,6 @@ import { useNavHook } from "utils/navHook";
 import ArrowImgRight from "public/img/ItemApp/Vector (Stroke).svg";
 export default function ItemApp({ data }: { data: IApp }) {
   const navigateTo = useNavHook();
-  console.log(data);
   return (
     <button
       className="ItemApp"
