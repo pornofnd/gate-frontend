@@ -36,7 +36,7 @@ export default function AppInputForm({ setIsOpen }: IAppInputForm) {
       setIsOpen(false)
     }
     if (error) {
-      setError(error)
+      console.log(error)
     }
   }
   const [logo, setLogo] = useState<string | null>(null);

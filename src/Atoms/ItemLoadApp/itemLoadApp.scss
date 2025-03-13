@@ -1,3 +1,21 @@
-@use "abstracts/variables/color.scss";
+@use "abstracts/variables/color.scss" as color;
+@import "mixins/mixins.scss";
 
-//colro:color.$light-gray;
+.ItemLoadAppImg {
+  background: color.$light-gray;
+  border-radius: 16px;
+  @include size(56px, 56px);
+
+}
+
+.ItemLoadAppText {
+  background: color.$light-gray;
+  @include size(70%, 20px);
+  margin-left: 16px;
+}
+
+.ItemLoadAppArrow {
+  background: color.$light-gray;
+
+  @include size(20px, 20px);
+}
